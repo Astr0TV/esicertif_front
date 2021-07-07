@@ -1,7 +1,21 @@
 .mat-icon {
     font-size: 30px;
     fill: white;
+    color: gray;
 }
+
+.mat-icon:hover {
+    color: green;
+}
+
+.mat-icon:active {
+    color: rgb(53, 192, 116);
+  }
+
+  .active {
+    color: rgb(53, 192, 116);
+  }
+  
 
 ul {
     list-style-type: none;
