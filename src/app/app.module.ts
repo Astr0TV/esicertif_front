@@ -11,6 +11,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { HomeclientComponent } from './homeclient/homeclient.component';
 import { RegisterComponent } from './register/register.component';
 import { HomecandidateComponent } from './homecandidate/homecandidate.component';
+import { FormationCandidatComponent } from './formation-candidat/formation-candidat.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HomecandidateComponent } from './homecandidate/homecandidate.component'
     AccueilComponent,
     HomeclientComponent,
     RegisterComponent,
-    HomecandidateComponent
+    HomecandidateComponent,
+    FormationCandidatComponent
   ],
   imports: [
     BrowserModule,
