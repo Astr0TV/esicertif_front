@@ -1,7 +1,21 @@
 .mat-icon {
     font-size: 30px;
     fill: white;
+    color: gray;
 }
+
+.mat-icon:hover {
+    color: green;
+}
+
+.mat-icon:active {
+    color: rgb(53, 192, 116);
+  }
+
+  .active {
+    color: rgb(53, 192, 116);
+  }
+  
 
 ul {
     list-style-type: none;
@@ -40,13 +54,13 @@ li a {
     text-align: center;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
-        width: 20%;
+        width: 100%;
         box-shadow: 0px 0px black, 0em 0 1em black;
         border-radius: 18px
     }
@@ -56,6 +70,10 @@ li a {
         padding: 40px;
         text-align: center;
     }
+    .imgcandidat {
+        left: 0px;
+        width: 20%;
+    }
 }
 
 .margin50 {
@@ -64,5 +82,5 @@ li a {
 
 .imgcandidat {
     left: 0px;
-    width: 220%;
+    width: 420%;
 }
