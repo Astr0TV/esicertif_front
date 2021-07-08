@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomecandidateComponent } from './homecandidate/homecandidate.component';
 import { FormationCandidatComponent } from './formation-candidat/formation-candidat.component';
 import { CertificationcandidatComponent } from './certificationcandidat/certificationcandidat.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CertificationcandidatComponent } from './certificationcandidat/certific
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
