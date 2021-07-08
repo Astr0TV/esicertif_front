@@ -26,7 +26,6 @@ ul {
     margin-right: 38%;
     text-align: center;
     box-shadow: 0px 0px black, 0em 0 1em black;
-    /**/
 }
 
 .white-icon {
@@ -35,6 +34,10 @@ ul {
 
 .green-icon {
     color: rgba(95, 209, 19, 0.884);
+}
+
+.red-icon {
+    color: red;
 }
 
 .border {
@@ -81,5 +84,32 @@ li a {
 
 .imgcandidat {
     left: 0px;
-    width: 420%;
+    width: 250%;
+}
+
+.grey-text {
+    color: grey;
+}
+
+p {
+    color: green;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: medium;
+    font-weight: 600;
+}
+
+.name {
+    color: green;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: 600;
+    margin-left: 190px;
+}
+
+.icon {
+    margin-top: 22px;
+    font-size: 17px;
+    color: red;
 }

@@ -10,12 +10,11 @@
 
 .mat-icon:active {
     color: rgb(53, 192, 116);
-  }
+}
 
-  .active {
+.active {
     color: rgb(53, 192, 116);
-  }
-  
+}
 
 ul {
     list-style-type: none;
@@ -83,4 +82,19 @@ li a {
 .imgcandidat {
     left: 0px;
     width: 420%;
+}
+
+p {
+    color: green;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: 600;
+    margin-left: 190px;
+}
+
+.icon {
+    margin-top: 22px;
+    font-size: 17px;
+    color: red;
 }
