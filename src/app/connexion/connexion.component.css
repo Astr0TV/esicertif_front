@@ -9,7 +9,18 @@ input[type=text] {
     text-align:center;
 }
 
-input[type=submit] {
+input[type=password] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-color: #4adb40;
+    border-radius: 18px !important;
+    box-sizing: border-box;
+    text-align:center;
+}
+
+button[type=submit] {
     background-color: #35e022;
     color: white;
     padding: 14px 20px;

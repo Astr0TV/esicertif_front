@@ -14,6 +14,8 @@ import { HomecandidateComponent } from './homecandidate/homecandidate.component'
 import { FormationCandidatComponent } from './formation-candidat/formation-candidat.component';
 import { CertificationcandidatComponent } from './certificationcandidat/certificationcandidat.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

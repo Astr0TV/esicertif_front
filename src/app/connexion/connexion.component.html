@@ -6,16 +6,21 @@
 </div>
 <div class="container">
     <div class="row text-center">
-        <form action="">
+        <form #logForm="ngForm" (ngSubmit)="connexion(logForm.value)">
             <div class="mb-3">
                 <br><br><br><br><br>
-                <input type="text" id="fname" name="firstname" placeholder="Entrez votre email">
+                <input type="text" id="fname" name="email" ngModel="" placeholder="Entrez votre email">
             </div>
             
             <div class="mb-3">
-                <input type="text" id="lname" name="lastname" placeholder="mot de passe">
+                <input type="password" id="lname" name="mdp" ngModel="" placeholder="mot de passe">
             </div>
-            <input type="submit" value="Se connecter">
+            <a class="txt1" href="#">
+                {{ msg }}
+            </a>
+            <button  type="submit" class="login100-form-btn">
+                connexion
+            </button>
         </form>
     </div>
 </div>
