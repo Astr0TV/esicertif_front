@@ -19,6 +19,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import {FormsModule} from '@angular/forms';
     MatButtonModule,
     MatIconModule,
     NgbModule,
-    MatFormFieldModule,
+    MatFormFieldModule,MatInputModule,
     MatSelectModule,
     MatSlideToggleModule,
     HttpClientModule,

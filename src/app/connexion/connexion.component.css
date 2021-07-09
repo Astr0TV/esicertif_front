@@ -1,65 +1,79 @@
-input[type=text] {
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-color: #4adb40;
-    border-radius: 18px !important;
-    box-sizing: border-box;
-    text-align:center;
-}
-
-input[type=password] {
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-color: #4adb40;
-    border-radius: 18px !important;
-    box-sizing: border-box;
-    text-align:center;
-}
-
-button[type=submit] {
-    background-color: #35e022;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 18px !important;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background-color: #45a049;
-    text-align:center;
-}
-
-input.placeholder {
-    text-align: center;
-}
-
-div {
-    border-radius: 5px;
-    padding: 20px;
-}
-
-.imglogo {
-    padding: 10px;
-    position: absolute;
-    left: 0;
-    top: -25px;
-}
-
-.img1 {
-    position: absolute;
-    left: 1361px;
-    top: -20px;
-}
-
-@media screen and (max-width: 500px) {
-    .navbar a {
-      float: none;
-      display: block;
+    input[type=text] {
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-color: #4adb40;
+        border-radius: 18px !important;
+        box-sizing: border-box;
+        text-align: center;
     }
-}
+    
+    input[type=password] {
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-color: #4adb40;
+        border-radius: 18px !important;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    
+    button[type=submit] {
+        background-color: #35e022;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 18px !important;
+        cursor: pointer;
+    }
+    
+    .example-form {
+        min-width: 150px;
+        max-width: 500px;
+        width: 100%;
+    }
+    
+    .example-full-width {
+        width: 100%;
+    }
+    
+    .margin50 {
+        margin-top: 200px;
+    }
+    
+    input[type=submit]:hover {
+        background-color: #45a049;
+        text-align: center;
+    }
+    
+    input.placeholder {
+        text-align: center;
+    }
+    
+    div {
+        border-radius: 5px;
+        padding: 20px;
+    }
+    
+    .imglogo {
+        padding: 10px;
+        position: absolute;
+        left: 0;
+        top: -25px;
+    }
+    
+    .img1 {
+        position: absolute;
+        left: 1361px;
+        top: -20px;
+    }
+    
+    @media screen and (max-width: 500px) {
+        .navbar a {
+            float: none;
+            display: block;
+        }
+    }
