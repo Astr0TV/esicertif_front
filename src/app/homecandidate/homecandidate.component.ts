@@ -1,12 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+interface Nourriture {
+  valeur : String ;
+ viewValue : String ;
+ 
+}
 
 @Component({
   selector: 'app-homecandidate',
   templateUrl: './homecandidate.component.html',
   styleUrls: ['./homecandidate.component.css']
 })
+
+
 export class HomecandidateComponent implements OnInit {
 
   closeResult: string | undefined;
@@ -35,3 +42,5 @@ export class HomecandidateComponent implements OnInit {
   }
 
 }
+
+

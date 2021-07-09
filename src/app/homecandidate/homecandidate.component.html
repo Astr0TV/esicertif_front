@@ -11,7 +11,9 @@
     </div>
     <div class="col">
         <p>Mr.Lamsaouri
-            <mat-icon class="icon">power_settings_new</mat-icon>
+            <a routerLink="/acceuil">
+                <mat-icon class="icon">power_settings_new</mat-icon>
+            </a>
         </p>
 
     </div>
@@ -49,23 +51,32 @@
         <img alt="candidat sur une chaise" class="imgcandidat" src="assets\candidatg.jpg" />
     </div>
     <div class="col">
-        <img alt="candidat sur une chaise" class="logofiche" style="width: 15%;" (click)="open(mymodal)" src="assets\fiche d'evaluation rg.jpg" />
+        <img alt="candidat sur une chaise" class="logofiche" style="width: 60px; margin-top: -15%; margin-left: 45px;" (click)="open(mymodal)" src="assets\fiche d'evaluation rg.jpg" />
         <ng-template #mymodal let-modal>
             <div class="modal-header">
-                <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
-                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                    <span aria-hidden="true">×</span>
+                <h4 class="modal-title " id="modal-basic-title">Informations de fiche d'evaluation</h4>
+                <button type="button" class="close btn btn-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true" style="color: white;">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                This is example from ItSolutionStuff.com
+
+                <mat-form-field>
+                    <mat-label>Nom de formation</mat-label>
+                    <mat-select disableripple>
+                        <mat-option value="1" class="green-icon">Microsoft Azure</mat-option>
+                        <mat-option value="2" disabled>Power BI</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br> <br>
+                <p class="classformateur">Nom de formateur :</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+                <button type="button" class="btn btn-outline-success" (click)="modal.close('Save click')">Valider</button>
             </div>
         </ng-template>
         <div class="text-center margin50">
-            <table class="table table-hover ">
+            <table class="table table-hover">
                 <thead style="box-shadow: 0px -2px 5px #888;">
                     <tr class="table-primary ">
                         <th scope=" col" style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
@@ -96,6 +107,9 @@
         <div class="form-check form-switch">
             <input class="form-check-input"  type="checkbox"  id="flexSwitchCheckCheckedDisabled"  checked disabled>
                 <label class="form-check-label"  for="flexSwitchCheckCheckedDisabled"></label>
+
+
+
                     </div>
     </td>
     </tr>

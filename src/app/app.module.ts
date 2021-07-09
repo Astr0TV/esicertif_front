@@ -14,6 +14,9 @@ import { HomecandidateComponent } from './homecandidate/homecandidate.component'
 import { FormationCandidatComponent } from './formation-candidat/formation-candidat.component';
 import { CertificationcandidatComponent } from './certificationcandidat/certificationcandidat.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-    NgbModule
+    NgbModule,MatFormFieldModule,MatSelectModule,MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
