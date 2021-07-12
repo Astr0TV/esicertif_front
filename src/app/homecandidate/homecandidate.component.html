@@ -51,89 +51,100 @@
         <img alt="candidat sur une chaise" class="imgcandidat" src="assets\candidatg.jpg" />
     </div>
     <div class="col">
-        <img alt="candidat sur une chaise" class="logofiche" style="width: 60px; margin-top: -15%; margin-left: 45px;" (click)="open(mymodal)" src="assets\fiche d'evaluation rg.jpg" />
-        <ng-template #mymodal let-modal>
+        <img alt="candidat sur une chaise" class="logofiche" style="width: 60px; margin-top: -15%; margin-left: 45px;"
+            (click)="open(mymodal)" src="assets\fiche d'evaluation rg.jpg" />
+        <ng-template  #mymodal let-modal>
             <div class="modal-header">
                 <h4 class="modal-title " id="modal-basic-title">Informations de fiche d'evaluation</h4>
-                <button type="button" class="close btn btn-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <button type="button" class="close btn btn-danger" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')">
                     <span aria-hidden="true" style="color: white;">×</span>
                 </button>
             </div>
             <div class="modal-body">
-
                 <mat-form-field>
                     <mat-label>Nom de formation</mat-label>
-                    <mat-select disableripple>
-                        <mat-option value="1" class="green-icon">Microsoft Azure</mat-option>
-                        <mat-option value="2" disabled>Power BI</mat-option>
-                    </mat-select>
+                    <select class="browser-default custom-select">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
                 </mat-form-field>
                 <br> <br>
                 <p class="classformateur">Nom de formateur :</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-success" (click)="modal.close('Save click')">Valider</button>
+                <button type="button" class="btn btn-outline-success"
+                    (click)="modal.close('Save click')">Valider</button>
             </div>
         </ng-template>
         <div class="text-center margin50">
             <table class="table table-hover">
                 <thead style="box-shadow: 0px -2px 5px #888;">
                     <tr class="table-primary ">
-                        <th scope=" col" style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
-                            Intitulée de formation en cours </th>
-                            <th scope="col" style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
-                                Nom de formateur</th>
-                                <th scope="col" style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
-                                    Date de formation</th>
-                                    <th scope="col" style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
-                                        Progression</th>
-                                        <th scope="col" style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
-                                            Validation</th>
-                                            </tr>
+                        <th scope=" col"
+                        style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
+                        Intitulée de formation en cours </th>
+                        <th scope="col"
+                            style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
+                            Nom de formateur</th>
+                        <th scope="col"
+                            style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
+                            Date de formation</th>
+                        <th scope="col"
+                            style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
+                            Progression</th>
+                        <th scope="col"
+                            style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
+                            Validation</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr style="color: rgb(126, 212, 118); font-weight: bold;">
                         <th scope="row">Microsft azure</th>
-                            <td>Mr ALAMOU</td>
-                            <td>06-02-2020</td>
-                            <td>
-                                <div class="cols-sm-4"></div>
-    <div class="col-sm-4">
-        <mat-icon class="green-icon">check_circle</mat-icon>
-</div>
-<div class="cols-sm-4"></div>
-    </td>
-    <td>
-        <div class="form-check form-switch">
-            <input class="form-check-input"  type="checkbox"  id="flexSwitchCheckCheckedDisabled"  checked disabled>
-                <label class="form-check-label"  for="flexSwitchCheckCheckedDisabled"></label>
-
-
-
-                    </div>
-    </td>
-    </tr>
-    <tr style="color: rgb(126, 212, 118); font-weight: bold;">
-        <th scope="row">Power BI</th>
-            <td>Mr BANKA</td>
-            <td>06-05-2021</td>
-            <td>
-                <div class="cols-sm-4"></div>
-                    <div class="col-sm-4">
-                        <mat-icon class="white-icon">incomplete_circle</mat-icon>
-                        </div>
-                        <div class="cols-sm-4"></div>
-            </td>
-            <td>
-                <div class="form-check form-switch">
-                    <input class="form-check-input"  type="checkbox"  id="flexSwitchCheckDisabled"  disabled>
-                        <label class="form-check-label"  for="flexSwitchCheckDisabled"></label>
+                        <td>Mr ALAMOU</td>
+                        <td>06-02-2020</td>
+                        <td>
+                            <div class="cols-sm-4"></div>
+                            <div class="col-sm-4">
+                                <mat-icon class="green-icon">check_circle</mat-icon>
                             </div>
-            </td>
-    </tr>
-    </tbody>
-    </table>
-    </div>
+                            <div class="cols-sm-4"></div>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input"  type="checkbox"  id="flexSwitchCheckCheckedDisabled"
+                                     checked disabled>
+                                <label class="form-check-label"  for="flexSwitchCheckCheckedDisabled"></label>
+
+
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="color: rgb(126, 212, 118); font-weight: bold;">
+                        <th scope="row">Power BI</th>
+                        <td>Mr BANKA</td>
+                        <td>06-05-2021</td>
+                        <td>
+                            <div class="cols-sm-4"></div>
+                            <div class="col-sm-4">
+                                <mat-icon class="white-icon">incomplete_circle</mat-icon>
+                            </div>
+                            <div class="cols-sm-4"></div>
+                        </td>
+                        <td>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input"  type="checkbox"  id="flexSwitchCheckDisabled"
+                                     disabled>
+                                <label class="form-check-label"  for="flexSwitchCheckDisabled"></label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="col"></div>
-    </div>
+</div>
