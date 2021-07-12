@@ -1,29 +1,4 @@
-input[type=text] {
-    width: 25% !important;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-color: #4adb40;
-    border-radius: 18px !important;
-    box-sizing: border-box;
-    text-align:center;
-}
-
-input[type=password] {
-    width: 25% !important;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-color: #4adb40;
-    border-radius: 18px !important;
-    box-sizing: border-box;
-    text-align:center;
-}
-
-input[type=submit] {
-    width: 14% !important;
+button[type=submit] {
     background-color: #35e022;
     color: white;
     padding: 14px 20px;
@@ -33,9 +8,23 @@ input[type=submit] {
     cursor: pointer;
 }
 
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.margin50 {
+    margin-top: 100px;
+}
+
 input[type=submit]:hover {
     background-color: #45a049;
-    text-align:center;
+    text-align: center;
 }
 
 input.placeholder {
@@ -58,4 +47,11 @@ div {
     position: absolute;
     left: 1361px;
     top: -20px;
+}
+
+@media screen and (max-width: 500px) {
+    .navbar a {
+        float: none;
+        display: block;
+    }
 }
