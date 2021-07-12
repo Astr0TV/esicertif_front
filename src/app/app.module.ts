@@ -20,6 +20,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 @NgModule({
   declarations: [
@@ -39,11 +43,16 @@ import {MatInputModule} from '@angular/material/input';
     MatButtonModule,
     MatIconModule,
     NgbModule,
-    MatFormFieldModule,MatInputModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatSelectModule,
     MatSlideToggleModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTooltipModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
