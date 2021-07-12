@@ -2,7 +2,9 @@
     <img src="/assets/esicertif3.png">
 </div>
 
-
+<div class="img1">
+    <img src="/assets/img1cotedroitetop.png">
+</div>
 
 <div class="container">
 
@@ -12,16 +14,16 @@
             <form #logForm="ngForm" (ngSubmit)="connexion(logForm.value)">
                 <div class="mb-3 margin50">
                     <mat-form-field floatLabel="auto" appearance="outline" color="warn">
-                        <mat-label>Email</mat-label>
-                        <input matInput>
-                        <button type="button" mat-icon-button matSuffix required id="fname" name="email" ngModel="">
-                            <mat-icon>person</mat-icon>
+                        <mat-label>E-mail</mat-label>
+                        <input matInput name="email" ngModel="">
+                        <button type="button" mat-icon-button matSuffix required>
+                            <mat-icon>email</mat-icon>
                         </button>
                     </mat-form-field>
                     <mat-form-field floatLabel="auto" appearance="outline" color="warn">
-                        <mat-label>Password</mat-label>
-                        <input matInput>
-                        <button type="button" mat-icon-button matSuffix id="lname" name="mdp" ngModel="" required>
+                        <mat-label>Mot de passe</mat-label>
+                        <input matInput name="mdp" ngModel="">
+                        <button type="button" mat-icon-button matSuffix required>
                             <mat-icon>lock</mat-icon>
                         </button>
                     </mat-form-field>
