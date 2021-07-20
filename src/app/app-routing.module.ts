@@ -6,6 +6,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { FormationCandidatComponent } from './formation-candidat/formation-candidat.component';
 import { HomecandidateComponent } from './homecandidate/homecandidate.component';
 import { HomeclientComponent } from './homeclient/homeclient.component';
+import { PageevalcandidatComponent } from './pageevalcandidat/pageevalcandidat.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
@@ -17,7 +18,9 @@ const routes: Routes = [
   {path:'homeclient', component: HomeclientComponent},
   {path:'homecandidat', component: HomecandidateComponent},
   {path:'formationcandidat', component: FormationCandidatComponent},
-  {path:'certificatcandidat', component: CertificationcandidatComponent}
+  {path:'certificatcandidat', component: CertificationcandidatComponent},
+  {path:'pageevalcandidat', component: PageevalcandidatComponent}
+
  
 
 ];

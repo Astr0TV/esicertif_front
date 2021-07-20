@@ -1,1 +1,93 @@
-<p>pageevalcandidat works!</p>
+<div class="imglogo">
+    <img src="/assets/esicertif3.png">
+</div>
+<br><br>
+<div class="container">
+
+
+    <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+        {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+    </button>
+
+    <div class="row">
+
+        <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+
+                <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Préparation de la formation</ng-template>
+                    <mat-form-field style="width: 560px !important">
+                        <label id="example-radio-group-label">Le programme et les objectifs de la formation ont-ils été
+                            clairement annoncés : </label>
+                        <mat-radio-group formControlName="firstCtrl" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoritereponse" required>
+                            <mat-radio-button class="example-radio-button" *ngFor="let reponse of reponses" [value]="reponse">
+                                {{reponse}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                        <input matInput style="color: black;" disabled value="Votre réponse est: {{favoritereponse}}">
+                    </mat-form-field>
+                </form>
+
+                <form [formGroup]="firstFormGroup2">
+                    <mat-form-field style="width: 561px !important">
+                        <label id="example-radio-group-label">Avez-vous eu une discussion avec votre hiérarchie
+                            concernant cette formation : </label>
+                        <mat-radio-group formControlName="firstCtrl" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoritereponse2" required>
+                            <mat-radio-button class="example-radio-button" *ngFor="let reponse2 of reponses" [value]="reponse2">
+                                {{reponse2}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                        <input matInput style="color: black;" disabled value=" Votre réponse est: {{favoritereponse2}} ">
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperNext>Suivant</button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <mat-step [stepControl]="secondFormGroup">
+                <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Organisation de la formation </ng-template>
+                    <mat-form-field style="width: 560px !important">
+                        <label id="example-radio-group-label">Etes-vous satisfait de l'organisation du transport et de l'hébergement : </label>
+                        <mat-radio-group formControlName="firstCtrl" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoritereponse3" required>
+                            <mat-radio-button class="example-radio-button" *ngFor="let reponse3 of reponses" [value]="reponse3">
+                                {{reponse3}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                        <input matInput style="color: black;" disabled value="Votre réponse est: {{favoritereponse3}}">
+                    </mat-form-field>
+                </form>
+
+                <form [formGroup]="secondFormGroup2">
+                    <ng-template matStepLabel>Organisation de la formation </ng-template>
+                    <mat-form-field style="width: 560px !important">
+                        <label id="example-radio-group-label">Etes-vous satisfait de l'organisation du transport et de l'hébergement : </label>
+                        <mat-radio-group formControlName="firstCtrl" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoritereponse4" required>
+                            <mat-radio-button class="example-radio-button" *ngFor="let reponse4 of reponses" [value]="reponse4">
+                                {{reponse4}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                        <input matInput style="color: black;" disabled value="Votre réponse est: {{favoritereponse4}}">
+                    </mat-form-field>
+
+                    <div>
+                        <button mat-button matStepperPrevious>Retour</button>
+                        <button mat-button matStepperNext>Suivant</button>
+                    </div>
+
+                </form>
+
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <p>You are now done.</p>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset() ">Reset</button>
+                </div>
+            </mat-step>
+        </mat-stepper>
+
+    </div>
+</div>

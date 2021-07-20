@@ -27,6 +27,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatStepperModule} from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PageevalcandidatComponent } from './pageevalcandidat/pageevalcandidat.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -60,6 +63,8 @@ import { PageevalcandidatComponent } from './pageevalcandidat/pageevalcandidat.c
     MatProgressBarModule,
     MatStepperModule,
     ReactiveFormsModule,
+    MatDividerModule,
+    MatListModule,MatRadioModule
 
 
   ],
