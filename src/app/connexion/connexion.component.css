@@ -65,13 +65,19 @@
         top: -25px;
     }
     
+    .mat-icon {
+        font-size: 20px;
+        fill: white;
+        color: gray;
+    }
+    
     .img1 {
         position: absolute;
         left: 1361px;
         top: -20px;
     }
     
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 768px) {
         .navbar a {
             float: none;
             display: block;
