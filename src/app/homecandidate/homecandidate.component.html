@@ -9,9 +9,9 @@
     </div>
     <div class="col">
     </div>
-    <div class="col">
-        <p>Mr.Lamsaouri
-            <a routerLink="/acceuil">
+    <div  *ngFor="let p of connexionnew" class="col">
+        <p>{{ p.nom }} {{ p.prenom }}
+            <a (click)="deconnect()">
                 <mat-icon class="icon">power_settings_new</mat-icon>
             </a>
         </p>
@@ -61,7 +61,7 @@
                     <span aria-hidden="true" style="color: white;">×</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div *ngFor="let p of connexionnew" class="modal-body">
                 <mat-form-field>
                     <mat-label>Nom de formation</mat-label>
                     <select class="browser-default custom-select">
@@ -101,44 +101,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style="color: rgb(126, 212, 118); font-weight: bold;">
-                        <th scope="row">Microsft azure</th>
-                        <td>Mr ALAMOU</td>
-                        <td>06-02-2020</td>
+                    <tr *ngFor="let p of formation" style="color: rgb(126, 212, 118); font-weight: bold;">
+                        <th scope="row">{{ p.nom }}</th>
+                        <td>{{p.formateur.nom}}</td>
+                        <td>{{p.date_debut}}</td>
                         <td>
                             <div class="cols-sm-4"></div>
-                            <div class="col-sm-4">
-                                <mat-icon class="green-icon">check_circle</mat-icon>
+                            <div *ngIf="p.progress == true">
+                                <mat-progress-bar mode="buffer" value="100"></mat-progress-bar>
+                            </div>
+                            <div *ngIf="p.progress == false">
+                                <mat-progress-bar mode="buffer" value="50"></mat-progress-bar>
                             </div>
                             <div class="cols-sm-4"></div>
                         </td>
                         <td>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input"  type="checkbox"  id="flexSwitchCheckCheckedDisabled"
-                                     checked disabled>
-                                <label class="form-check-label"  for="flexSwitchCheckCheckedDisabled"></label>
-
-
-
+                            <div *ngIf="p.valider == true" class="form-check form-switch">  
+                                <label class="form-check-label"  for="flexSwitchCheckCheckedDisabled">Validé</label>
                             </div>
-                        </td>
-                    </tr>
-                    <tr style="color: rgb(126, 212, 118); font-weight: bold;">
-                        <th scope="row">Power BI</th>
-                        <td>Mr BANKA</td>
-                        <td>06-05-2021</td>
-                        <td>
-                            <div class="cols-sm-4"></div>
-                            <div class="col-sm-4">
-                                <mat-icon class="white-icon">incomplete_circle</mat-icon>
-                            </div>
-                            <div class="cols-sm-4"></div>
-                        </td>
-                        <td>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input"  type="checkbox"  id="flexSwitchCheckDisabled"
-                                     disabled>
-                                <label class="form-check-label"  for="flexSwitchCheckDisabled"></label>
+                            <div *ngIf="p.valider == false" class="form-check form-switch">  
+                                <label class="form-check-label"  for="flexSwitchCheckCheckedDisabled">En Cours</label>
                             </div>
                         </td>
                     </tr>

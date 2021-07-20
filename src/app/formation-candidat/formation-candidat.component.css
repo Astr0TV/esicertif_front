@@ -80,7 +80,9 @@ li a {
     left: 0px;
     width: 420%;
 }
-
+.mat-progress-bar{
+    color: grey;
+}
 .grey-text {
     color: grey;
 }

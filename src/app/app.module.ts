@@ -23,6 +23,9 @@ import {MatInputModule} from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatStepperModule} from '@angular/material/stepper';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -51,7 +54,11 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressBarModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+
 
   ],
   providers: [],

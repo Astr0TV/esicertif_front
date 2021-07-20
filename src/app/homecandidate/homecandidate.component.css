@@ -231,3 +231,7 @@ p {
 .cdk-global-overlay-wrapper, .cdk-overlay-container {
     z-index: 99999 !important;
  }
+
+ .mat-progress-bar .mat-progress-bar-buffer {
+	background-color: #e6f3ff;
+}

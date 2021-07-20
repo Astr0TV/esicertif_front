@@ -101,10 +101,9 @@
     bottom: 80px;
 }
 
-.img3 {
+.wave-img {
     position: absolute;
-    right: 0px;
-    bottom: 80px;
+    bottom: -6%;
 }
 
 .arrondie {

@@ -1,6 +1,11 @@
+import { CloseScrollStrategy } from '@angular/cdk/overlay';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { ConnexionComponent } from '../connexion/connexion.component';
+import { ConnexionService } from '../service/connexion.service';
 interface Nourriture {
   valeur : String ;
  viewValue : String ;
@@ -15,10 +20,11 @@ interface Nourriture {
 
 
 export class HomecandidateComponent implements OnInit {
-
+formation: any;
+connexionnew: any;
   closeResult: string | undefined;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal,private http: HttpClient,private route: Router,private connexion: ConnexionService) { }
 
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -38,7 +44,35 @@ export class HomecandidateComponent implements OnInit {
     }
   }
 
+  deconnect(): any {
+    localStorage.clear();
+    this.route.navigateByUrl('/accueil');
+  }
+
+  redirect(): any {
+    if (localStorage.getItem('user') != null) {
+      this.route.navigateByUrl('acceuil');
+    }
+  }
+
   ngOnInit(): void {
+    this.redirect();
+   var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
+   console.log(test.id);
+   this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
+      next: (data) => { this.connexionnew = data; 
+        console.log('this msg concernec les informations de'); 
+        console.log(data) },
+      error: (err) => {console.log(err); }
+    });
+
+    this.http.get('http://localhost:8089/formation/candidat/'+ test.id).subscribe({
+      next: (data) => { this.formation = data; 
+        console.log('this msg concernec les informations de'); 
+        console.log(data) },
+      error: (err) => {console.log(err); }
+    });
+  
   }
 
 }
