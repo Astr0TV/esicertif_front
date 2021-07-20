@@ -26,6 +26,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatStepperModule} from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageevalcandidatComponent } from './pageevalcandidat/pageevalcandidat.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     HomecandidateComponent,
     FormationCandidatComponent,
-    CertificationcandidatComponent
+    CertificationcandidatComponent,
+    PageevalcandidatComponent
   ],
   imports: [
     BrowserModule,
