@@ -13,7 +13,6 @@
 
         <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
             <mat-step [stepControl]="firstFormGroup">
-
                 <form [formGroup]="firstFormGroup">
                     <ng-template matStepLabel>Préparation de la formation</ng-template>
                     <mat-form-field style="width: 560px !important">
@@ -50,26 +49,14 @@
                     <ng-template matStepLabel>Organisation de la formation </ng-template>
                     <mat-form-field style="width: 560px !important">
                         <label id="example-radio-group-label">Etes-vous satisfait de l'organisation du transport et de l'hébergement : </label>
-                        <mat-radio-group formControlName="firstCtrl" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoritereponse3" required>
+                        <mat-radio-group formControlName="secondCtrl" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoritereponse3" required>
                             <mat-radio-button class="example-radio-button" *ngFor="let reponse3 of reponses" [value]="reponse3">
                                 {{reponse3}}
                             </mat-radio-button>
                         </mat-radio-group>
                         <input matInput style="color: black;" disabled value="Votre réponse est: {{favoritereponse3}}">
                     </mat-form-field>
-                </form>
 
-                <form [formGroup]="secondFormGroup2">
-                    <ng-template matStepLabel>Organisation de la formation </ng-template>
-                    <mat-form-field style="width: 560px !important">
-                        <label id="example-radio-group-label">Etes-vous satisfait de l'organisation du transport et de l'hébergement : </label>
-                        <mat-radio-group formControlName="firstCtrl" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoritereponse4" required>
-                            <mat-radio-button class="example-radio-button" *ngFor="let reponse4 of reponses" [value]="reponse4">
-                                {{reponse4}}
-                            </mat-radio-button>
-                        </mat-radio-group>
-                        <input matInput style="color: black;" disabled value="Votre réponse est: {{favoritereponse4}}">
-                    </mat-form-field>
 
                     <div>
                         <button mat-button matStepperPrevious>Retour</button>
@@ -79,6 +66,30 @@
                 </form>
 
             </mat-step>
+
+            <mat-step [stepControl]="secondFormGroup">
+                <form [formGroup]="secondFormGroup2">
+                    <ng-template matStepLabel>Déoulementde la formation </ng-template>
+                    <mat-form-field style="width: 560px !important">
+                        <label id="example-radio-group-label">L formateur etait-il clair et dynamique : </label>
+                        <mat-radio-group formControlName="secondCtrl" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoritereponse4" required>
+                            <mat-radio-button class="example-radio-button" *ngFor="let reponse4 of reponses" [value]="reponse4">
+                                {{reponse4}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                        <input matInput style="color: black;" disabled value="Votre réponse est: {{favoritereponse4}}">
+                    </mat-form-field>
+
+
+                    <div>
+                        <button mat-button matStepperPrevious>Retour</button>
+                        <button mat-button matStepperNext>Suivant</button>
+                    </div>
+
+                </form>
+
+            </mat-step>
+
             <mat-step>
                 <ng-template matStepLabel>Done</ng-template>
                 <p>You are now done.</p>
