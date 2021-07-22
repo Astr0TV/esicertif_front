@@ -31,6 +31,9 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { HomeformateurComponent } from './homeformateur/homeformateur.component';
+import { FormationsformatuerComponent } from './formationsformatuer/formationsformatuer.component';
+import { CandidatformateurComponent } from './candidatformateur/candidatformateur.component';
 
 
 @NgModule({
@@ -43,7 +46,10 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     HomecandidateComponent,
     FormationCandidatComponent,
     CertificationcandidatComponent,
-    PageevalcandidatComponent
+    PageevalcandidatComponent,
+    HomeformateurComponent,
+    FormationsformatuerComponent,
+    CandidatformateurComponent
   ],
   imports: [
     BrowserModule,

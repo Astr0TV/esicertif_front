@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pageevalcandidat',
@@ -11,6 +12,8 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
   }]
 })
 export class PageevalcandidatComponent implements OnInit {
+ 
+
   firstFormGroup: FormGroup;
   firstFormGroup2:FormGroup;
   secondFormGroup: FormGroup;secondFormGroup2: FormGroup;
@@ -38,16 +41,12 @@ export class PageevalcandidatComponent implements OnInit {
     this.secondFormGroup2 = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
-   
-  
   }
-
   favoritereponse: string;
   favoritereponse2: string;
   favoritereponse3: string;  
   favoritereponse4: string;
-
-
   reponses: string[] = ['Pas du tout', 'Insuffisamment', 'En partie', 'Totalement'];
   
+  images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
 }
