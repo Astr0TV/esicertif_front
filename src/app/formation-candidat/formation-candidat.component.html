@@ -9,8 +9,8 @@
     </div>
     <div class="col">
     </div>
-    <div class="col">
-        <p class="name">Mr.Lamsaouri
+    <div *ngFor="let p of connexionnew" class="col">
+        <p class="name">{{ p.nom }} {{ p.prenom }}
             <mat-icon class="icon">power_settings_new</mat-icon>
         </p>
 
@@ -66,19 +66,12 @@
                                             </tr>
                     </thead>
                     <tbody>
-                        <tr style="color: rgb(126, 212, 118); font-weight: bold;">
-                            <th scope="row">Microsft azure</th>
-                                <td>Mr ALAMOU</td>
-                                <td>06-02-2020</td>
-                                <td>Terminé</td>
-
-                        </tr>
-                        <tr style="color: rgb(126, 212, 118); font-weight: bold;">
-                            <th scope="row">Power BI</th>
-                                <td>Mr BANKA</td>
-                                <td>06-05-2021</td>
-                                <td class="grey-text">Encours </td>
-
+                        <tr *ngFor="let p of formation" style="color: rgb(126, 212, 118); font-weight: bold;">
+                            <th scope="row">{{ p.nom }}</th>
+                                <td>{{p.formateur.prenom}}</td>
+                                <td>{{p.date_debut}}</td>
+                                <td *ngIf="p.progress == true">Terminé</td>
+                                <td *ngIf="p.progress == false" class="grey-text" style="color: red;">En cours </td>
                         </tr>
                     </tbody>
                     </table>

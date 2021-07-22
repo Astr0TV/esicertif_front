@@ -61,14 +61,12 @@
                     <span aria-hidden="true" style="color: white;">×</span>
                 </button>
             </div>
-            <div *ngFor="let p of connexionnew" class="modal-body">
+            <div  class="modal-body">
                 <mat-form-field>
                     <mat-label>Nom de formation</mat-label>
                     <select class="browser-default custom-select">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option  selected>Select votre formation</option>
+                        <option *ngFor="let p of formation">{{ p.nom }}</option>
                       </select>
                 </mat-form-field>
                 <br> <br>

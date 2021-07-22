@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +30,7 @@ import { PageevalcandidatComponent } from './pageevalcandidat/pageevalcandidat.c
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 
 @NgModule({
@@ -64,11 +65,13 @@ import {MatRadioModule} from '@angular/material/radio';
     MatStepperModule,
     ReactiveFormsModule,
     MatDividerModule,
-    MatListModule,MatRadioModule
+    MatListModule,MatRadioModule,
+    MatCarouselModule.forRoot()
 
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

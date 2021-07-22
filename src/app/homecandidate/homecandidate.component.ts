@@ -22,6 +22,7 @@ interface Nourriture {
 export class HomecandidateComponent implements OnInit {
 formation: any;
 connexionnew: any;
+selectedValue: string;
   closeResult: string | undefined;
 
   constructor(private modalService: NgbModal,private http: HttpClient,private route: Router,private connexion: ConnexionService) { }
