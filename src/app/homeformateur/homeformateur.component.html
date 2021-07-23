@@ -70,7 +70,7 @@
                       </select>
                 </mat-form-field>
                 <br> <br>
-                <p class="classformateur">Nom de formateur :</p>
+                <p class="classformateur">Nom de Condidat :</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-success"
@@ -78,9 +78,13 @@
             </div>
         </ng-template>
         <div class="text-center margin50">
-            <mat-tab-group mat-align-tabs="center">
-                <mat-tab *ngFor="let f of formation" label="{{ f.nom }}">{{ f.candidat.nom  }} {{ f.candidat.prenom  }}</mat-tab>
-              </mat-tab-group>
+                <mat-tab-group dynamicHeight>
+                    <mat-tab *ngFor="let p of formation" label="{{ p.nom }}b">
+                      <div *ngFor="let b of p.candidat" class="example-small-box mat-elevation-z4">
+                        {{ b.nom }} {{ b.prenom }}
+                      </div>
+                    </mat-tab>
+                </mat-tab-group>
         </div>
     </div>
     <div class="col"></div>
