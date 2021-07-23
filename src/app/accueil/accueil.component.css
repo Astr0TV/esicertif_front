@@ -3,93 +3,6 @@
     color: #333;
 }
 
-
-/* For mobile phones: */
-
-[class*="colmun-"] {
-    width: 100%;
-}
-
-@media only screen and (min-width: 600px) {
-    /* For tablets: */
-    .colmun-s-1 {
-        width: 8.33%;
-    }
-    .colmun-s-2 {
-        width: 16.66%;
-    }
-    .colmun-s-3 {
-        width: 25%;
-    }
-    .colmun-s-4 {
-        width: 33.33%;
-    }
-    .colmun-s-5 {
-        width: 41.66%;
-    }
-    .colmun-s-6 {
-        width: 50%;
-    }
-    .colmun-s-7 {
-        width: 58.33%;
-    }
-    .colmun-s-8 {
-        width: 66.66%;
-    }
-    .colmun-s-9 {
-        width: 75%;
-    }
-    .colmun-s-10 {
-        width: 83.33%;
-    }
-    .colmun-s-11 {
-        width: 91.66%;
-    }
-    .colmun-s-12 {
-        width: 100%;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    /* For desktop: */
-    .colmun-1 {
-        width: 8.33%;
-    }
-    .colmun-2 {
-        width: 16.66%;
-    }
-    .colmun-3 {
-        width: 25%;
-    }
-    .colmun-4 {
-        width: 33.33%;
-    }
-    .colmun-5 {
-        width: 41.66%;
-    }
-    .colmun-6 {
-        width: 50%;
-    }
-    .colmun-7 {
-        width: 58.33%;
-    }
-    .colmun-8 {
-        width: 66.66%;
-    }
-    .colmun-9 {
-        width: 75%;
-    }
-    .colmun-10 {
-        width: 83.33%;
-    }
-    .colmun-11 {
-        width: 91.66%;
-    }
-    .colmun-12 {
-        width: 100%;
-    }
-}
-
 .spacer {
     flex: 0.6;
 }
@@ -205,3 +118,284 @@
     -webkit-transform: scale(1.3);
     transform: scale(1.3);
 }
+
+
+/*
+
+.portfolio-experiment,
+.scene {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-display: flex;
+    -webkit-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+}
+
+.portfolio-experiment {
+    background: #2d2d2d;
+}
+
+.portfolio-experiment a {
+    color: white;
+    padding: 0.7em calc(0.7em * 1.2);
+    display: inline-block;
+    border: 3px solid transparent;
+    position: relative;
+    font-size: 1.5em;
+    cursor: pointer;
+    letter-spacing: 0.07em;
+}
+
+.portfolio-experiment a .text {
+    font-family: proxima-nova, monospace;
+    transform: translate3d(0, 0.7em, 0);
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1) 0.4s;
+}
+
+.portfolio-experiment a:after {
+    position: absolute;
+    content: "";
+    bottom: -3px;
+    left: calc(0.7em * 1.2);
+    right: calc(0.7em * 1.2);
+    height: 3px;
+    background: #f26522;
+    transition: transform 0.8s cubic-bezier(1, 0, 0.37, 1) 0.2s, right 0.2s cubic-bezier(0.04, 0.48, 0, 1) 0.6s, left 0.4s cubic-bezier(0.04, 0.48, 0, 1) 0.6s;
+    transform-origin: left;
+}
+
+.portfolio-experiment .line {
+    position: absolute;
+    background: #f26522;
+}
+
+.portfolio-experiment .line.-right,
+.portfolio-experiment .line.-left {
+    width: 3px;
+    bottom: -3px;
+    top: -3px;
+    transform: scale3d(1, 0, 1);
+}
+
+.portfolio-experiment .line.-top,
+.portfolio-experiment .line.-bottom {
+    height: 3px;
+    left: -3px;
+    right: -3px;
+    transform: scale3d(0, 1, 1);
+}
+
+.portfolio-experiment .line.-right {
+    right: -3px;
+    transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.23s;
+    transform-origin: top;
+}
+
+.portfolio-experiment .line.-top {
+    top: -3px;
+    transition: transform 0.08s linear 0.43s;
+    transform-origin: left;
+}
+
+.portfolio-experiment .line.-left {
+    left: -3px;
+    transition: transform 0.08s linear 0.51s;
+    transform-origin: bottom;
+}
+
+.portfolio-experiment .line.-bottom {
+    bottom: -3px;
+    transition: transform 0.3s cubic-bezier(1, 0, 0.65, 1.01);
+    transform-origin: right;
+}
+
+.portfolio-experiment a:hover .text,
+.portfolio-experiment a:active .text {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1) 0.4s;
+}
+
+.portfolio-experiment a:hover:after,
+.portfolio-experiment a:active:after {
+    transform: scale3d(0, 1, 1);
+    right: -3px;
+    left: -3px;
+    transform-origin: right;
+    transition: transform 0.2s cubic-bezier(1, 0, 0.65, 1.01) 0.17s, right 0.2s cubic-bezier(1, 0, 0.65, 1.01), left 0s 0.3s;
+}
+
+.portfolio-experiment a:hover .line,
+.portfolio-experiment a:active .line {
+    transform: scale3d(1, 1, 1);
+}
+
+.portfolio-experiment a:hover .line.-right,
+.portfolio-experiment a:active .line.-right {
+    transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.2s;
+    transform-origin: bottom;
+}
+
+.portfolio-experiment a:hover .line.-top,
+.portfolio-experiment a:active .line.-top {
+    transition: transform 0.08s linear 0.4s;
+    transform-origin: right;
+}
+
+.portfolio-experiment a:hover .line.-left,
+.portfolio-experiment a:active .line.-left {
+    transition: transform 0.08s linear 0.48s;
+    transform-origin: top;
+}
+
+.portfolio-experiment a:hover .line.-bottom,
+.portfolio-experiment a:active .line.-bottom {
+    transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s;
+    transform-origin: left;
+}*/
+
+* {
+    font-size: 10px;
+    font-family: "Ubuntu", sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom right, #5533ff, #38e2ee);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+}
+
+.main-contain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 180rem;
+    margin: auto;
+}
+
+h1 {
+    font-size: 6rem;
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    margin: 5rem 0 0 0;
+}
+
+button {
+    border: none;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.95);
+    cursor: pointer;
+}
+
+.div {
+    padding-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.psuedo-text {
+    color: #5533ff;
+    position: relative;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: inline;
+    height: auto;
+    font-size: 20px;
+    font-size: 700;
+    transition: 0.25s ease-in;
+    transition-delay: 0.1s;
+}
+
+.flex-1 {
+    flex: 1;
+    min-width: 250px;
+    margin: 0 auto 50px;
+}
+
+.button {
+    padding: 2rem 7rem;
+    background: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+    will-change: transform;
+}
+
+.button-mat {
+    color: #5533ff;
+    border: 0px transparent;
+    border-radius: 0.3rem;
+    transition: 0.3s ease-in-out;
+    transition-delay: 0.35s;
+    overflow: hidden;
+}
+
+.button-mat:before {
+    content: "";
+    display: block;
+    background: #401aff;
+    position: absolute;
+    width: 200%;
+    height: 500%;
+    border-radius: 100%;
+    transition: 0.36s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.button-mat:hover .psuedo-text {
+    color: white;
+}
+
+.button-mat:hover {
+    color: transparent;
+}
+
+.btn--7 {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.btn--7:before {
+    transform: translate(-110%, -110%) translateZ(0);
+}
+
+.btn--7:hover:before {
+    transform: translate(-45%, -34%) translateZ(0);
+}
+
+
+/*
+.btn--8 {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.btn--8:before {
+    transform: translate(30%, 10%) translateZ(0);
+}
+
+.btn--8:hover:before {
+    transform: translate(-45%, -34%) translateZ(0);
+}*/
