@@ -21,7 +21,7 @@ export class ConnexionComponent implements OnInit {
 
   redirect(): any {
     if (localStorage.getItem('user') != null) {
-      this.route.navigateByUrl('accueil');
+      this.route.navigateByUrl('/accueil');
     }
   }
 
@@ -30,11 +30,25 @@ connexion(val: any): any {
     next: (data) => {
       console.log(data);
       this.user = data;
-      if (this.user != null) {
-        this.connexionservice.setUserSession(this.user);
+      if (this.user != null ) {
+        if(this.user.role=='candidat')
+        {this.connexionservice.setUserSession(this.user);
         this.route.navigateByUrl('homecandidat');
-      } else { this.msg = 'mdp ou login est inscorect'; console.log('id incorr...')}
+        }
+        else if (this.user.role=='formateur')
+        {this.connexionservice.setUserSession(this.user);
+        this.route.navigateByUrl('homeformateur');
+        }else {
+          this.connexionservice.setUserSession(this.user);
+          this.route.navigateByUrl('homeadmin'); }
+
+      } else { this.msg = 'Identifiants incorrectes !! '; console.log('identifiants incorrectes ! ')}
     }, error: (err) => { console.log(err) }
   })
 }
+
+
+
+
 }
+

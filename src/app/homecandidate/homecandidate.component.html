@@ -9,9 +9,9 @@
     </div>
     <div class="col">
     </div>
-    <div  *ngFor="let p of connexionnew" class="col">
+    <div *ngFor="let p of connexionnew" class="col">
         <p>{{ p.nom }} {{ p.prenom }}
-            <a (click)="deconnect()">
+            <a (click)="goToPage('acceuil')">
                 <mat-icon class="icon">power_settings_new</mat-icon>
             </a>
         </p>
@@ -51,17 +51,15 @@
         <img alt="candidat sur une chaise" class="imgcandidat" src="assets\candidatg.jpg" />
     </div>
     <div class="col">
-        <img alt="candidat sur une chaise" class="logofiche" style="width: 60px; margin-top: -15%; margin-left: 45px;"
-            (click)="open(mymodal)" src="assets\fiche d'evaluation rg.jpg" />
-        <ng-template  #mymodal let-modal>
+        <img alt="candidat sur une chaise" class="logofiche" style="width: 60px; margin-top: -15%; margin-left: 45px;" (click)="open(mymodal)" src="assets\fiche d'evaluation rg.jpg" />
+        <ng-template #mymodal let-modal>
             <div class="modal-header">
                 <h4 class="modal-title " id="modal-basic-title">Informations de fiche d'evaluation</h4>
-                <button type="button" class="close btn btn-danger" aria-label="Close"
-                    (click)="modal.dismiss('Cross click')">
+                <button type="button" class="close btn btn-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
                     <span aria-hidden="true" style="color: white;">×</span>
                 </button>
             </div>
-            <div  class="modal-body">
+            <div class="modal-body">
                 <mat-form-field>
                     <mat-label>Nom de formation</mat-label>
                     <select class="browser-default custom-select">
@@ -73,58 +71,52 @@
                 <p class="classformateur">Nom de formateur :</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-success"
-                    (click)="modal.close('Save click')">Valider</button>
+                <button type="button" class="btn btn-outline-success" (click)="modal.close('Save click')">Valider</button>
             </div>
         </ng-template>
         <div class="text-center margin50">
             <table class="table table-hover">
                 <thead style="box-shadow: 0px -2px 5px #888;">
                     <tr class="table-primary ">
-                        <th scope=" col"
-                        style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
-                        Intitulée de formation en cours </th>
-                        <th scope="col"
-                            style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
-                            Nom de formateur</th>
-                        <th scope="col"
-                            style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
-                            Date de formation</th>
-                        <th scope="col"
-                            style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
-                            Progression</th>
-                        <th scope="col"
-                            style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
-                            Validation</th>
-                    </tr>
+                        <th scope=" col" style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
+                            Intitulée de formation en cours </th>
+                            <th scope="col" style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
+                                Nom de formateur</th>
+                                <th scope="col" style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
+                                    Date de formation</th>
+                                    <th scope="col" style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
+                                        Progression</th>
+                                        <th scope="col" style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
+                                            Validation</th>
+                                            </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let p of formation" style="color: rgb(126, 212, 118); font-weight: bold;">
                         <th scope="row">{{ p.nom }}</th>
-                        <td>{{p.formateur.nom}}</td>
-                        <td>{{p.date_debut}}</td>
-                        <td>
-                            <div class="cols-sm-4"></div>
-                            <div *ngIf="p.progress == true">
-                                <mat-progress-bar mode="buffer" value="100"></mat-progress-bar>
-                            </div>
-                            <div *ngIf="p.progress == false">
-                                <mat-progress-bar mode="buffer" value="50"></mat-progress-bar>
-                            </div>
-                            <div class="cols-sm-4"></div>
-                        </td>
-                        <td>
-                            <div *ngIf="p.valider == true" class="form-check form-switch">  
-                                <label class="form-check-label"  for="flexSwitchCheckCheckedDisabled">Validé</label>
-                            </div>
-                            <div *ngIf="p.valider == false" class="form-check form-switch">  
-                                <label class="form-check-label"  for="flexSwitchCheckCheckedDisabled">En Cours</label>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                            <td>{{p.formateur.nom}}</td>
+                            <td>{{p.date_debut}}</td>
+                            <td>
+                                <div class="cols-sm-4"></div>
+    <div *ngIf="p.progress == true">
+        <mat-progress-bar mode="buffer" value="100"></mat-progress-bar>
     </div>
-    <div class="col"></div>
+    <div *ngIf="p.progress == false">
+        <mat-progress-bar mode="buffer" value="50"></mat-progress-bar>
+    </div>
+    <div class="cols-sm-4"></div>
+</td>
+<td>
+    <div *ngIf="p.valider == true"  class="form-check form-switch">
+        <label class="form-check-label"  for="flexSwitchCheckCheckedDisabled">Validé</label>
+    </div>
+    <div *ngIf="p.valider == false"  class="form-check form-switch">
+        <label class="form-check-label"  for="flexSwitchCheckCheckedDisabled">En Cours</label>
+    </div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="col"></div>
 </div>

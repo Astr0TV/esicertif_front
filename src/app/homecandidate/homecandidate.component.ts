@@ -56,6 +56,11 @@ selectedValue: string;
     }
   }
 
+  goToPage(pageName:string ): void{
+    this.route.navigate([`${pageName}`]);}
+
+
+
   ngOnInit(): void {
     this.redirect();
    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
