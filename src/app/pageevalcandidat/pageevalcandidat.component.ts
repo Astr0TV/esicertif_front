@@ -30,7 +30,9 @@ export class PageevalcandidatComponent implements OnInit {
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
-  ngOnInit() {
+  
+  ngOnInit() {    
+
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
       

@@ -14,7 +14,11 @@ export class FichepresenceformateurComponent implements OnInit {
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
+
+
+
   ngOnInit(): void {
+
   }
 
 }

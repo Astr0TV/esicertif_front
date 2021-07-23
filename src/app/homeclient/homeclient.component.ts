@@ -16,7 +16,9 @@ export class HomeclientComponent implements OnInit {
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
+  
   ngOnInit() {
-   
+  
+
   }
 }

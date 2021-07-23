@@ -15,15 +15,15 @@ export class ConnexionComponent implements OnInit {
 
   constructor(private http: HttpClient,private route: Router,private  connexionservice: ConnexionService) { }
 
+
   ngOnInit(): void {
-    this.redirect();
+
+
   }
 
-  redirect(): any {
-    if (localStorage.getItem('user') != null) {
-      this.route.navigateByUrl('/accueil');
-    }
-  }
+
+
+  
 
 connexion(val: any): any {
   this.http.post('http://localhost:8089/connexion', val).subscribe({

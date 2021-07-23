@@ -16,7 +16,9 @@ export class FormationsformatuerComponent implements OnInit {
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
+ 
   ngOnInit(): void {
+
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     this.http.get('http://localhost:8089/formation/formateur/'+ test.id).subscribe({
       next: (data) => { this.formation = data; 

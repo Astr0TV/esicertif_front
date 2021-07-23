@@ -13,7 +13,10 @@ export class HomeadminComponent implements OnInit {
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
+  
   ngOnInit(): void {
+  
+
   }
 
 }

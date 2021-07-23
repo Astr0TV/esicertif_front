@@ -45,14 +45,11 @@ selectedValue: string;
     }
   }
 
-  deconnect(): any {
-    localStorage.clear();
-    this.route.navigateByUrl('/accueil');
-  }
+
 
   redirect(): any {
-    if (localStorage.getItem('user') != null) {
-      this.route.navigateByUrl('acceuil');
+    if (localStorage.getItem('userConnect') != null) {
+      this.route.navigateByUrl('connexion');
     }
   }
 
@@ -64,7 +61,6 @@ selectedValue: string;
 
 
   ngOnInit(): void {
-    this.redirect();
    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
    console.log(test.id);
    this.http.get('http://localhost:8089/user/'+ test.id).subscribe({

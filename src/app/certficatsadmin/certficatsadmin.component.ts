@@ -12,7 +12,11 @@ export class CertficatsadminComponent implements OnInit {
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
+
+  
   ngOnInit(): void {
+    
+
   }
 
 }

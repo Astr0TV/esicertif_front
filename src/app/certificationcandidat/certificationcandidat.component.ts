@@ -16,7 +16,9 @@ export class CertificationcandidatComponent implements OnInit {
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
+ 
   ngOnInit(): void {
+    
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
       next: (data) => { this.connexionnew = data; 

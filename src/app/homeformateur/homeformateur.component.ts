@@ -49,13 +49,10 @@ selectedValue: string;
     this.route.navigateByUrl('/accueil');
   }
 
-  redirect(): any {
-    if (localStorage.getItem('user') != null) {
-      this.route.navigateByUrl('acceuil');
-    }
-  }
-
+ 
+ 
   ngOnInit(): void {
+   
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
       next: (data) => { this.connexionnew = data; 
