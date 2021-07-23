@@ -22,7 +22,10 @@ selectedValue: string;
   closeResult: string | undefined;
 
   constructor(private modalService: NgbModal,private http: HttpClient,private route: Router,private connexion: ConnexionService) { }
-
+  goToPage(pageName:string ): void{
+    this.route.navigate([`${pageName}`]);
+    localStorage.clear();
+  }
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

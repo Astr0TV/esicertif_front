@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pageevalcandidat',
@@ -24,8 +25,11 @@ export class PageevalcandidatComponent implements OnInit {
   reponse3:any;
   reponse4:any;
  
-  constructor(private _formBuilder: FormBuilder) {}
-
+  constructor(private _formBuilder: FormBuilder, private route :Router) {}
+  goToPage(pageName:string ): void{
+    this.route.navigate([`${pageName}`]);
+    localStorage.clear();
+  }
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]

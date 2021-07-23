@@ -10,8 +10,10 @@
     <div class="col">
     </div>
     <div *ngFor="let p of connexionnew" class="col">
-        <p class="name">{{ p.nom }} {{ p.prenom }}
-            <mat-icon class="icon">power_settings_new</mat-icon>
+        <p>{{ p.nom }} {{ p.prenom }}
+            <a (click)="goToPage('acceuil')">
+                <mat-icon class="icon">power_settings_new</mat-icon>
+            </a>
         </p>
 
     </div>

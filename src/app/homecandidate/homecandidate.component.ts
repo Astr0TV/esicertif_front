@@ -57,7 +57,9 @@ selectedValue: string;
   }
 
   goToPage(pageName:string ): void{
-    this.route.navigate([`${pageName}`]);}
+    this.route.navigate([`${pageName}`]);
+    localStorage.clear();
+  }
 
 
 

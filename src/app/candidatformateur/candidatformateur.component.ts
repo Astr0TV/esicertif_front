@@ -14,11 +14,12 @@ connexionnew: any;
 
   constructor(private http: HttpClient,private route: Router,private connexion: ConnexionService) { }
 
-  deconnect(): any {
-    localStorage.clear();
-    this.route.navigateByUrl('/accueil');
-  }
 
+  goToPage(pageName:string ): void{
+    this.route.navigate([`${pageName}`]);
+    localStorage.clear();
+  }
+    
   ngOnInit(): void {
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     this.http.get('http://localhost:8089/user/'+ test.id).subscribe({

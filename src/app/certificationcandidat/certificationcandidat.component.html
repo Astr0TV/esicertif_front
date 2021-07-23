@@ -10,8 +10,10 @@
     <div class="col">
     </div>
     <div *ngFor="let p of connexionnew" class="col">
-        <p class="name">{{ p.nom }} {{ p.prenom }}
-            <mat-icon class="icon">power_settings_new</mat-icon>
+        <p>{{ p.nom }} {{ p.prenom }}
+            <a (click)="goToPage('acceuil')">
+                <mat-icon class="icon">power_settings_new</mat-icon>
+            </a>
         </p>
 
     </div>
@@ -58,66 +60,57 @@
 
                     <thead style="box-shadow: 0px -2px 5px #888;">
                         <tr class="table-primary ">
-                            <th scope=" col"
-                            style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
-                            Intitulée de formation en cours </th>
-                            <th scope="col"
-                                style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
-                                Nom de formateur</th>
-                            <th scope="col"
-                                style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
-                                Date de formation</th>
-                            <th scope="col"
-                                style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
-                                Etat</th>
-                            <th scope="col"
-                                style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
-                                Certificat</th>
+                            <th scope=" col" style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
+                                Intitulée de formation en cours </th>
+                                <th scope="col" style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
+                                    Nom de formateur</th>
+                                    <th scope="col" style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
+                                        Date de formation</th>
+                                        <th scope="col" style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
+                                            Etat</th>
+                                            <th scope="col" style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">
+                                                Certificat</th>
 
-                        </tr>
+                                                </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let p of formation" style="color: rgb(126, 212, 118); font-weight: bold;">
                             <th scope="row">{{ p.nom }}</th>
-                            <td>{{p.formateur.prenom}}</td>
-                            <td>{{p.date_debut}}</td>
-                            <td *ngIf="p.valider == true">Validé</td>
-                            <td *ngIf="p.valider == false">
-                                <mat-icon class="red-icon" mat-raised-button #tooltip="matTooltip"
-                                    matTooltip="veuillez remplir votre fiche d'evaluation"
-                                    matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip">
-                                    notification_important
-                                </mat-icon>
-                            </td>
-                            <td>
-                                <mat-icon class="green-icon">picture_as_pdf
-                                </mat-icon>
-                            </td>
+                                <td>{{p.formateur.prenom}}</td>
+                                <td>{{p.date_debut}}</td>
+                                <td *ngIf="p.valider == true">Validé</td>
+                                <td *ngIf="p.valider == false">
+                                    <mat-icon class="red-icon" mat-raised-button #tooltip="matTooltip" matTooltip="veuillez remplir votre fiche d'evaluation" matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip">
+                                        notification_important
+                                    </mat-icon>
+                                </td>
+                                <td>
+                                    <mat-icon class="green-icon">picture_as_pdf
+                                    </mat-icon>
+                                </td>
 
 
 
                         </tr>
                         <tr style="color: rgb(126, 212, 118); font-weight: bold;">
                             <th scope="row">Power BI</th>
-                            <td>Mr BANKA</td>
-                            <td>06-05-2021</td>
-                            <td>
-                                <mat-icon class="red-icon" mat-raised-button #tooltip="matTooltip"
-                                    matTooltip="veuillez remplir votre fiche d'evaluation"
-                                    matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip">
-                                    notification_important
-                                </mat-icon>
-                            </td>
-                            <td>
-                                <mat-icon>picture_as_pdf
-                                </mat-icon>
-                            </td>
+                                <td>Mr BANKA</td>
+                                <td>06-05-2021</td>
+                                <td>
+                                    <mat-icon class="red-icon" mat-raised-button #tooltip="matTooltip" matTooltip="veuillez remplir votre fiche d'evaluation" matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip">
+                                        notification_important
+                                    </mat-icon>
+                                </td>
+                                <td>
+                                    <mat-icon>picture_as_pdf
+                                    </mat-icon>
+                                </td>
 
                         </tr>
                     </tbody>
-                </table>
+                    </table>
             </div>
-        </div>
     </div>
-    <div class="col"></div>
+</div>
+<div class="col"></div>
 </div>

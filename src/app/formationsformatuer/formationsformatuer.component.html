@@ -10,8 +10,10 @@
     <div class="col">
     </div>
     <div *ngFor="let p of connexionnew" class="col">
-        <p class="name">{{ p.nom }} {{ p.prenom }}
-            <mat-icon class="icon">power_settings_new</mat-icon>
+        <p>{{ p.nom }} {{ p.prenom }}
+            <a (click)="goToPage('acceuil')">
+                <mat-icon class="icon">power_settings_new</mat-icon>
+            </a>
         </p>
 
     </div>
@@ -60,9 +62,9 @@
                         <tr class="table-primary ">
                             <th scope="col" style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">Intitulée de formation en cours </th>
                                 <th scope="col" style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">Nom de formateur</th>
-                                        <th scope="col" style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">Progression</th>
+                                    <th scope="col" style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">Progression</th>
 
-                                            </tr>
+                                        </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let p of formation" style="color: rgb(126, 212, 118); font-weight: bold;">
