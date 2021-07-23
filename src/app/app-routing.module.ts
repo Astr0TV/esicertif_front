@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
+import { CandidatformateurComponent } from './candidatformateur/candidatformateur.component';
 import { CertificationcandidatComponent } from './certificationcandidat/certificationcandidat.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { FormationCandidatComponent } from './formation-candidat/formation-candidat.component';
@@ -25,7 +26,9 @@ const routes: Routes = [
   {path:'certificatcandidat', component: CertificationcandidatComponent},
   {path:'pageevalcandidat', component: PageevalcandidatComponent},
   {path:'homeformateur', component: HomeformateurComponent},
-  {path:'formationformateur', component: FormationsformatuerComponent}
+  {path:'formationformateur', component: FormationsformatuerComponent},
+  {path:'candidatformateur', component: CandidatformateurComponent},
+
 
  
 
