@@ -34,6 +34,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { HomeformateurComponent } from './homeformateur/homeformateur.component';
 import { FormationsformatuerComponent } from './formationsformatuer/formationsformatuer.component';
 import { CandidatformateurComponent } from './candidatformateur/candidatformateur.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { CandidatformateurComponent } from './candidatformateur/candidatformateu
     ReactiveFormsModule,
     MatDividerModule,
     MatListModule,MatRadioModule,
-    MatCarouselModule.forRoot()
+    MatCarouselModule.forRoot(),
+    MatTabsModule
 
 
   ],

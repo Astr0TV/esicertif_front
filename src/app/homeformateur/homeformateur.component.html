@@ -1,1 +1,87 @@
-<p>homeformateur works!</p>
+<div class="row">
+    <div class="col">
+        <div class="imglogo">
+            <img src="/assets/esicertif3.png">
+        </div>
+    </div>
+    <div class="col">
+
+    </div>
+    <div class="col">
+    </div>
+    <div  *ngFor="let p of connexionnew" class="col">
+        <p>{{ p.nom }} {{ p.prenom }}
+            <a (click)="deconnect()">
+                <mat-icon class="icon">power_settings_new</mat-icon>
+            </a>
+        </p>
+
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="mb-3">
+            <nav class="foxnav">
+                <ul>
+                    <li>
+                        <a routerLink="/homeformateur">
+                            <mat-icon class="active">home</mat-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/formationformateur">
+                            <mat-icon>description</mat-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/certificatcandidat">
+                            <mat-icon>school</mat-icon>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <img alt="candidat sur une chaise" class="imgcandidat" src="assets\candidatg.jpg" />
+    </div>
+    <div class="col">
+        <img alt="candidat sur une chaise" class="logofiche" style="width: 60px; margin-top: -15%; margin-left: 45px;"
+            (click)="open(mymodal)" src="assets\fiche d'evaluation rg.jpg" />
+        <ng-template  #mymodal let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title " id="modal-basic-title">Informations de fiche d'evaluation</h4>
+                <button type="button" class="close btn btn-danger" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true" style="color: white;">×</span>
+                </button>
+            </div>
+            <div  class="modal-body">
+                <mat-form-field>
+                    <mat-label>Nom de formation</mat-label>
+                    <select class="browser-default custom-select">
+                        <option  selected>Select votre formation</option>
+                        <option *ngFor="let p of formation">{{ p.nom }}</option>
+                      </select>
+                </mat-form-field>
+                <br> <br>
+                <p class="classformateur">Nom de formateur :</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-success"
+                    (click)="modal.close('Save click')">Valider</button>
+            </div>
+        </ng-template>
+        <div class="text-center margin50">
+            <mat-tab-group mat-align-tabs="center">
+                <mat-tab *ngFor="let f of formation" label="{{ f.nom }}">{{ f.candidat.nom  }} {{ f.candidat.prenom  }}</mat-tab>
+              </mat-tab-group>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
