@@ -27,7 +27,8 @@ const routes: Routes = [
   {path:'pageevalcandidat', component: PageevalcandidatComponent},
   {path:'homeformateur', component: HomeformateurComponent},
   {path:'formationformateur', component: FormationsformatuerComponent},
-  {path:'condidatformateur',component: CandidatformateurComponent}
+  {path:'candidatformateur', component: CandidatformateurComponent},
+
 
  
 
