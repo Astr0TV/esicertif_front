@@ -17,13 +17,13 @@ export class ConnexionComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-
+    if (this.connexionservice.isConnected()) {
+      this.route.navigateByUrl('homecandidat');
+  } else {
+    this.route.navigateByUrl('connexion');
   }
 
-
-
-  
+  }
 
 connexion(val: any): any {
   this.http.post('http://localhost:8089/connexion', val).subscribe({

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { ConnexionService } from '../service/connexion.service';
 
 @Component({
   selector: 'app-homeclient',
@@ -10,7 +11,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 export class HomeclientComponent implements OnInit {
 
 
-  constructor(private route: Router) {
+  constructor(private route: Router,private connexionservice:ConnexionService) {
   }
   goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
@@ -19,6 +20,11 @@ export class HomeclientComponent implements OnInit {
   
   ngOnInit() {
   
+    if (this.connexionservice.isConnected()) {
+      this.route.navigateByUrl('homecandidat');
+  } else {
+    this.route.navigateByUrl('connexion');
+  }
 
   }
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConnexionService } from '../service/connexion.service';
 @Component({
   selector: 'app-certificationcandidat',
   templateUrl: './certificationcandidat.component.html',
@@ -10,7 +11,7 @@ export class CertificationcandidatComponent implements OnInit {
   formation: any;
   connexionnew: any;
 
-  constructor(private http: HttpClient,private route :Router) { }
+  constructor(private http: HttpClient,private route :Router,private connexionservice:ConnexionService) { }
   
   goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
@@ -18,7 +19,14 @@ export class CertificationcandidatComponent implements OnInit {
   }
  
   ngOnInit(): void {
-    
+    if (this.connexionservice.isConnected()) {
+      this.route.navigateByUrl('homecandidat');
+  } else {
+    this.route.navigateByUrl('connexion');
+  }
+
+
+
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
       next: (data) => { this.connexionnew = data; 

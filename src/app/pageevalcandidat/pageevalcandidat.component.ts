@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { ConnexionService } from '../service/connexion.service';
 
 @Component({
   selector: 'app-pageevalcandidat',
@@ -25,13 +26,18 @@ export class PageevalcandidatComponent implements OnInit {
   reponse3:any;
   reponse4:any;
  
-  constructor(private _formBuilder: FormBuilder, private route :Router) {}
+  constructor(private _formBuilder: FormBuilder, private route :Router,private connexionservice:ConnexionService) {}
   goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
   
   ngOnInit() {    
+    if (this.connexionservice.isConnected()) {
+      this.route.navigateByUrl('homecandidat');
+  } else {
+    this.route.navigateByUrl('connexion');
+  }
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]

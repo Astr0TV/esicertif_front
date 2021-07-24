@@ -4,11 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { ConnexionComponent } from '../connexion/connexion.component';
 import { ConnexionService } from '../service/connexion.service';
 interface Nourriture {
   valeur : String ;
- viewValue : String ;
+  viewValue : String ;
  
 }
 
@@ -23,9 +22,9 @@ export class HomecandidateComponent implements OnInit {
 formation: any;
 connexionnew: any;
 selectedValue: string;
-  closeResult: string | undefined;
+closeResult: string | undefined;
 
-  constructor(private modalService: NgbModal,private http: HttpClient,private route: Router,private connexion: ConnexionService) { }
+  constructor(private modalService: NgbModal,private http: HttpClient,private route: Router,private connexionservice: ConnexionService) { }
 
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -46,21 +45,19 @@ selectedValue: string;
   }
 
 
-
-  redirect(): any {
-    if (localStorage.getItem('userConnect') != null) {
-      this.route.navigateByUrl('connexion');
-    }
-  }
-
   goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
 
-
-
   ngOnInit(): void {
+    if (this.connexionservice.isConnected()) {
+      this.route.navigateByUrl('homecandidat');
+  } else {
+    this.route.navigateByUrl('connexion');
+  }
+
+
    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
    console.log(test.id);
    this.http.get('http://localhost:8089/user/'+ test.id).subscribe({

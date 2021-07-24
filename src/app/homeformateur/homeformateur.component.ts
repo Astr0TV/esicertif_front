@@ -21,7 +21,7 @@ connexionnew: any;
 selectedValue: string;
   closeResult: string | undefined;
 
-  constructor(private modalService: NgbModal,private http: HttpClient,private route: Router,private connexion: ConnexionService) { }
+  constructor(private modalService: NgbModal,private http: HttpClient,private route: Router,private connexionservice: ConnexionService) { }
   goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
@@ -48,11 +48,13 @@ selectedValue: string;
     localStorage.clear();
     this.route.navigateByUrl('/accueil');
   }
-
- 
- 
   ngOnInit(): void {
-   
+    if (this.connexionservice.isConnected()) {
+      this.route.navigateByUrl('homecandidat');
+  } else {
+    this.route.navigateByUrl('connexion');
+  }
+
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
       next: (data) => { this.connexionnew = data; 
