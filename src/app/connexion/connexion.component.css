@@ -99,8 +99,8 @@
                .login-box {
                    width: 100%;
                    margin: auto;
-                   max-width: 535px;
-                   min-height: 690px;
+                   max-width: 515px;
+                   min-height: 650px;
                    position: relative;
                    background: url(https://pixabay.com/fr/illustrations/web-banni%c3%a8re-r%c3%a9sum%c3%a9-internet-1012467/) no-repeat center;
                    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19)
@@ -295,5 +295,5 @@
                }
                
                .card {
-                   margin-left: 85px;
+                   margin-left: 65px;
                }
