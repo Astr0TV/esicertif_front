@@ -170,7 +170,7 @@
                .login-space .group .input,
                .login-space .group .button {
                    width: 100%;
-                   color: #fff;
+                   color: rgb(0, 0, 0);
                    display: block
                }
                
