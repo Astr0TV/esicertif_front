@@ -20,11 +20,7 @@ export class HomeclientComponent implements OnInit {
   
   ngOnInit() {
   
-    if (this.connexionservice.isConnected()) {
-      this.route.navigateByUrl('homecandidat');
-  } else {
-    this.route.navigateByUrl('connexion');
-  }
+
 
   }
 }

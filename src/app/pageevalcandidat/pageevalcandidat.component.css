@@ -47,3 +47,34 @@ li a {
 .mat-radio-button~.mat-radio-button {
     margin: 15px 5px 10px;
 }
+
+.question {
+    color: blue;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.reponsechoisie {
+    color: blue;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.entete {
+    text-decoration-line: none;
+    -moz-text-decoration-line: none;
+    text-decoration-color: rgb(0, 0253);
+    -moz-text-decoration-color: rgb(0, 0253);
+    text-decoration-style: solid;
+    -moz-text-decoration-style: solid;
+    color: rgb(0, 0, 255);
+    text-shadow: 0px 0px 1px blue;
+}
+
+
+/*star rating*/
+
+ngb-rating {
+    color: #FFC107;
+    font-size: 65px;
+}

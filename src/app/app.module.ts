@@ -40,6 +40,10 @@ import { FormationadminComponent } from './formationadmin/formationadmin.compone
 import { FormateursCandidatAdminComponent } from './formateurs-candidat-admin/formateurs-candidat-admin.component';
 import { CertficatsadminComponent } from './certficatsadmin/certficatsadmin.component';
 import { FichepresenceformateurComponent } from './fichepresenceformateur/fichepresenceformateur.component';
+import {MatPaginatorModule} from '@angular/material/paginator'; 
+import {NgxPaginationModule} from 'ngx-pagination';
+
+
 
 @NgModule({
   declarations: [
@@ -83,7 +87,7 @@ import { FichepresenceformateurComponent } from './fichepresenceformateur/fichep
     MatDividerModule,
     MatListModule, MatRadioModule,
     MatCarouselModule.forRoot(),
-    MatTabsModule
+    MatTabsModule,MatPaginatorModule,NgxPaginationModule,
 
   ],
   providers: [],
