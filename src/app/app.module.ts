@@ -42,6 +42,8 @@ import { CertficatsadminComponent } from './certficatsadmin/certficatsadmin.comp
 import { FichepresenceformateurComponent } from './fichepresenceformateur/fichepresenceformateur.component';
 import {MatPaginatorModule} from '@angular/material/paginator'; 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ModelComponent } from './pageevalcandidat/model/model.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -63,7 +65,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FormationadminComponent,
     FormateursCandidatAdminComponent,
     CertficatsadminComponent,
-    FichepresenceformateurComponent
+    FichepresenceformateurComponent,
+    ModelComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -87,7 +92,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatDividerModule,
     MatListModule, MatRadioModule,
     MatCarouselModule.forRoot(),
-    MatTabsModule,MatPaginatorModule,NgxPaginationModule,
+    MatTabsModule,MatPaginatorModule,NgxPaginationModule,MatDialogModule
 
   ],
   providers: [],

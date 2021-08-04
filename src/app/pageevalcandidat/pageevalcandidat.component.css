@@ -1,63 +1,63 @@
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border-radius: 18px;
-    margin-left: 35%;
-    margin-right: 38%;
-    text-align: center;
-    box-shadow: 0px 0px black, 0em 0 1em black;
+.mat-radio-button {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
 }
 
-.border {
-    box-shadow: 0px 0px black, 0em 0 1em black;
+.mat-radio-button {
+    margin: 5px;
 }
 
-li {
-    display: inline-block;
+.mat-icon {
+    color: rgb(55, 0, 255);
+    font-size: 15px;
 }
 
-li a {
-    width: 4em;
-    display: block;
-    padding: 40px;
-    padding-left: 4px;
-    text-align: center;
-}
-
-@media screen and (max-width: 500px) {
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        width: 20%;
-        box-shadow: 0px 0px black, 0em 0 1em black;
-        border-radius: 18px
-    }
-    .li a {
-        width: 4em;
-        display: block;
-        padding: 20px;
-        text-align: center;
-    }
-}
-
-.mat-radio-button~.mat-radio-button {
-    margin: 15px 5px 10px;
+.numquestion {
+    color: rgb(55, 0, 255);
+    text-transform: uppercase;
+    font-size: 14px;
 }
 
 .question {
-    color: blue;
-    text-transform: uppercase;
-    font-size: 16px;
+    color: rgb(8, 8, 8);
+    font-size: 14px;
+    margin-bottom: 0px;
+    font-weight: bolder;
+}
+
+.espaceentrebuttons {
+    margin: 14px;
 }
 
 .reponsechoisie {
     color: blue;
     text-transform: uppercase;
     font-size: 14px;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    left: 60%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.center2 {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.center3 {
+    margin: 0;
+    position: absolute;
+    left: 55%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .entete {
@@ -71,10 +71,15 @@ li a {
     text-shadow: 0px 0px 1px blue;
 }
 
+.textelabel {
+    color: rgb(146, 146, 146);
+    font-size: small;
+}
+
 
 /*star rating*/
 
 ngb-rating {
     color: #FFC107;
-    font-size: 65px;
+    font-size: 45px;
 }
