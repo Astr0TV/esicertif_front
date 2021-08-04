@@ -44,18 +44,35 @@ selectedValue: string;
     }
   }
 
+  fichepresence(presence: any):any {
+    this.connexionservice.presence = presence;
+    this.route.navigateByUrl('fichedepresence');
+  }
+
+  nomformation(nomformation: any):any {
+    this.connexionservice.nomformation = nomformation;
+    console.log(nomformation);
+  }
+
+
+
   deconnect(): any {
     localStorage.clear();
     this.route.navigateByUrl('/accueil');
   }
   ngOnInit(): void {
+    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
-      this.route.navigateByUrl('homecandidat');
+      if (test.role == 'Formateur') {
+        this.route.navigateByUrl('homeformateur');
+      }else if (test.role == 'candidat') {
+        this.route.navigateByUrl('homecandidat');
+      }
+      
   } else {
     this.route.navigateByUrl('connexion');
+  
   }
-
-    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
       next: (data) => { this.connexionnew = data; 
         console.log('this msg concernec les informations de'); 

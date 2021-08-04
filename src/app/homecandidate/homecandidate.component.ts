@@ -51,15 +51,19 @@ closeResult: string | undefined;
   }
 
   ngOnInit(): void {
+    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
-      this.route.navigateByUrl('homecandidat');
+      if (test.role == 'Formateur') {
+        this.route.navigateByUrl('homeformateur');
+      }else if (test.role == 'candidat') {
+        this.route.navigateByUrl('homecandidat');
+      }
+      
   } else {
     this.route.navigateByUrl('connexion');
+  
   }
 
-
-   var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
-   console.log(test.id);
    this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
       next: (data) => { this.connexionnew = data; 
         console.log('this msg concernec les informations de'); 

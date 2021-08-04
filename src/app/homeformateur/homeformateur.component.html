@@ -51,37 +51,33 @@
         <img alt="candidat sur une chaise" class="imgcandidat" src="assets\candidatg.jpg" />
     </div>
     <div class="col">
-        <img alt="candidat sur une chaise" class="logofiche" style="width: 60px; margin-top: -15%; margin-left: 45px;" (click)="open(mymodal)" src="assets\fiche d'evaluation rg.jpg" />
-        <ng-template #mymodal let-modal>
-            <div class="modal-header">
-                <h4 class="modal-title " id="modal-basic-title">Informations de fiche d'evaluation</h4>
-                <button type="button" class="close btn btn-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                    <span aria-hidden="true" style="color: white;">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <mat-form-field>
-                    <mat-label>Nom de formation</mat-label>
-                    <select class="browser-default custom-select">
-                        <option  selected>Select votre formation</option>
-                        <option *ngFor="let p of formation">{{ p.nom }}</option>
-                      </select>
-                </mat-form-field>
-                <br> <br>
-                <p class="classformateur">Nom de Condidat :</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-success" (click)="modal.close('Save click')">Valider</button>
-            </div>
-        </ng-template>
         <div class="text-center margin50">
-            <mat-tab-group dynamicHeight>
-                <mat-tab *ngFor="let p of formation" label="{{ p.nom }}b">
-                    <div *ngFor="let b of p.candidat" class="example-small-box mat-elevation-z4">
-                        {{ b.nom }} {{ b.prenom }}
-                    </div>
-                </mat-tab>
-            </mat-tab-group>
+            <cdk-accordion class="example-accordion">
+                <cdk-accordion-item
+                *ngFor="let p of formation"
+                  #accordionItem="cdkAccordionItem"
+                  class="example-accordion-item"
+                  role="button"
+                  tabindex="0"
+                  [attr.id]="'accordion-header-'"
+                  [attr.aria-expanded]="accordionItem.expanded"
+                  [attr.aria-controls]="'accordion-body-'">
+                  <div class="example-accordion-item-header"  (click)="nomformation(p)" (click)="accordionItem.toggle()">
+                    {{ p.nom }}
+                    <span class="example-accordion-item-description">
+                      Click pour {{ accordionItem.expanded ? 'close' : 'open' }}
+                    </span>
+                  </div>
+                  <div *ngFor="let b of p.candidat"
+                    class="example-accordion-item-body"
+                    role="region"
+                    [style.display]="accordionItem.expanded ? '' : 'none'"
+                    [attr.id]="'accordion-body-'" 
+                    [attr.aria-labelledby]="'accordion-header-' ">
+                    {{ b.nom }} {{ b.prenom }} <a   (click)="fichepresence(b)" ><mat-icon class="presence">pending_actions</mat-icon></a>
+                  </div>
+                </cdk-accordion-item>
+              </cdk-accordion>
     </div>
 </div>
 <div class="col"></div>

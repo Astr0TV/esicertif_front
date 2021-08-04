@@ -40,6 +40,9 @@ import { FormationadminComponent } from './formationadmin/formationadmin.compone
 import { FormateursCandidatAdminComponent } from './formateurs-candidat-admin/formateurs-candidat-admin.component';
 import { CertficatsadminComponent } from './certficatsadmin/certficatsadmin.component';
 import { FichepresenceformateurComponent } from './fichepresenceformateur/fichepresenceformateur.component';
+import {CdkAccordionModule} from '@angular/cdk/accordion';
+import {MatTableModule} from '@angular/material/table';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -59,7 +62,7 @@ import { FichepresenceformateurComponent } from './fichepresenceformateur/fichep
     FormationadminComponent,
     FormateursCandidatAdminComponent,
     CertficatsadminComponent,
-    FichepresenceformateurComponent
+    FichepresenceformateurComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,8 @@ import { FichepresenceformateurComponent } from './fichepresenceformateur/fichep
     MatDividerModule,
     MatListModule, MatRadioModule,
     MatCarouselModule.forRoot(),
-    MatTabsModule
+    MatTabsModule,
+    CdkAccordionModule,MatTableModule,MatChipsModule
 
   ],
   providers: [],

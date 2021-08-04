@@ -1,0 +1,51 @@
+<div class="container mt-5">
+
+    <h1
+      style="letter-spacing: 4px; font-family: Noto Serif; border-radius: 14px; background-color: teal; margin: auto; color: white;"
+      class="text-center w-25">Esic Forma</h1>
+    <br>
+  
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <form [formGroup]="seanceForm" #logForm="ngForm" (ngSubmit)="ajoute(logForm.value)">
+          <p>
+            <input type="text" id="name" name="name" placeholder="seance name" formControlName="name"
+              class="form-control form-control-lg">
+          </p>
+  
+          <button type="button" (click)="addSeance()" class="btn btn-primary btn-block">Ajouter un créneau</button>
+  
+          <table class="table" formArrayName="seance">
+            <tbody>
+              <tr *ngFor="let s of seance().controls; let i=index" [formGroupName]="i">
+                <td>
+                  Seances :
+                  <input type="date" name="jour1" formControlName="jour1" ngModel="" class="form-control">
+                </td>
+                <td>
+                  Heure:
+                  <input type="time" name="heure1" formControlName="heure1" ngModel="" class="form-control">
+                </td>
+                <td>
+                  Remove :
+                  <p><a class="btn btn-primary" (click)="removeSeance(i)" style="background-color: tomato; size: 5px;"
+                      href="#!" role="button"><i class="fas fa-trash"></i></a></p>
+  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+  
+          <button type="submit" class="btn btn-success btn-block">Submit</button>
+  
+        </form>
+      </div>
+    </div>
+  
+    <br />
+    <div class="text-center">
+      <p class="text-secondary">Rendu du formulaire en JSON ({{seance().controls.length }} séance(s) rajouté(es) pour l'instant)</p>
+      <span class="text-info">{{this.seanceForm.value | json}}</span>
+    </div>
+  </div>    
