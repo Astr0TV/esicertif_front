@@ -1,9 +1,49 @@
 <p>homeadmin works!</p>
-<!--   <div *ngFor="let p of connexionnew" class="col">
+
+<div class="row">
+    <div class="col">
+        <div class="imglogo">
+            <img src="/assets/esicertif3.png">
+        </div>
+    </div>
+    <div class="col">
+
+    </div>
+    <div class="col">
+    </div>
+    <div *ngFor="let p of connexionnew" class="col">
         <p>{{ p.nom }} {{ p.prenom }}
             <a (click)="goToPage('acceuil')">
                 <mat-icon class="icon">power_settings_new</mat-icon>
             </a>
         </p>
 
-    </div>-->
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="mb-3">
+            <nav class="foxnav">
+                <ul>
+                    <li>
+                        <a routerLink="/homeformateur">
+                            <mat-icon class="active">home</mat-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/formationformateur">
+                            <mat-icon>description</mat-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/candidatformateur">
+                            <mat-icon>school</mat-icon>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

@@ -8,7 +8,7 @@ import { ConnexionService } from '../service/connexion.service';
   styleUrls: ['./homeadmin.component.css']
 })
 export class HomeadminComponent implements OnInit {
-
+  connexionnew: any;
   constructor(private route:Router,private connexionservice:ConnexionService) { }
   goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
@@ -16,11 +16,7 @@ export class HomeadminComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    if (this.connexionservice.isConnected()) {
-      this.route.navigateByUrl('homecandidat');
-  } else {
-    this.route.navigateByUrl('connexion');
-  }
+   
 
 
   }
