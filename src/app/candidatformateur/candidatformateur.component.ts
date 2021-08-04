@@ -21,17 +21,16 @@ export class CandidatformateurComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
-      this.route.navigateByUrl('homecandidat');
+      if (test.role == 'Formateur') {
+        this.route.navigateByUrl('candidatformateur');
+      }
+      
   } else {
     this.route.navigateByUrl('connexion');
+  
   }
-
-
-
-
-    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
       next: (data) => { this.connexionnew = data; 
         console.log('this msg concerne les informations de'); 

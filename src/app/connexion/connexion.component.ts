@@ -17,11 +17,6 @@ export class ConnexionComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if (this.connexionservice.isConnected()) {
-      this.route.navigateByUrl('homecandidat');
-  } else {
-    this.route.navigateByUrl('connexion');
-  }
 
   }
 

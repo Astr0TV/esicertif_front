@@ -40,12 +40,9 @@ import { FormationadminComponent } from './formationadmin/formationadmin.compone
 import { FormateursCandidatAdminComponent } from './formateurs-candidat-admin/formateurs-candidat-admin.component';
 import { CertficatsadminComponent } from './certficatsadmin/certficatsadmin.component';
 import { FichepresenceformateurComponent } from './fichepresenceformateur/fichepresenceformateur.component';
-import {MatPaginatorModule} from '@angular/material/paginator'; 
-import {NgxPaginationModule} from 'ngx-pagination';
-import { ModelComponent } from './pageevalcandidat/model/model.component';
-import {MatDialogModule} from '@angular/material/dialog';
-
-
+import {CdkAccordionModule} from '@angular/cdk/accordion';
+import {MatTableModule} from '@angular/material/table';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -66,9 +63,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormateursCandidatAdminComponent,
     CertficatsadminComponent,
     FichepresenceformateurComponent,
-    ModelComponent,
-
-
   ],
   imports: [
     BrowserModule,
@@ -92,7 +86,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatDividerModule,
     MatListModule, MatRadioModule,
     MatCarouselModule.forRoot(),
-    MatTabsModule,MatPaginatorModule,NgxPaginationModule,MatDialogModule
+    MatTabsModule,
+    CdkAccordionModule,MatTableModule,MatChipsModule
 
   ],
   providers: [],

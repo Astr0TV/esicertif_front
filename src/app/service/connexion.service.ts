@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 })
 export class ConnexionService {
   user: any;
+  presence: any;
+  nomformation: any;
 
   constructor(private route: Router) { }
 
