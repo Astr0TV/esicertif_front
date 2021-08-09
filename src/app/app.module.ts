@@ -43,6 +43,13 @@ import { FichepresenceformateurComponent } from './fichepresenceformateur/fichep
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import {MatTableModule} from '@angular/material/table';
 import {MatChipsModule} from '@angular/material/chips';
+import { CreateformationComponent } from './createformation/createformation.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ListecandidatadminComponent } from './listecandidatadmin/listecandidatadmin.component';
+import { ListeformateuradminComponent } from './listeformateuradmin/listeformateuradmin.component';
+import { CreatecandidatComponentComponent } from './createcandidat-component/createcandidat-component.component';
+import { CreateformateurComponent } from './createformateur/createformateur.component';
+
 
 @NgModule({
   declarations: [
@@ -63,6 +70,11 @@ import {MatChipsModule} from '@angular/material/chips';
     FormateursCandidatAdminComponent,
     CertficatsadminComponent,
     FichepresenceformateurComponent,
+    CreateformationComponent,
+    ListecandidatadminComponent,
+    ListeformateuradminComponent,
+    CreatecandidatComponentComponent,
+    CreateformateurComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,8 +99,12 @@ import {MatChipsModule} from '@angular/material/chips';
     MatListModule, MatRadioModule,
     MatCarouselModule.forRoot(),
     MatTabsModule,
-    CdkAccordionModule,MatTableModule,MatChipsModule
+    CdkAccordionModule,MatTableModule,MatChipsModule,MatDialogModule
 
+  ],
+  entryComponents:[
+
+    CreateformationComponent,CreatecandidatComponentComponent,CreateformateurComponent
   ],
   providers: [],
   bootstrap: [AppComponent],

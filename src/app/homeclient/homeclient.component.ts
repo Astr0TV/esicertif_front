@@ -60,10 +60,6 @@ export class HomeclientComponent implements OnInit {
   
   ngOnInit() {
   
-<<<<<<< HEAD
-
-=======
->>>>>>> 4f5733cb81130564afa0c5323193dab7dcff3e48
 
   }
 }

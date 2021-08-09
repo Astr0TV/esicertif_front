@@ -7,7 +7,9 @@ import { CertficatsadminComponent } from './certficatsadmin/certficatsadmin.comp
 import { CertificationcandidatComponent } from './certificationcandidat/certificationcandidat.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { FichepresenceformateurComponent } from './fichepresenceformateur/fichepresenceformateur.component';
+import { FormateursCandidatAdminComponent } from './formateurs-candidat-admin/formateurs-candidat-admin.component';
 import { FormationCandidatComponent } from './formation-candidat/formation-candidat.component';
+import { CreateformationComponent } from './createformation/createformation.component';
 import { FormationadminComponent } from './formationadmin/formationadmin.component';
 import { FormationsformatuerComponent } from './formationsformatuer/formationsformatuer.component';
 import { HomeadminComponent } from './homeadmin/homeadmin.component';
@@ -16,6 +18,10 @@ import { HomeclientComponent } from './homeclient/homeclient.component';
 import { HomeformateurComponent } from './homeformateur/homeformateur.component';
 import { PageevalcandidatComponent } from './pageevalcandidat/pageevalcandidat.component';
 import { RegisterComponent } from './register/register.component';
+import { ListecandidatadminComponent } from './listecandidatadmin/listecandidatadmin.component';
+import { ListeformateuradminComponent } from './listeformateuradmin/listeformateuradmin.component';
+import { createComponentType } from '@angular/compiler/src/render3/view/compiler';
+import { CreatecandidatComponentComponent } from './createcandidat-component/createcandidat-component.component';
 
 
 const routes: Routes = [
@@ -35,8 +41,12 @@ const routes: Routes = [
   {path:'homeadmin', component: HomeadminComponent},
   {path:'formationadmin', component: FormationadminComponent},
   {path:'fichedepresence', component: FichepresenceformateurComponent},
-  {path:'formateurcandidatadmin', component: FormationCandidatComponent},
+  {path:'formateurcandidatadmin', component: FormateursCandidatAdminComponent},
   {path:'certificatadmin', component: CertficatsadminComponent},
+  {path:'createformation', component: CreateformationComponent},
+  {path:'listecandidatadmin', component: ListecandidatadminComponent},
+  {path:'listeformateuradmin', component: ListeformateuradminComponent},
+  {path:'CreatecandidatComponent', component: CreatecandidatComponentComponent},
 
 
 

@@ -26,12 +26,12 @@
                 </li>
                 <li>
                     <a routerLink="/formationadmin">
-                        <mat-icon class="active">description</mat-icon>
+                        <mat-icon class="icons">description</mat-icon>
                     </a>
                 </li>
                 <li>
                     <a routerLink="/formateurcandidatadmin">
-                        <mat-icon class="icons">person</mat-icon>
+                        <mat-icon class="active">person</mat-icon>
                     </a>
                 </li>
                 <li>
@@ -46,20 +46,19 @@
     <br><br>
 
     <div>
-        <button (click)="createformation()" class="iconadd" mat-mini-fab color="accent" aria-label="Example icon button with a add icon">
+        <button (click)="createformateur()" class="iconadd" mat-mini-fab color="accent" aria-label="Example icon button with a add icon">
           <mat-icon >add</mat-icon>
         </button>
 
     </div>
     <br>
     <div class="row">
-        <div *ngFor=" let p of formation" class="col-sm-4">
+        <div *ngFor=" let p of formateur" class="col-sm-4">
             <div class="card1 p-1 mb-2">
-
                 <div class="row">
-
                     <div class="col-sm-9">
-                        <h5 class="small">{{p.nom}}</h5>
+                        <h5 class="small">{{p.nom}} {{p.prenom}}
+                        </h5>
                     </div>
                     <div class="go-corner" href="#">
                         <div class="go-arrow">
@@ -68,7 +67,7 @@
                     </div>
                     <div class=" text-end ">
 
-                        <button (click)="deleteformation(p)" class="taillebutton" mat-mini-fab color="warn" aria-label="Example icon button with a remove icon">
+                        <button (click)="deleteformateur(p)" class="taillebutton" mat-mini-fab color="warn" aria-label="Example icon button with a remove icon">
                           <mat-icon class="tailleicon">remove </mat-icon>
                         </button>
 

@@ -1,0 +1,31 @@
+<div class="container mt-3">
+    <div class="modalcreateformation">
+        <form #formation="ngForm" (ngSubmit)="createformation(formation.value)">
+
+
+            <div class="form-group">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Intitulé de la formation</mat-label>
+                    <input matInput placeholder="Intitulé de la formation" name="nom" ngModel="">
+                    <mat-icon matSuffix>edit</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <select name="formateur" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option selected>Choisissez le formateur</option>
+                <option value="f" *ngFor="let f of formateurs" >{{f.nom}}{{f.prenom}} </option>
+              </select>
+            </div>
+            <br>
+            <div class="form-group">
+                <select name="candidat" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option selected>Choisissez le(s) candidat</option>
+                <option value="c" *ngFor="let c of candidats" >{{c.nom}} {{c.prenom}} </option>
+              </select>
+            </div>
+            <br>
+            <button type="submit" mat-stroked-button color="accent" class="center">Valider</button>
+        </form>
+    </div>
+</div>

@@ -1,9 +1,71 @@
-<p>formateurs-candidat-admin works!</p>
-<!--<div *ngFor="let p of connexionnew" class="col">
-    <p>{{ p.nom }} {{ p.prenom }}
-        <a (click)="goToPage('acceuil')">
-            <mat-icon class="icon">power_settings_new</mat-icon>
-        </a>
-    </p>
+<div class="container">
 
-</div> -->
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="/assets/esicertif3.png" width="100">
+        </div>
+
+        <div class="col-sm-8" *ngFor="let p of connexionnew">
+            <p class="entete">
+                <mat-icon class="iconentete">person</mat-icon>{{ p.nom }} {{ p.prenom }}
+                <a (click)="goToPage('acceuil')">
+                    <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="mb-3">
+        <nav>
+            <ul>
+                <li>
+                    <a routerLink="/homeadmin">
+                        <mat-icon class="icons">home</mat-icon>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/formationadmin">
+                        <mat-icon class="icons">description</mat-icon>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/formateurcandidatadmin">
+                        <mat-icon class="active">person</mat-icon>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/certificatadmin">
+                        <mat-icon class="icons">school</mat-icon>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <br><br>
+    <div class="card__collection clear-fix">
+        <div class="cards cards--two">
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="img-responsive" alt="Cards Image">
+            <span class="cards--two__rect"></span>
+            <span class="cards--two__tri"></span>
+            <p><button mat-button (click)="goToPage2('listecandidatadmin')">Candidat</button></p>
+
+        </div>
+        <div class="cards cards--three">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="img-responsive" alt="">
+            <span class="cards--three__rect-1">
+          <span class="shadow-1"></span>
+
+            <p><button mat-button (click)="goToPage2('listeformateuradmin')">Formateur</button></p>
+
+            </span>
+            <span class="cards--three__rect-2">
+          <span class="shadow-2"></span>
+            </span>
+            <span class="cards--three__circle"></span>
+        </div>
+    </div>
+</div>

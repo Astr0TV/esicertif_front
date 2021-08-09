@@ -1,0 +1,70 @@
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { CreateformateurComponent } from '../createformateur/createformateur.component';
+import { ConnexionService } from '../service/connexion.service';
+
+@Component({
+  selector: 'app-listeformateuradmin',
+  templateUrl: './listeformateuradmin.component.html',
+  styleUrls: ['./listeformateuradmin.component.css']
+})
+export class ListeformateuradminComponent implements OnInit {
+  connexionnew:any;
+  formateur:any;
+  constructor(private route:Router,private connexionservice:ConnexionService, private http: HttpClient,private dialog:MatDialog) { }
+
+  ngOnInit(): void {
+  
+var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
+if (this.connexionservice.isConnected()) {
+  if (test.role == 'Formateur') {
+    this.route.navigateByUrl('homeformateur');
+  }else if (test.role == 'candidat') {
+    this.route.navigateByUrl('homecandidat');
+  }
+  
+} else {
+this.route.navigateByUrl('connexion');
+
+}
+this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
+next: (data) => { this.connexionnew = data; 
+  console.log('this msg concernec les informations de'); 
+  console.log(data) },
+error: (err) =>
+ {console.log(err); }
+});
+this.http.get('http://localhost:8089/usersrole/formateur ').subscribe({
+    next: (data) => { this.formateur = data; 
+      console.log('this msg concernec les informations de'); 
+      console.log(data) },
+    error: (err) => 
+    {console.log(err); }
+  });
+
+
+}
+goToPage(pageName:string ): void{
+  this.route.navigate([`${pageName}`]);
+  localStorage.clear();
+}
+createformateur():any{
+  const myDialog=this.dialog.open(CreateformateurComponent);
+  myDialog.afterClosed().subscribe(result=>{
+    this.ngOnInit();
+  });
+  
+    }
+deleteformateur(p:any){ 
+  
+  this.http.delete('http://localhost:8089/userremove/'+p.id).subscribe({
+  next:(data)=>{
+    this.ngOnInit();
+  },
+  error:(err)=>{console.log(err);}
+  });}
+
+
+}

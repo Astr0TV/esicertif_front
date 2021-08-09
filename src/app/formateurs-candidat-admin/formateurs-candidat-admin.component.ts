@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConnexionService } from '../service/connexion.service';
@@ -8,21 +9,39 @@ import { ConnexionService } from '../service/connexion.service';
   styleUrls: ['./formateurs-candidat-admin.component.css']
 })
 export class FormateursCandidatAdminComponent implements OnInit {
+  connexionnew:any;
+  constructor(private route:Router, private connexionservice:ConnexionService, private http: HttpClient) { }
+  
 
-  constructor(private route:Router, private connexionservice:ConnexionService) { }
-  goToPage(pageName:string ): void{
+  ngOnInit(): void {
+    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
+    if (this.connexionservice.isConnected()) {
+      if (test.role == 'Formateur') {
+        this.route.navigateByUrl('homeformateur');
+      }else if (test.role == 'candidat') {
+        this.route.navigateByUrl('homecandidat');
+      }
+      
+  } else {
+    this.route.navigateByUrl('connexion');
+  
+  }
+  this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
+    next: (data) => { this.connexionnew = data; 
+      console.log('this msg concernec les informations de'); 
+      console.log(data) },
+    error: (err) =>
+     {console.log(err); }
+  });
+
+  }
+  /*Deconnexion*/ 
+goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
-
-  ngOnInit(): void {
-    if (this.connexionservice.isConnected()) {
-      this.route.navigateByUrl('homecandidat');
-  } else {
-    this.route.navigateByUrl('connexion');
+  goToPage2(pageName:string ): void{
+    this.route.navigate([`${pageName}`]);
+   
   }
-
-
-  }
-
 }

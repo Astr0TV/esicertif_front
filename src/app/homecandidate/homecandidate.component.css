@@ -228,10 +228,11 @@ p {
     transition: transform 0.3s cubic-bezier(0.61, 0, 0.405, 1.63);
 }
 
-.cdk-global-overlay-wrapper, .cdk-overlay-container {
+.cdk-global-overlay-wrapper,
+.cdk-overlay-container {
     z-index: 99999 !important;
- }
+}
 
- .mat-progress-bar .mat-progress-bar-buffer {
-	background-color: #e6f3ff;
+.mat-progress-bar .mat-progress-bar-buffer {
+    background-color: #e6f3ff;
 }

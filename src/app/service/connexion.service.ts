@@ -25,10 +25,6 @@ export class ConnexionService {
     }​​
     }​​
 
- deconnect(): any{
-   localStorage.clear();
-   this.route.navigateByUrl('');
- }
 
  isConnected(): boolean{
    if (this.getUserConnect() != null) {
