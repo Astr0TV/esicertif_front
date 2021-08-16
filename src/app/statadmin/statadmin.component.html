@@ -1,1 +1,55 @@
-<p>statadmin works!</p>
+<div class="wrapper">
+    <h1>Vue d'ensemble</h1>
+    <div class="cols">
+        <div class="col" ontouchstart="this.classList.toggle('hover');">
+            <div class="container">
+                <div class="front" style="background-image: url(https://images.unsplash.com/photo-1511362054173-92e199bb06d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwzMzI2MTkzfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60)">
+                    <div class="inner">
+                        <p>Les formateurs</p>
+                        <span>Le nombre total des formateur est :{{formateur}}
+                        </span>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="inner">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col" ontouchstart="this.classList.toggle('hover');">
+            <div class="container">
+                <div class="front" style="background-image: url(https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80)">
+                    <div class="inner">
+                        <p>Les candidats</p>
+                        <span>Le nombre total des candidats est : {{candidat}}</span>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="inner">
+                        <p>Le nombre de candidats certifiés {{candidatcertifie}}.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col" ontouchstart="this.classList.toggle('hover');">
+            <div class="container">
+                <div class="front" style="background-image: url(https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y291cnNlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60)">
+                    <div class="inner">
+                        <p>Les formations</p>
+                        <span>Le nombre total des formations est :{{formation}}</span>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="inner">
+                        <p>Le nombre de formations en cours {{formationnonvalide}}.</p>
+                        <p>Le nombre de formations validées {{formationvalide}}.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

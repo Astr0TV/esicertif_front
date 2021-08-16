@@ -25,6 +25,7 @@ import { CreatecandidatComponentComponent } from './createcandidat-component/cre
 import { DetailsformationComponent } from './detailsformation/detailsformation.component';
 import { ModifformationComponent } from './modifformation/modifformation.component';
 import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confirmsuppleformateur.component';
+import { StatadminComponent } from './statadmin/statadmin.component';
 
 
 const routes: Routes = [
@@ -53,6 +54,7 @@ const routes: Routes = [
   {path:'detailsformation', component: DetailsformationComponent},
   {path:'modifformation', component: ModifformationComponent},
   {path:'confirmationlasupprissionduformateur', component: ConfirmsuppleformateurComponent},
+  {path:'statadmin', component: StatadminComponent},
 
 ];
 
