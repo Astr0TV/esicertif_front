@@ -1,0 +1,35 @@
+<div class="container mt-3">
+    <div class="modalcreateformation">
+        <form>
+
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre des heures</mat-label>
+                    <input type="number" matInput placeholder="Nombre des heures" #nbheure name="nombreHeure" ngModel="" required>
+                    <mat-icon matSuffix>edit</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Objectif </mat-label>
+                    <input matInput maxlength="256" #objective placeholder="Ex. L'objectif de la formation est..." name="objectif" ngModel="" required>
+                    <mat-hint align="end">{{objective.value.length}} / 256</mat-hint>
+                    <mat-icon matSuffix>edit</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Bloc de Compétence </mat-label>
+                    <input matInput maxlength="256" #bloc placeholder="Ex. Bloc de Compétence..." name="bloc" ngModel="" required>
+                    <mat-hint align="end">{{bloc.value.length}} / 256</mat-hint>
+                    <mat-icon matSuffix>edit</mat-icon>
+                </mat-form-field>
+            </div>
+
+
+
+
+            <button type="submit" mat-stroked-button color="accent" (click)="modifierformation(nbheure.value,objective.value,bloc.value)" lass="center ">Valider</button>
+        </form>
+    </div>
+</div>

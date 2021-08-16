@@ -2,9 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ConfirmsuppleformateurComponent } from '../confirmsuppleformateur/confirmsuppleformateur.component';
 import { CreateformateurComponent } from '../createformateur/createformateur.component';
 import { ConnexionService } from '../service/connexion.service';
-
+import {TooltipPosition} from '@angular/material/tooltip';
 @Component({
   selector: 'app-listeformateuradmin',
   templateUrl: './listeformateuradmin.component.html',
@@ -46,6 +47,7 @@ this.http.get('http://localhost:8089/usersrole/formateur ').subscribe({
 
 
 }
+
 goToPage(pageName:string ): void{
   this.route.navigate([`${pageName}`]);
   localStorage.clear();
@@ -58,12 +60,10 @@ createformateur():any{
   
     }
 deleteformateur(p:any){ 
-  
-  this.http.delete('http://localhost:8089/userremove/'+p.id).subscribe({
-  next:(data)=>{
+  this.connexionservice.supprimeformateur = p;
+  const myDialog=this.dialog.open(ConfirmsuppleformateurComponent);
+  myDialog.afterClosed().subscribe(result=>{
     this.ngOnInit();
-  },
-  error:(err)=>{console.log(err);}
   });}
 
 

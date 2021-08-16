@@ -8,6 +8,8 @@ export class ConnexionService {
   user: any;
   presence: any;
   nomformation: any;
+  modifinformation:any;
+  supprimeformateur: any
 
   constructor(private route: Router) { }
 

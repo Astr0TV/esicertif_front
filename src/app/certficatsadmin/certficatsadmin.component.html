@@ -1,45 +1,73 @@
-<div class="row">
-    <div class="col-sm-4">
-        <div class="imglogo">
-            <img src="/assets/esicertif3.png" width="90">
-        </div>
-    </div>
-    <div class="col-sm-4">
-    </div>
-    <div class="col-sm-4" *ngFor="let p of connexionnew">
-        <p>{{ p.nom }} {{ p.prenom }}
-            <a (click)="goToPage('acceuil')">
-                <mat-icon class="icon">power_settings_new</mat-icon>
-            </a>
-        </p>
-
-    </div>
-</div>
 <div class="container">
     <div class="row">
-        <div class="mb-3">
-            <nav class="foxnav">
-                <ul>
-                    <li>
-                        <a routerLink="/homeadmin">
-                            <mat-icon>home</mat-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="/formationadmin">
-                            <mat-icon>description</mat-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="/formateurcandidatadmin">
-                            <mat-icon class="active">person</mat-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="/certificatadmin">
-                            <mat-icon>school</mat-icon>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+        <div class="col-sm-2">
+            <img src="/assets/esicertif3.png" width="100">
         </div>
+
+        <div class="col-sm-10" *ngFor="let p of connexionnew">
+            <p class="entete">
+                <mat-icon class="iconentete">person</mat-icon>{{ p.nom }} {{ p.prenom }}
+                <a (click)="goToPage('acceuil')">
+                    <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="mb-3">
+        <nav>
+            <ul>
+                <li>
+                    <a routerLink="/homeadmin">
+                        <mat-icon class="icons">home</mat-icon>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/formationadmin">
+                        <mat-icon class="icons">description</mat-icon>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/formateurcandidatadmin">
+                        <mat-icon class="icons">person</mat-icon>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/certificatadmin">
+                        <mat-icon class="active">school</mat-icon>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <br><br>
+
+
+    <br>
+    <div class="row">
+        <div *ngFor=" let p of certificat" class="col-sm-4">
+            <div class="card1 p-1 mb-2">
+
+                <div class="row">
+
+                    <div class="col-sm-9">
+                        <h5 class="small">{{p.nom}}</h5>
+                    </div>
+                    <div class="go-corner" href="#">
+                        <div class="go-arrow">
+                            →
+                        </div>
+                    </div>
+                    <div class=" text-end ">
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

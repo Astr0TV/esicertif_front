@@ -1,102 +1,55 @@
-button {
-    border: none;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.95);
-    cursor: pointer;
-}
-
-.div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    text-align: center;
-    position: relative;
-    margin: auto;
-}
-
-.psuedo-text {
-    color: #5533ff;
-    position: relative;
-    top: 0;
-    height: 50px;
-    width: 50px;
-    display: inline;
-    font-size: 1rem;
-    font-size: 400;
-    transition: 0.25s ease-in;
-    transition-delay: 0.1s;
-}
-
-.flex-1 {
-    flex: 1;
-    min-width: 25px;
-    margin: 0 auto 20px;
-}
-
-.button {
-    padding: 0.5rem 2rem;
-    background: white;
-    text-align: center;
-    display: inline-block;
-    font-size: 1rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    position: relative;
-    will-change: transform;
-}
-
-.button-mat {
-    color: #5533ff;
-    border: 0px transparent;
-    border-radius: 0.3rem;
-    transition: 0.3s ease-in-out;
-    transition-delay: 0.35s;
-    overflow: hidden;
-}
-
-.button-mat:before {
-    content: "";
-    display: block;
-    background: #401aff;
-    position: absolute;
-    width: 200%;
-    height: 500%;
-    border-radius: 100%;
-    transition: 0.36s cubic-bezier(0.2, 0, 1, 1);
-    -webkit-transition: 0.36s cubic-bezier(0.2, 0, 1, 1);
-    -moz-transition: 0.36s cubic-bezier(0.2, 0, 1, 1);
-    -ms-transition: 0.36s cubic-bezier(0.2, 0, 1, 1);
-    -o-transition: 0.36s cubic-bezier(0.2, 0, 1, 1);
-}
-
-.button-mat:hover .psuedo-text {
-    color: white;
-}
-
-.button-mat:hover {
-    color: transparent;
-}
-
-.btn--5 {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.btn--5:before {
-    transform: translate(-120%, -50%) translateZ(0);
-}
-
-.btn--5:hover:before {
-    transform: translate(-45%, -34%) translateZ(0);
-}
-
-.btn--8 {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.btn--8:before {
-    transform: translate(30%, 10%) translateZ(0);
-}
-
-.btn--8:hover:before {
-    transform: translate(-45%, -34%) translateZ(0);
-}
+        @import 'https://fonts.googleapis.com/css?family=Raleway';
+        footer {
+            font-family: Raleway;
+            margin: 0 auto;
+            padding: 5em 3em;
+            text-align: center;
+            background: #555;
+        }
+        
+        div.container {
+            font-family: Raleway;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        div.container a {
+            color: rgb(3, 190, 190);
+            text-decoration: none;
+            font: 20px Raleway;
+            /* margin: 0px 10px;*/
+            padding: 10px 10px;
+            position: relative;
+            z-index: 0;
+            cursor: pointer;
+        }
+        /* Top and Bottom borders come in */
+        
+        div.topBotomBordersIn a:before,
+        div.topBotomBordersIn a:after {
+            position: absolute;
+            left: 0px;
+            width: 100%;
+            height: 2px;
+            background: rgb(25, 80, 180);
+            content: "";
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        
+        div.topBotomBordersIn a:before {
+            top: 0px;
+            transform: translateY(-10px);
+        }
+        
+        div.topBotomBordersIn a:after {
+            bottom: 0px;
+            transform: translateY(10px);
+        }
+        
+        div.topBotomBordersIn a:hover:before,
+        div.topBotomBordersIn a:hover:after {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+        /**/

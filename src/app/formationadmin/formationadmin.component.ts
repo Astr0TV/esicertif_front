@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CreateformationComponent } from '../createformation/createformation.component';
+import { ModifformationComponent } from '../modifformation/modifformation.component';
 import { ConnexionService } from '../service/connexion.service';
 
 @Component({
@@ -71,5 +72,12 @@ myDialog.afterClosed().subscribe(result=>{
       });
       
 
+  }
+  modifierformation(modifinformation:any){
+    this.connexionservice.modifinformation = modifinformation;
+    const myDialog=this.dialog.open(ModifformationComponent);
+    myDialog.afterClosed().subscribe(result=>{
+      this.ngOnInit();
+    });
   }
 }

@@ -22,6 +22,9 @@ import { ListecandidatadminComponent } from './listecandidatadmin/listecandidata
 import { ListeformateuradminComponent } from './listeformateuradmin/listeformateuradmin.component';
 import { createComponentType } from '@angular/compiler/src/render3/view/compiler';
 import { CreatecandidatComponentComponent } from './createcandidat-component/createcandidat-component.component';
+import { DetailsformationComponent } from './detailsformation/detailsformation.component';
+import { ModifformationComponent } from './modifformation/modifformation.component';
+import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confirmsuppleformateur.component';
 
 
 const routes: Routes = [
@@ -47,14 +50,9 @@ const routes: Routes = [
   {path:'listecandidatadmin', component: ListecandidatadminComponent},
   {path:'listeformateuradmin', component: ListeformateuradminComponent},
   {path:'CreatecandidatComponent', component: CreatecandidatComponentComponent},
-
-
-
-
-
-
-
- 
+  {path:'detailsformation', component: DetailsformationComponent},
+  {path:'modifformation', component: ModifformationComponent},
+  {path:'confirmationlasupprissionduformateur', component: ConfirmsuppleformateurComponent},
 
 ];
 

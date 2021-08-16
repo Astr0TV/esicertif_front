@@ -46,7 +46,7 @@
     <br><br>
 
     <div>
-        <button (click)="createformateur()" class="iconadd" mat-mini-fab color="accent" aria-label="Example icon button with a add icon">
+        <button (click)="createformateur()" class="iconadd" mat-mini-fab color="primary" aria-label="Example icon button with a add icon">
           <mat-icon >add</mat-icon>
         </button>
 
@@ -67,14 +67,13 @@
                     </div>
                     <div class=" text-end ">
 
-                        <button (click)="deleteformateur(p)" class="taillebutton" mat-mini-fab color="warn" aria-label="Example icon button with a remove icon">
+                        <button (click)="deleteformateur(p)" class="taillebutton" matTooltip="La suppression est irreversible! " mat-mini-fab color="warn" aria-label="Example icon button with a remove icon">
                           <mat-icon class="tailleicon">remove </mat-icon>
                         </button>
-
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-</div>
+</div>!

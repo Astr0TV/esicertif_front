@@ -49,6 +49,10 @@ import { ListecandidatadminComponent } from './listecandidatadmin/listecandidata
 import { ListeformateuradminComponent } from './listeformateuradmin/listeformateuradmin.component';
 import { CreatecandidatComponentComponent } from './createcandidat-component/createcandidat-component.component';
 import { CreateformateurComponent } from './createformateur/createformateur.component';
+import { DetailsformationComponent } from './detailsformation/detailsformation.component';
+import { ModifformationComponent } from './modifformation/modifformation.component';
+import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confirmsuppleformateur.component';
+import { StatadminComponent } from './statadmin/statadmin.component';
 
 
 @NgModule({
@@ -75,6 +79,11 @@ import { CreateformateurComponent } from './createformateur/createformateur.comp
     ListeformateuradminComponent,
     CreatecandidatComponentComponent,
     CreateformateurComponent,
+    DetailsformationComponent,
+    ModifformationComponent,
+    ConfirmsuppleformateurComponent,
+    StatadminComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -99,12 +108,16 @@ import { CreateformateurComponent } from './createformateur/createformateur.comp
     MatListModule, MatRadioModule,
     MatCarouselModule.forRoot(),
     MatTabsModule,
-    CdkAccordionModule,MatTableModule,MatChipsModule,MatDialogModule
+    CdkAccordionModule,
+    MatTableModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatTooltipModule
 
   ],
   entryComponents:[
 
-    CreateformationComponent,CreatecandidatComponentComponent,CreateformateurComponent
+    CreateformationComponent,CreatecandidatComponentComponent,CreateformateurComponent,ModifformationComponent,ConfirmsuppleformateurComponent
   ],
   providers: [],
   bootstrap: [AppComponent],

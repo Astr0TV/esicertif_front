@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-2">
             <img src="/assets/esicertif3.png" width="100">
         </div>
 
-        <div class="col-sm-8" *ngFor="let p of connexionnew">
+        <div class="col-sm-10" *ngFor="let p of connexionnew">
             <p class="entete">
                 <mat-icon class="iconentete">person</mat-icon>{{ p.nom }} {{ p.prenom }}
                 <a (click)="goToPage('acceuil')">
@@ -43,23 +43,94 @@
         </nav>
     </div>
 
-    <br><br>
+    <br>
+    <!--   <button (click)="createformation()" class="iconadd" mat-mini-fab color="warn" aria-label="Example icon button with a add icon">
+    <mat-icon>add</mat-icon>
+    </button>
+    <div>
+        <div class="card" *ngFor=" let p of formation">
+
+            <div class="face face1">
+
+
+                <div class="content">
+                    <h3>{{p.nom}}: <span style="color: rgb(180, 180, 180);  font-size: 14px;">({{p.nombreHeure}} H) </span></h3>
+
+                </div>
+
+            </div>
+
+            <div class="face face2">
+                <div class="content">
+                    <p class="enteteparagraphe">L'objectif de la formation :</p>
+                    <p>{{p.objectif}}.</p>
+                    <p class="enteteparagraphe">Bloc de Compétence:</p>
+                    <p>{{p.bloc}}.</p>
+
+                    <button (click)="modifierformation(p)" mat-mini-fab color="primary" aria-label="Example icon button with a mode edit list icon">
+                        <mat-icon>mode_edit</mat-icon>
+                    </button>
+
+                    <button (click)="deleteformation(p)" mat-mini-fab color="warn" aria-label="Example icon button with a remove icon">
+                        <mat-icon >delete </mat-icon>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+    <!--
+    <div class="card" *ngFor=" let p of formation">
+
+        <div class="card__side card__side--back">
+            <div class="card__cover">
+                <h4 class="card__heading">
+                    <span class="card__heading-span">L'objectif de la formation</span>
+                </h4>
+            </div>
+            <div class="card__details">
+                <!--   <ul>
+                    <li>Advanced JS and CSS</li>
+                    <li>JS/CSS Preprocessors</li>
+                    <li>JS Frameworks</li>
+                    <li>Advanced Animations</li>
+                    <li>Deployment Pipelines</li>
+                    <li>Large Apps Architectures</li>
+                    <li>Naming Conventions</li>
+                </ul> 
+    {{p.objectif}}
+</div>
+</div>
+
+<div class="card__side card__side--front">
+    <div class="card__theme">
+        <div class="card__theme-box">
+            <p class="card__subject">Nom de la formation:</p>
+            <p class="card__title">{{p.nom}}</p>
+        </div>
+    </div>
+</div>
+</div>
+
+-->
+
 
     <div>
-        <button (click)="createformation()" class="iconadd" mat-mini-fab color="accent" aria-label="Example icon button with a add icon">
-          <mat-icon >add</mat-icon>
-        </button>
+        <button (click)="createformation()" class="iconadd" mat-mini-fab color="primary" aria-label="Example icon button with a add icon">
+      <mat-icon >add</mat-icon>
+    </button>
 
     </div>
     <br>
     <div class="row">
         <div *ngFor=" let p of formation" class="col-sm-4">
             <div class="card1 p-1 mb-2">
-
                 <div class="row">
-
                     <div class="col-sm-9">
-                        <h5 class="small">{{p.nom}}</h5>
+                        <h5 class="small">{{p.nom}}
+                        </h5>
                     </div>
                     <div class="go-corner" href="#">
                         <div class="go-arrow">
@@ -69,8 +140,8 @@
                     <div class=" text-end ">
 
                         <button (click)="deleteformation(p)" class="taillebutton" mat-mini-fab color="warn" aria-label="Example icon button with a remove icon">
-                          <mat-icon class="tailleicon">remove </mat-icon>
-                        </button>
+                      <mat-icon class="tailleicon">remove </mat-icon>
+                    </button>
 
                     </div>
                 </div>
