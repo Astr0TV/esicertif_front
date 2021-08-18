@@ -10,6 +10,7 @@ import { FichepresenceformateurComponent } from './fichepresenceformateur/fichep
 import { FormationCandidatComponent } from './formation-candidat/formation-candidat.component';
 import { FormationadminComponent } from './formationadmin/formationadmin.component';
 import { FormationsformatuerComponent } from './formationsformatuer/formationsformatuer.component';
+import { GetacceptformateurComponent } from './getacceptformateur/getacceptformateur.component';
 import { HomeadminComponent } from './homeadmin/homeadmin.component';
 import { HomecandidateComponent } from './homecandidate/homecandidate.component';
 import { HomeclientComponent } from './homeclient/homeclient.component';
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path:'fichedepresence', component: FichepresenceformateurComponent},
   {path:'formateurcandidatadmin', component: FormationCandidatComponent},
   {path:'certificatadmin', component: CertficatsadminComponent},
+  {path:'getacceptformateur', component: GetacceptformateurComponent},
 
 
 

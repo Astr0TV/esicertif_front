@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-content>
+    <div *ngIf="loading; else content">
+
+      <div class="spinner__loading">
+        <div>
+          <mat-progress-spinner
+            diameter="60"
+            [value]="value"
+            mode="determinate">
+            </mat-progress-spinner>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #content>
+      <p>Voulez-Vous envoyer les informations?</p>
+
+    <div mat-dialog-actions align="center">
+      <button mat-flat-button color="warn"mat-dialog-close (click)="deletegetaccept()">Non</button>
+      <button mat-flat-button color="primary" [mat-dialog-close]=""  (click)="getaccept2()" cdkFocusInitial>Envoye</button>
+      </div>
+    </ng-template>
+    
+  </mat-card-content>
+</mat-card>

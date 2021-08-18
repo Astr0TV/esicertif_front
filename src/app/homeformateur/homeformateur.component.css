@@ -288,3 +288,12 @@ p {
       width: 90px;
       float: right;
   }
+
+  .example-button {
+    margin-top: 96px;
+  }
+  
+  .example-tooltip-red {
+    background: #b71c1c;
+    margin-top: 96px;
+  }

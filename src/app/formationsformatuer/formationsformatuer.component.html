@@ -34,8 +34,8 @@
                         </a>
                     </li>
                     <li>
-                        <a routerLink="/candidatformateur">
-                            <mat-icon>school</mat-icon>
+                        <a routerLink="/getacceptformateur">
+                            <mat-icon>task_alt</mat-icon>
                         </a>
                     </li>
                 </ul>
@@ -56,6 +56,10 @@
             <p>Les formations
             </p>
             <div class="text-center">
+                <mat-form-field class="px-16" style="width: 100%">
+                    <input matInput #filter placeholder="Search..."  [(ngModel)]="data" id="listSearch" autocomplete="off" style="width: 100%">
+                    <mat-icon matSuffix>search</mat-icon>
+                  </mat-form-field>
                 <table class="table table-hover ">
 
                     <thead style="box-shadow: 0px -2px 5px #888;">
@@ -67,7 +71,7 @@
                                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let p of formation" style="color: rgb(126, 212, 118); font-weight: bold;">
+                        <tr *ngFor="let p of formation | filter: data" style="color: rgb(126, 212, 118); font-weight: bold;">
                             <th scope="row">{{ p.nom }}</th>
                                 <td>{{p.formateur.prenom}}</td>
                                 <td *ngIf="p.progress == true">Terminé</td>

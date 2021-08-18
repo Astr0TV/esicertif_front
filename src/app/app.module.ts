@@ -43,6 +43,13 @@ import { FichepresenceformateurComponent } from './fichepresenceformateur/fichep
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import {MatTableModule} from '@angular/material/table';
 import {MatChipsModule} from '@angular/material/chips';
+import { GetacceptComponent } from './fichepresenceformateur/getaccept/getaccept.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { DatePipe } from '@angular/common';
+import { UpdateformationformateurComponent } from './homeformateur/updateformationformateur/updateformationformateur.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { GetacceptformateurComponent } from './getacceptformateur/getacceptformateur.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +70,9 @@ import {MatChipsModule} from '@angular/material/chips';
     FormateursCandidatAdminComponent,
     CertficatsadminComponent,
     FichepresenceformateurComponent,
+    GetacceptComponent,
+    UpdateformationformateurComponent,
+    GetacceptformateurComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,12 +97,17 @@ import {MatChipsModule} from '@angular/material/chips';
     MatListModule, MatRadioModule,
     MatCarouselModule.forRoot(),
     MatTabsModule,
-    CdkAccordionModule,MatTableModule,MatChipsModule
+    CdkAccordionModule,MatTableModule,MatChipsModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    Ng2SearchPipeModule,
+
+    
 
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {
 }

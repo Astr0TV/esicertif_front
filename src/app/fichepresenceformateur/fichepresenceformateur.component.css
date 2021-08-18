@@ -124,8 +124,11 @@ li a {
             width: 20%;
         }
     }
+    .margin60 {
+        margin-top: 80px;
+    }
     .margin50 {
-        margin-top: 100px;
+        margin-top: 40px;
     }
     .imgcandidat {
         left: 0px;
@@ -242,3 +245,10 @@ p {
   .example-card {
     max-width: 400px;
   }
+
+  .example-full-width {
+    display: flex;
+    flex-direction: column;
+
+  }
+  .mmligne .mat-form-field + .mat-form-field{margin-left: 8px; }

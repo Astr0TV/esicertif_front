@@ -105,12 +105,12 @@
                         </div>
                         <ng-template matStepLabel>Déroulement de la formation </ng-template>
                         <mat-form-field style="width: 560px !important">
-                            <label id="example-radio-group-label" class="question">Le formateur était-il clair et
+                            <label id="example-radio-group-label" #questions class="question">Le formateur était-il clair et
                                 dynamique ? </label><br>
                             <label id="example-radio-group-label" class="textelabel">Choisissez votre réponse
                                 :</label><br>
                             <mat-radio-group formControlName="secondCtrl" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoritereponse5" required>
-                                <mat-radio-button class="example-radio-button" *ngFor="let reponse5 of reponses" [value]="reponse5.valeur">
+                                <mat-radio-button class="example-radio-button" #reponse *ngFor="let reponse5 of reponses" [value]="reponse5.valeur">
                                     {{reponse5.name}}
                                 </mat-radio-button>
                             </mat-radio-group>

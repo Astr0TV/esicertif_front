@@ -1,8 +1,11 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConnexionService } from '../service/connexion.service';
+import { UpdateformationformateurComponent } from './updateformationformateur/updateformationformateur.component';
 interface Nourriture {
   valeur : String ;
  viewValue : String ;
@@ -21,7 +24,8 @@ connexionnew: any;
 selectedValue: string;
   closeResult: string | undefined;
 
-  constructor(private modalService: NgbModal,private http: HttpClient,private route: Router,private connexionservice: ConnexionService) { }
+  constructor(private modalService: NgbModal,private http: HttpClient,private route: Router,
+    private connexionservice: ConnexionService,public dialog: MatDialog) { }
   goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
@@ -34,6 +38,8 @@ selectedValue: string;
     });
   }
 
+
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -44,6 +50,14 @@ selectedValue: string;
     }
   }
 
+  openDialog() {
+
+    this.dialog.open(UpdateformationformateurComponent);
+
+  }
+  updateformation(updateformation: any):any {
+    this.connexionservice.updateformation = updateformation;
+  }
   fichepresence(presence: any):any {
     this.connexionservice.presence = presence;
     this.route.navigateByUrl('fichedepresence');

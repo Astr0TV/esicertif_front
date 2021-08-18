@@ -341,6 +341,9 @@ this.thirdFormGroup28= this._formBuilder.group({
 });
   }
 
+  rubrique1(q:any,r:any){
+
+  }
 
 /*rating*/
 starRating = 0;    

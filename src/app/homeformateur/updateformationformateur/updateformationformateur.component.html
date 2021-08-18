@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+    <p>Formation : </p>
+    <mat-form-field appearance="fill">
+      <mat-label>Date Fin</mat-label>
+      <input matInput #datefin name="date_fin" ngModel="">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button >No Thanks</button>
+    <button mat-button [mat-dialog-close]="" (click)="modifierformation(datefin.value)" cdkFocusInitial>Ok</button>
+  </div>

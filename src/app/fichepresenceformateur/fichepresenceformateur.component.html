@@ -36,8 +36,8 @@
                         </a>
                     </li>
                     <li>
-                        <a routerLink="/candidatformateur">
-                            <mat-icon>school</mat-icon>
+                        <a routerLink="/getacceptformateur">
+                            <mat-icon>task_alt</mat-icon>
                         </a>
                     </li>
                 </ul>
@@ -48,101 +48,91 @@
 
 <div class="row">
     <div class="col">
-        <img alt="candidat sur une chaise" class="imgcandidat" src="assets\candidatg.jpg" />
+
     </div>
-    <div class="col" >
-        <form #logForm="ngForm" (ngSubmit)="ajoute(logForm.value)">
-        <mat-form-field *ngFor="let c of condiatenew" floatLabel="auto" appearance="outline" color="warn">
-            <mat-label style="color: black; font-weight: bold;">Nom  :</mat-label>
-            <mat-label style="color: black; font-weight: bold;"> {{ c.nom }} </mat-label>
-            <input matInput disabled  name="nom">
-            <button class="icone" mat-icon-button matSuffix required>
-                <mat-icon>person</mat-icon>
-            </button>
-        </mat-form-field> 
-          
-        <mat-form-field *ngFor="let c of condiatenew" [value]="c"  floatLabel="auto" appearance="outline" color="warn">
-            <input matInput  name="candidat" ngModel="">
-            <button class="icone" mat-icon-button matSuffix required>
-                <mat-icon>event</mat-icon>
-            </button>
-        </mat-form-field> 
-        <br>
-        <mat-form-field *ngFor="let c of condiatenew" floatLabel="auto" appearance="outline" color="warn">
-            <mat-label style="color: black; font-weight: bold;">Prenom  :</mat-label>
-            <mat-label style="color: black; font-weight: bold;"> {{ c.prenom }} </mat-label>
-            <input matInput disabled  name="nom" ngModel="">
-            <button class="icone" mat-icon-button matSuffix required>
-                <mat-icon>person</mat-icon>
-            </button>
-        </mat-form-field><br>
-        <mat-form-field *ngFor="let c of nomformation" floatLabel="auto"  appearance="outline" color="warn">
-            <mat-label style="color: black; font-weight: bold;"></mat-label>
-            <mat-label style="color: black; font-weight: bold;"> {{ c.nom }} </mat-label>
-            <input matInput disabled  name="nom" >
-            <button class="icone" mat-icon-button matSuffix required>
-                <mat-icon>person</mat-icon>
-            </button>
-        </mat-form-field>
-        <mat-radio-group  ngModel="" name="formation"  aria-label="Select an option">
-            <mat-radio-button *ngFor="let c of nomformation" [checked]="c.id" [value]="c" >{{c.id}}</mat-radio-button>
-          </mat-radio-group>
-        <div class="text-center margin50">
+    <div class="col"><br>
+        <form>
+            <mat-form-field *ngFor="let c of condiatenew" floatLabel="auto" appearance="outline" color="warn">
+                <mat-label style="color: black; font-weight: bold;">Nom :</mat-label>
+                <mat-label style="color: black; font-weight: bold;"> {{ c.nom }} </mat-label>
+                <input matInput disabled name="nom">
+                <button class="icone" mat-icon-button matSuffix required>
+                    <mat-icon>person</mat-icon>
+                </button>
+            </mat-form-field>
 
-            <table class="table table-hover ">
-                
-                <thead style="box-shadow: 0px -2px 5px #888;">
-                    <tr class="table-primary ">
+            <br>
+            <mat-form-field *ngFor="let c of condiatenew" floatLabel="auto" appearance="outline" color="warn">
+                <mat-label style="color: black; font-weight: bold;">Prenom :</mat-label>
+                <mat-label style="color: black; font-weight: bold;"> {{ c.prenom }} </mat-label>
+                <input matInput disabled name="nom" ngModel="">
+                <button class="icone" mat-icon-button matSuffix required>
+                    <mat-icon>badge</mat-icon>
+                </button>
+            </mat-form-field><br>
+            <mat-form-field *ngFor="let c of nomformation" floatLabel="auto" appearance="outline" color="warn">
+                <mat-label style="color: black; font-weight: bold;">Formation :</mat-label>
+                <mat-label style="color: black; font-weight: bold;"> {{ c.nom }} </mat-label>
+                <input matInput disabled name="nom">
+                <button class="icone" mat-icon-button matSuffix required>
+                    <mat-icon>sticky_note_2</mat-icon>
+                </button>
+            </mat-form-field>
+            <div class="text-center margin50">
+                <button mat-raised-button color="primary" (click)="getaccept();openDialog()">Valider La
+                    formation</button><br><br>
+                <table class="table table-hover ">
+
+                    <thead style="box-shadow: 0px -2px 5px #888;">
+                        <tr class="table-primary ">
                         <th scope=" col"
-                        style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">DATE </th>
-                        <th scope="col"
-                            style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">Heurs
-                        </th>
-                        <th scope="col"
-                            style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">Commentaire
-                        </th>
+                            style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">DATE 
+                            </th>
+                            <th scope="col"
+                                style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
+                                Heurs
+                            </th>
+                            <th scope="col"
+                                style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
+                                Commentaire
+                            </th>
 
 
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <tr style="color: rgb(126, 212, 118); font-weight: bold;"> 
-                        <th scope="row">
-                            <mat-form-field floatLabel="auto" appearance="outline" color="warn">
-                                <input matInput name="jour1" ngModel="">
-                                <button class="icone" mat-icon-button matSuffix required>
-                                    <mat-icon>event</mat-icon>
-                                </button>
-                            </mat-form-field>
-                        </th>
-                        <td> 
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                            <mat-form-field floatLabel="auto"  appearance="outline"  appearance="fill">
-                            <input matInput name="hours1" ngModel="">
-                            <button class="icone" mat-icon-button matSuffix required>
-                                <mat-icon>schedule</mat-icon>
-                            </button>
-                        </mat-form-field>
-                    </td>
-                        <td> 
-                            <mat-form-field floatLabel="auto" appearance="outline" color="warn">
-                            <input matInput name="prenom" >
-                            <button class="icone" mat-icon-button matSuffix required>
-                                <mat-icon>edit</mat-icon>
-                            </button>
-                        </mat-form-field></td>
+                        <tr style="color: rgb(126, 212, 118); font-weight: bold;">
+                            <th scope="row">
+                                <mat-form-field floatLabel="auto" appearance="outline" color="warn">
+                                    <input type="date" matInput #jour1 name="jour1" ngModel="">
+                                </mat-form-field>
+                            </th>
+                            <td>
+                                <div class="mmligne">
+                                <mat-form-field floatLabel="auto" class="example-full-width" appearance="outline" appearance="fill">
+                                    <input  type="time" matInput #hours1 name="hours1" ngModel="">
+                                </mat-form-field>
+                                <label>TO</label>
+                                <mat-form-field floatLabel="auto" class="example-full-width" appearance="outline" appearance="fill">
+                                    <input  type="time" matInput #hours2 name="hours1" ngModel="">
+                                </mat-form-field></div>
+                            </td>
+                            <td>
+                                <mat-form-field floatLabel="auto" appearance="outline" color="warn">
+                                    <input matInput name="prenom">
+                                    <button class="icone" mat-icon-button matSuffix required>
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </tbody>
 
-                    </tr>
-                    
-                    
-                
-                </tbody>
-            
-            </table>
-            <button class="btn btn-success" type="submit">Envoyer</button>
-        </div>
-    </form>
+                </table>
+                <button class="btn btn-success" type="submit"
+                    (click)="ajoute(jour1.value,hours1.value,hours2.value)">Envoyer</button>
+            </div>
+        </form>
     </div>
     <div class="col"></div>
-</div>
