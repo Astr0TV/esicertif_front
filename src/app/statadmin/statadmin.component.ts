@@ -88,7 +88,7 @@ export class StatadminComponent implements OnInit {
 
   this.http.get('     http://localhost:8089/nbrecandidatcertifie').subscribe({
     next: (data) => { this.candidatcertifie= data; 
-      console.log('C e message affiche le nombre totale des formateurs'); 
+      console.log('C e message affiche le nombre totale des candidats'); 
       console.log(data) },
     error: (err) => 
     {console.log(err); }

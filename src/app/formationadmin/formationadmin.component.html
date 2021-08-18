@@ -1,152 +1,55 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-2">
-            <img src="/assets/esicertif3.png" width="100">
+            <img src="/assets/logo1.png" width="150">
         </div>
-
-        <div class="col-sm-10" *ngFor="let p of connexionnew">
-            <p class="entete">
-                <mat-icon class="iconentete">person</mat-icon>{{ p.nom }} {{ p.prenom }}
-                <a (click)="goToPage('acceuil')">
-                    <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
-                </a>
-            </p>
-
+        <div class="col-sm-1"></div>
+        <div class="col-sm-9">
+            <div *ngFor="let p of connexionnew">
+                <p class="entete">
+                    {{ p.nom }}
+                    <a (click)="goToPage('acceuil')">
+                        <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
+                    </a>
+                </p>
+            </div><br>
         </div>
-
     </div>
-
-    <div class="mb-3">
-        <nav>
-            <ul>
-                <li>
-                    <a routerLink="/homeadmin">
-                        <mat-icon class="icons">home</mat-icon>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/formationadmin">
-                        <mat-icon class="active">description</mat-icon>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/formateurcandidatadmin">
-                        <mat-icon class="icons">person</mat-icon>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/certificatadmin">
-                        <mat-icon class="icons">school</mat-icon>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+    <div class="container  topBotomBordersIn">
+        <a routerLink="/homeadmin">ACCEUIL</a>
+        <a routerLink="/formationadmin">FORMATIONS</a>
+        <a routerLink="/formateurcandidatadmin">FORMATEURS/CANDIDATS</a>
+        <a routerLink="/certificatadmin">CERTIFICATIONS</a>
+        <a routerLink="/statadmin">VUE D'ENSEMBLE</a>
     </div>
-
     <br>
-    <!--   <button (click)="createformation()" class="iconadd" mat-mini-fab color="warn" aria-label="Example icon button with a add icon">
-    <mat-icon>add</mat-icon>
-    </button>
-    <div>
-        <div class="card" *ngFor=" let p of formation">
-
-            <div class="face face1">
-
-
-                <div class="content">
-                    <h3>{{p.nom}}: <span style="color: rgb(180, 180, 180);  font-size: 14px;">({{p.nombreHeure}} H) </span></h3>
-
-                </div>
-
-            </div>
-
-            <div class="face face2">
-                <div class="content">
-                    <p class="enteteparagraphe">L'objectif de la formation :</p>
-                    <p>{{p.objectif}}.</p>
-                    <p class="enteteparagraphe">Bloc de Compétence:</p>
-                    <p>{{p.bloc}}.</p>
-
-                    <button (click)="modifierformation(p)" mat-mini-fab color="primary" aria-label="Example icon button with a mode edit list icon">
-                        <mat-icon>mode_edit</mat-icon>
-                    </button>
-
-                    <button (click)="deleteformation(p)" mat-mini-fab color="warn" aria-label="Example icon button with a remove icon">
-                        <mat-icon >delete </mat-icon>
-                    </button>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
-
-    <!--
-    <div class="card" *ngFor=" let p of formation">
-
-        <div class="card__side card__side--back">
-            <div class="card__cover">
-                <h4 class="card__heading">
-                    <span class="card__heading-span">L'objectif de la formation</span>
-                </h4>
-            </div>
-            <div class="card__details">
-                <!--   <ul>
-                    <li>Advanced JS and CSS</li>
-                    <li>JS/CSS Preprocessors</li>
-                    <li>JS Frameworks</li>
-                    <li>Advanced Animations</li>
-                    <li>Deployment Pipelines</li>
-                    <li>Large Apps Architectures</li>
-                    <li>Naming Conventions</li>
-                </ul> 
-    {{p.objectif}}
-</div>
-</div>
-
-<div class="card__side card__side--front">
-    <div class="card__theme">
-        <div class="card__theme-box">
-            <p class="card__subject">Nom de la formation:</p>
-            <p class="card__title">{{p.nom}}</p>
-        </div>
-    </div>
-</div>
-</div>
-
--->
-
-
     <div>
         <button (click)="createformation()" class="iconadd" mat-mini-fab color="primary" aria-label="Example icon button with a add icon">
       <mat-icon >add</mat-icon>
     </button>
 
     </div>
-    <br>
-    <div class="row">
-        <div *ngFor=" let p of formation" class="col-sm-4">
-            <div class="card1 p-1 mb-2">
-                <div class="row">
-                    <div class="col-sm-9">
-                        <h5 class="small">{{p.nom}}
-                        </h5>
-                    </div>
-                    <div class="go-corner" href="#">
-                        <div class="go-arrow">
-                            →
-                        </div>
-                    </div>
-                    <div class=" text-end ">
 
-                        <button (click)="deleteformation(p)" class="taillebutton" mat-mini-fab color="warn" aria-label="Example icon button with a remove icon">
-                      <mat-icon class="tailleicon">remove </mat-icon>
-                    </button>
+    <!-- card 2-->
+    <section class="page-contain">
+        <div class="data-card" *ngFor=" let p of formation">
+            <h5 style="color: rgb(172, 198, 255);text-align: center; text-transform: uppercase;margin-top:7px">{{p.nom}}<br><span style="color: rgb(180, 180, 180);  font-size: 12px; ">({{p.nombreHeure}} H) </span></h5>
+            <br>
+            <p style="color: rgb(172, 232, 255) ;font-size: 10px;">Nom de formateur: <br> <span style="color: rgb(255, 255, 255); font-size: 18px; text-align: center; text-transform: uppercase;">{{p.formateur.nom}} {{p.formateur.prenom}}</span></p>
+            <p style="color: rgb(172, 232, 255); font-size: 10px; ">Objectif : <br> <span style="color: rgb(255, 255, 255); font-size: 10px; ">{{p.objectif}}</span></p>
 
-                    </div>
-                </div>
+            <p style="color: rgb(172, 232, 255); font-size: 10px; ">Bloc de compétence : <br> <span style="color: rgb(255, 255, 255); font-size: 10px; ">{{p.bloc}}</span></p>
+
+            <div>
+                <button (click)="deleteformation(p)" class="btnespace" mat-mini-fab color="warn" aria-label="Example icon button with a remove icon">
+                    <mat-icon >delete </mat-icon>
+                </button>
+                <button (click)="modifierformation(p)" mat-mini-fab color="primary" aria-label="Example icon button with a mode edit list icon">
+                    <mat-icon>mode_edit</mat-icon>
+                </button>
             </div>
 
+
+
         </div>
-    </div>
-</div>
+    </section>

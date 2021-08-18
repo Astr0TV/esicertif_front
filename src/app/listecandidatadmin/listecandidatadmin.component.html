@@ -1,98 +1,73 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-2">
             <img src="/assets/logo1.png" width="150">
         </div>
-        <div class="container  topBotomBordersIn">
-            <a>HOME</a>
-            <a>ARTICLES</a>
-            <a>PORTFOLIO</a>
-
+        <div class="col-sm-1"></div>
+        <div class="col-sm-9">
+            <div *ngFor="let p of connexionnew">
+                <p class="entete">
+                    {{ p.nom }}
+                    <a (click)="goToPage('acceuil')">
+                        <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
+                    </a>
+                </p>
+            </div>
         </div>
     </div>
-
-    <div class="row">
-
-
-        <div class="col-sm-8" *ngFor="let p of connexionnew">
-            <p class="entete">
-                <mat-icon class="iconentete">person</mat-icon>{{ p.nom }} {{ p.prenom }}
-                <a (click)="goToPage('acceuil')">
-                    <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
-                </a>
-            </p>
-
-        </div>
-
-    </div>
-
-    <div class="mb-3">
-        <nav>
-            <ul>
-                <li>
-                    <a routerLink="/homeadmin">
-                        <mat-icon class="icons">home</mat-icon>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/formationadmin">
-                        <mat-icon class="icons">description</mat-icon>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/formateurcandidatadmin">
-                        <mat-icon class="active">person</mat-icon>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/certificatadmin">
-                        <mat-icon class="icons">school</mat-icon>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <br><br>
-
-    <div>
-        <button (click)="createcandidat()" class="iconadd" mat-mini-fab color="accent" aria-label="Example icon button with a add icon">
-          <mat-icon >add</mat-icon>
-        </button>
-
+    <div class="container  topBotomBordersIn">
+        <a routerLink="/homeadmin">ACCEUIL</a>
+        <a routerLink="/formationadmin">FORMATIONS</a>
+        <a routerLink="/formateurcandidatadmin">FORMATEURS/CANDIDATS</a>
+        <a routerLink="/certificatadmin">CERTIFICATIONS</a>
+        <a routerLink="/statadmin">VUE D'ENSEMBLE</a>
     </div>
     <br>
-    <div class="row">
-        <div *ngFor=" let p of candidat" class="col-sm-4">
-            <div class="card1 p-1 mb-2">
-                <div class="row">
-                    <div class="col-sm-9">
-                        <h5 class="small">{{p.nom}} {{p.prenom}}
-                        </h5>
-                    </div>
-                    <div class="go-corner" href="#">
-                        <div class="go-arrow">
-                            →
-                        </div>
-                    </div>
-                    <div class=" text-end ">
-
-                        <button (click)="deletecandidat(p)" class="taillebutton" mat-mini-fab color="warn" aria-label="Example icon button with a remove icon">
-                          <mat-icon class="tailleicon">remove </mat-icon>
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    <div>
+        <button (click)="createcandidat()" class="iconadd" mat-mini-fab color="primary" aria-label="Example icon button with a add icon">
+            <mat-icon>add</mat-icon>
+        </button>
     </div>
+
+
 </div>
 
 
 
-<div class="ocean">
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
+
+<!-- -->
+<div id="container">
+
+    <div class="product-image image">
+
+        <img src="https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=761&q=80" alt="">
+        <div class="info">
+            <br><br>
+            <h5 style="text-align: center;"> Description</h5>
+            <ul>
+                <li><strong>Nombre de formation : </strong>5 Ft </li>
+                <li><strong>Nombre de certificat : </strong>Olive green</li>
+            </ul>
+        </div>
+    </div>
+    <div class="product-details" *ngFor=" let p of candidat">
+
+        <h1><span style="text-transform: uppercase;font-size: small;">{{p.nom}}</span><span style="font-size: small;">
+                {{p.prenom}}</span> </h1>
+        <p class="information">Contact :</p>
+        <br>
+
+        <div class="control">
+
+            <button class="btn">
+
+                <span class="buy">Get now</span>
+            </button>
+
+            <button (click)="deletecandidat(p)" class=" btn" mat-mini-fab aria-label="Example icon button with a delete icon">
+                <mat-icon >delete </mat-icon>
+            </button>
+        </div>
+
+    </div>
 </div>

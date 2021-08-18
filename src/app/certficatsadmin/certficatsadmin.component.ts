@@ -10,6 +10,7 @@ import { ConnexionService } from '../service/connexion.service';
 export class CertficatsadminComponent implements OnInit {
   connexionnew:any
   certificat:any
+  candidatcertifie:any;
 constructor(private route:Router, private connexionservice:ConnexionService, private http: HttpClient) { }
 
   
@@ -35,6 +36,13 @@ constructor(private route:Router, private connexionservice:ConnexionService, pri
     error: (err) =>
      {console.log(err); }
   });
+  this.http.get('      http://localhost:8089/candidatcertifie').subscribe({
+    next: (data) => { this.candidatcertifie= data; 
+      console.log('Ce message affiche le nombre totale des candidats'); 
+      console.log(data) },
+    error: (err) => 
+    {console.log(err); }
+  });
 
   }
   /*Deconnexion*/ 
@@ -42,5 +50,6 @@ goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
+
 
 }

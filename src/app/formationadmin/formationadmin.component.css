@@ -1,159 +1,186 @@
-.icons {
-    font-size: 30px;
-    color: gray;
-}
+/* navbar*/
 
-.icons:hover {
-    color: green;
-}
-
-.iconadd {
-    margin-left: 650px;
-}
-
-.tailleicon {
-    font-size: 12px;
-    margin-top: -10px;
-    margin-left: -6px;
-    margin-right: -6px;
-}
-
-.taillebutton {
-    width: 18px;
-    height: 18px;
-}
-
-.active {
-    color: green
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border-radius: 18px;
-    margin-left: 43%;
-    margin-right: 38%;
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+div.container {
+    font-family: Raleway;
+    margin: 0 auto;
     text-align: center;
-    box-shadow: 0px 0px black, 0em 0 1em black;
 }
 
-.border {
-    box-shadow: 0px 0px black, 0em 0 1em black;
+div.container a {
+    color: rgb(25, 80, 180);
+    text-decoration: none;
+    font: 20px Raleway;
+    margin: 0px 10px;
+    padding: 10px 10px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
 }
 
-li {
-    display: inline-block;
+
+/* Top and Bottom borders come in */
+
+div.topBotomBordersIn a:before,
+div.topBotomBordersIn a:after {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: rgb(3, 190, 190);
+    content: "";
+    opacity: 0;
+    transition: all 0.3s;
 }
 
-li a {
-    width: 3em;
-    display: block;
-    padding: 20px;
-    text-align: center;
+div.topBotomBordersIn a:before {
+    top: 0px;
+    transform: translateY(-10px);
+}
+
+div.topBotomBordersIn a:after {
+    bottom: 0px;
+    transform: translateY(10px);
+}
+
+div.topBotomBordersIn a:hover:before,
+div.topBotomBordersIn a:hover:after {
+    opacity: 1;
+    transform: translateY(0px);
 }
 
 .entete {
-    color: rgba(0, 128, 0, 0.521);
+    color: rgb(5, 49, 131);
     text-decoration: none;
     text-transform: uppercase;
     font-size: small;
-    font-weight: 400;
-    margin-left: 700px;
+    font-weight: 800;
+    margin-left: 650px;
 }
 
 .iconentete {
     margin-top: 2px;
     font-size: 12px;
-    color: green;
 }
 
 
 /***/
 
+
+/**card**/
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap");
 * {
-    transition: all 0.3s ease-out;
+    box-sizing: border-box;
 }
 
-h3 {
-    color: #262626;
-    font-size: 17px;
-    line-height: 24px;
-    font-weight: 700;
-    margin-bottom: 4px;
-}
-
-p {
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #666666;
-}
-
-p.small {
-    font-size: 14px;
-}
-
-.go-corner {
+.page-contain {
     display: flex;
+    min-height: 60vh;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    width: 32px;
-    height: 32px;
+    border: 0.75em solid white;
+    padding: 2em;
+    font-family: "Open Sans", sans-serif;
+}
+
+.data-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 20.75em;
+    min-height: 20.75em;
     overflow: hidden;
-    top: 0;
-    right: 0;
-    background-color: #ffd2d2;
-    border-radius: 0 4px 0 32px;
-}
-
-.go-arrow {
-    margin-top: -4px;
-    margin-right: -4px;
-    color: white;
-    font-family: courier, sans;
-}
-
-.card1 {
-    display: block;
-    position: relative;
-    max-width: 262px;
-    background-color: #f2f8f9;
-    border-radius: 4px;
-    padding: 32px 24px;
-    margin: 12px;
+    border-radius: 0.5em;
     text-decoration: none;
-    z-index: 0;
-    overflow: hidden;
+    background: white;
+    margin: 1em;
+    padding: 2.75em 2.5em;
+    box-shadow: 0 1.5em 2.5em -0.5em rgba(0, 0, 0, 0.1);
+    transition: transform 0.45s ease, background 0.45s ease;
 }
 
-.card1:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: -16px;
-    right: -16px;
-    background-color: #ffd2d2;
-    height: 32px;
-    width: 32px;
-    border-radius: 32px;
-    transform: scale(1);
-    transform-origin: 50% 50%;
-    transition: transform 0.25s ease-out;
+.data-card h3 {
+    color: #2E3C40;
+    font-size: 3.5em;
+    font-weight: 600;
+    line-height: 1;
+    padding-bottom: 0.5em;
+    margin: 0 0 0.142857143em;
+    border-bottom: 2px solid #3b44bd;
+    transition: color 0.45s ease, border 0.45s ease;
 }
 
-.card1:hover:before {
-    transform: scale(21);
+.data-card h4 {
+    color: #627084;
+    text-transform: uppercase;
+    font-size: 1.125em;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    margin: 0 0 1.777777778em;
+    transition: color 0.45s ease;
 }
 
-.card1:hover p {
-    transition: all 0.3s ease-out;
-    color: rgba(255, 255, 255, 0.8);
+.data-card p {
+    opacity: 0;
+    color: #FFFFFF;
+    font-weight: 600;
+    line-height: 1.8;
+    margin: 0 0 1.25em;
+    transform: translateY(-1em);
+    transition: opacity 0.45s ease, transform 0.5s ease;
 }
 
-.card1:hover h3 {
-    transition: all 0.3s ease-out;
-    color: #ffffff;
+.btnespace {
+    margin-right: 160px;
+}
+
+.data-card:hover {
+    background: #060963fd;
+    transform: scale(1.02);
+}
+
+.data-card:hover h3 {
+    color: #FFFFFF;
+    border-bottom-color: #A754C4;
+}
+
+.data-card:hover h4 {
+    color: #FFFFFF;
+}
+
+.data-card:hover p {
+    opacity: 1;
+    transform: none;
+}
+
+.data-card:hover .link-text {
+    color: #FFFFFF;
+}
+
+.data-card:hover .link-text svg {
+    -webkit-animation: point 1.25s infinite alternate;
+    animation: point 1.25s infinite alternate;
+}
+
+.data-card:hover .link-text svg path {
+    fill: #FFFFFF;
+}
+
+@-webkit-keyframes point {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(0.125em);
+    }
+}
+
+@keyframes point {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(0.125em);
+    }
 }

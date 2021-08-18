@@ -43,29 +43,27 @@
         </nav>
     </div>
 
-    <br><br>
 
 
-    <br>
-    <div class="row">
-        <div *ngFor=" let p of certificat" class="col-sm-4">
-            <div class="card1 p-1 mb-2">
 
-                <div class="row">
-
-                    <div class="col-sm-9">
-                        <h5 class="small">{{p.nom}}</h5>
-                    </div>
-                    <div class="go-corner" href="#">
-                        <div class="go-arrow">
-                            →
-                        </div>
-                    </div>
-                    <div class=" text-end ">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
 </div>
+<section class="cards" *ngFor=" let p of candidatcertifie">
+    <article class="card card--1">
+
+        <div class="card__img"></div>
+        <a class="card_link">
+            <div class="card__img--hover"></div>
+        </a>
+        <div class="card__info">
+            <span class="card__category"> Nom de la formation</span>
+            <h3 class="card__title" style="text-align: center;">{{p.nom}}</h3>
+            <span class="card__category">  <p  class="card__author" title="author" style="text-transform:uppercase;text-align: center;">{{p.candidat.nom}}  {{p.candidat.prenom}}</p></span>
+        </div>
+    </article>
+
+
+
+
+
+
+</section>

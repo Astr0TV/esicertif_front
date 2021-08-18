@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { ConfirmsuppleformateurComponent } from '../confirmsuppleformateur/confirmsuppleformateur.component';
 import { CreatecandidatComponentComponent } from '../createcandidat-component/createcandidat-component.component';
 import { ConnexionService } from '../service/connexion.service';
 
@@ -59,8 +58,8 @@ createcandidat():any{
   
     }
 deletecandidat(p:any){ 
-  this.http.delete('http://localhost:8089/userremove/'+p.id).subscribe({
-  next:(data)=>{
+  this.http.delete(' http://localhost:8089/userremove/'+p.id).subscribe({
+  next:(data)=>{  this.ngOnInit();
   
   },
   error:(err)=>{console.log(err);}
