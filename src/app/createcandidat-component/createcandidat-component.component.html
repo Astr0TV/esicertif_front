@@ -1,0 +1,52 @@
+<div class="container mt-3">
+    <div class="modalcreateformation">
+        <form #candidat="ngForm" (ngSubmit)="createcandidat(candidat.value)">
+
+
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nom du candidat</mat-label>
+                    <input matInput placeholder="Nom du candidat" name="nom" ngModel="">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Prenom du candidat</mat-label>
+                    <input matInput placeholder="Prenom du candidat" name="prenom" ngModel="">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Numéro du télèphone candidat</mat-label>
+                    <input matInput type="number" placeholder="Numéro du télèphone candidat" name="tele" ngModel="">
+                    <mat-icon matSuffix>phone_enabled</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email du candidat</mat-label>
+                    <input matInput type="email" placeholder="Email du candidat" name="email" ngModel="">
+                    <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Mot de passe du candidat</mat-label>
+                    <input matInput type="password" placeholder="Mot de passe du candidat" name="mdp" ngModel="">
+                    <mat-icon matSuffix>lock</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Role</mat-label>
+                    <input matInput="candidat" name="role" ngModel="">
+                    <mat-icon matSuffix>edit</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <button type="submit" mat-stroked-button color="accent">Valider</button>
+        </form>
+    </div>
+</div>

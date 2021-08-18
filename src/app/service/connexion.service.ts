@@ -8,9 +8,15 @@ export class ConnexionService {
   user: any;
   presence: any;
   nomformation: any;
+<<<<<<< HEAD
   idgetaccept: any
   updateformation: any
   iddoucument: any
+=======
+  modifinformation:any;
+  supprimeformateur: any
+
+>>>>>>> 56322e97f54d503e4635c834fe63bd531fe0307a
   constructor(private route: Router) { }
 
   setUserSession(u: any): any {
@@ -27,10 +33,13 @@ export class ConnexionService {
     }
   }
 
+<<<<<<< HEAD
   deconnect(): any {
     localStorage.clear();
     this.route.navigateByUrl('');
   }
+=======
+>>>>>>> 56322e97f54d503e4635c834fe63bd531fe0307a
 
   isConnected(): boolean {
     if (this.getUserConnect() != null) {

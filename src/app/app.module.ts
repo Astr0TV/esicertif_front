@@ -43,13 +43,17 @@ import { FichepresenceformateurComponent } from './fichepresenceformateur/fichep
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import {MatTableModule} from '@angular/material/table';
 import {MatChipsModule} from '@angular/material/chips';
-import { GetacceptComponent } from './fichepresenceformateur/getaccept/getaccept.component';
+import { CreateformationComponent } from './createformation/createformation.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { DatePipe } from '@angular/common';
-import { UpdateformationformateurComponent } from './homeformateur/updateformationformateur/updateformationformateur.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { GetacceptformateurComponent } from './getacceptformateur/getacceptformateur.component';
+import { ListecandidatadminComponent } from './listecandidatadmin/listecandidatadmin.component';
+import { ListeformateuradminComponent } from './listeformateuradmin/listeformateuradmin.component';
+import { CreatecandidatComponentComponent } from './createcandidat-component/createcandidat-component.component';
+import { CreateformateurComponent } from './createformateur/createformateur.component';
+import { DetailsformationComponent } from './detailsformation/detailsformation.component';
+import { ModifformationComponent } from './modifformation/modifformation.component';
+import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confirmsuppleformateur.component';
+import { StatadminComponent } from './statadmin/statadmin.component';
+
 
 @NgModule({
   declarations: [
@@ -104,6 +108,7 @@ import { GetacceptformateurComponent } from './getacceptformateur/getacceptforma
 
     
 
+    CreateformationComponent,CreatecandidatComponentComponent,CreateformateurComponent,ModifformationComponent,ConfirmsuppleformateurComponent
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

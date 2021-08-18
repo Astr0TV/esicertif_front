@@ -63,12 +63,13 @@
                 <mat-form-field>
                     <mat-label>Nom de formation</mat-label>
                     <select class="browser-default custom-select">
-                        <option  selected>Select votre formation</option>
+                        <option selected>Select votre formation</option>
                         <option *ngFor="let p of formation">{{ p.nom }}</option>
-                      </select>
+                    </select>
                 </mat-form-field>
                 <br> <br>
                 <p class="classformateur">Nom de formateur :</p>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-success" (click)="modal.close('Save click')">Valider</button>
@@ -90,6 +91,7 @@
                                             Validation</th>
                                             </tr>
                 </thead>
+
                 <tbody>
                     <tr *ngFor="let p of formation" style="color: rgb(126, 212, 118); font-weight: bold;">
                         <th scope="row">{{ p.nom }}</th>
@@ -97,6 +99,7 @@
                             <td>{{p.date_debut}}</td>
                             <td>
                                 <div class="cols-sm-4"></div>
+
     <div *ngIf="p.progress == true">
         <mat-progress-bar mode="buffer" value="100"></mat-progress-bar>
     </div>

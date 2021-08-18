@@ -1,9 +1,65 @@
-<p>homeadmin works!</p>
-<!--   <div *ngFor="let p of connexionnew" class="col">
-        <p>{{ p.nom }} {{ p.prenom }}
-            <a (click)="goToPage('acceuil')">
-                <mat-icon class="icon">power_settings_new</mat-icon>
-            </a>
-        </p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <img src="/assets/logo1.png" width="150">
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-9">
+            <div *ngFor="let p of connexionnew">
+                <p class="entete">
+                    {{ p.nom }}
+                    <a (click)="goToPage('acceuil')">
+                        <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
+                    </a>
+                </p>
+            </div><br><br>
+        </div>
+    </div>
+    <div class="container  topBotomBordersIn">
+        <a routerLink="/homeadmin">ACCEUIL</a>
+        <a routerLink="/formationadmin">FORMATIONS</a>
+        <a routerLink="/formateurcandidatadmin">FORMATEURS/CANDIDATS</a>
+        <a routerLink="/certificatadmin">CERTIFICATIONS</a>
+        <a routerLink="/statadmin">VUE D'ENSEMBLE</a>
+    </div>
 
-    </div>-->
+    <br><br><br><br><br>
+
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th style="text-transform: uppercase; letter-spacing: 1px;">Intitulée de formation</th>
+                    <th style="text-transform: uppercase; letter-spacing: 1px;">NOM DE FORMATEUR</th>
+                    <th style="text-transform: uppercase; letter-spacing: 1px;">DATE DE DEBUT DE FORMATION</th>
+                    <th style="text-transform: uppercase; letter-spacing: 1px;">PROGRESSION</th>
+                    <th style="text-transform: uppercase; letter-spacing: 1px;">FICHE D'EVALUATION</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let p of formation">
+                <tr>
+                    <td>{{ p.nom }}</td>
+                    <td>{{p.formateur.nom}}</td>
+                    <td>{{p.date_debut}}</td>
+                    <td>
+                        <div *ngIf="p.progress == true">
+                            <mat-progress-bar mode="buffer" value="100"></mat-progress-bar>
+                        </div>
+                        <div *ngIf="p.progress == false">
+                            <mat-progress-bar mode="buffer" value="50"></mat-progress-bar>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="p.valider == true"  class="form-check form-switch">
+                            <label class="form-check-label"  for="flexSwitchCheckCheckedDisabled">Validé</label>
+                        </div>
+                        <div *ngIf="p.valider == false"  class="form-check form-switch">
+                            <label class="form-check-label"  for="flexSwitchCheckCheckedDisabled">En Cours</label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tbody>
+        </table>
+    </div>
+</div>

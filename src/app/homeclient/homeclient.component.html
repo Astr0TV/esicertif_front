@@ -1,47 +1,37 @@
-<div class="container mt-5">
+<div id="container">
 
-    <h1 style="letter-spacing: 4px; font-family: Noto Serif; border-radius: 14px; background-color: teal; margin: auto; color: white;" class="text-center w-25">Esic Forma</h1>
-    <br>
+    <div class="product-image">
 
-    <div class="row">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6">
-            <form [formGroup]="seanceForm" #logForm="ngForm" (ngSubmit)="ajoute(logForm.value)">
-                <p>
-                    <input type="text" id="name" name="name" placeholder="seance name" formControlName="name" class="form-control form-control-lg">
-                </p>
+        <img src="https://images.unsplash.com/photo-1606830733744-0ad778449672?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzl8fGNocmlzdG1hcyUyMHRyZWV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
 
-                <button type="button" (click)="addSeance()" class="btn btn-primary btn-block">Ajouter un créneau</button>
 
-                <table class="table" formArrayName="seance">
-                    <tbody>
-                        <tr *ngFor="let s of seance().controls; let i=index" [formGroupName]="i">
-                            <td>
-                                Seances :
-                                <input type="date" name="jour1" formControlName="jour1" ngModel="" class="form-control">
-                            </td>
-                            <td>
-                                Heure:
-                                <input type="time" name="heure1" formControlName="heure1" ngModel="" class="form-control">
-                            </td>
-                            <td>
-                                Remove :
-                                <p><a class="btn btn-primary" (click)="removeSeance(i)" style="background-color: tomato; size: 5px;" href="#!" role="button"><i class="fas fa-trash"></i></a></p>
+        <div class="info">
+            <h5> Description</h5>
+            <ul>
+                <li><strong>Height : </strong>5 Ft </li>
+                <li><strong>Shade : </strong>Olive green</li>
+                <li><strong>Decoration: </strong>balls and bells</li>
+                <li><strong>Material: </strong>Eco-Friendly</li>
 
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <button type="submit" class="btn btn-success btn-block">Submit</button>
-
-            </form>
+            </ul>
         </div>
     </div>
+    <div class="product-details">
 
-    <br />
-    <div class="text-center">
-        <p class="text-secondary">Rendu du formulaire en JSON ({{seance().controls.length }} séance(s) rajouté(es) pour l'instant)</p>
-        <span class="text-info">{{this.seanceForm.value | json}}</span>
+        <h1>CHRISTMAS TREE</h1>
+        <p class="information">" Let's spread the joy , here is Christmas , the most awaited day of the year.Christmas Tree is what one need the most. Here is the correct tree which will enhance your Christmas.</p>
+        <br>
+        <div class="control">
+
+            <button class="btn">
+
+   <span class="buy">Get now</span>
+ </button>
+
+        </div>
+
     </div>
+
+
+
 </div>

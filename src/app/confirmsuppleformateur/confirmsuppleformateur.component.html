@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+
+    <p style=" text-align: center;"> <b>Voulez-vous vraiment supprimer le formateur?</b>
+    </p>
+    <p style="color: red;"> <span class="material-icons">warning</span><b>La suppression du formateur entraine la suppression de tous les informations en liaison(les formations...).</b> </p>
+
+</div>
+<div mat-dialog-actions align="center">
+    <button mat-flat-button color="warn" mat-dialog-close>Annuler </button>
+    <button mat-flat-button color="primary" (click)="deleteformateur()" mat-dialog-close>Supprimer</button>
+</div>

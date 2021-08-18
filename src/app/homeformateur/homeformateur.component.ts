@@ -24,12 +24,11 @@ connexionnew: any;
 selectedValue: string;
   closeResult: string | undefined;
 
-  constructor(private modalService: NgbModal,private http: HttpClient,private route: Router,
-    private connexionservice: ConnexionService,public dialog: MatDialog) { }
+  constructor(private modalService: NgbModal,private route: Router,private connexionservice: ConnexionService) { }
   goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
-  }
+  }private http: HttpClient
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -70,10 +69,7 @@ selectedValue: string;
 
 
 
-  deconnect(): any {
-    localStorage.clear();
-    this.route.navigateByUrl('/accueil');
-  }
+ 
   ngOnInit(): void {
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {

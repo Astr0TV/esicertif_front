@@ -1,0 +1,60 @@
+<div class="container mt-3">
+    <div class="modalcreateformation">
+        <form #formation="ngForm" (ngSubmit)="createformation(formation.value)">
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Intitulé de la formation</mat-label>
+                    <input matInput placeholder="Intitulé de la formation" name="nom" ngModel="">
+                    <mat-icon matSuffix>edit</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre des heures</mat-label>
+                    <input matInput placeholder="Nombre des heures" name="nombreHeure" ngModel="">
+                    <mat-icon matSuffix>edit</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Objectif </mat-label>
+                    <input matInput #messageobjectif maxlength="256" placeholder="Ex. L'objectif de la formation est..." name="objectif" ngModel="">
+                    <mat-hint align="end">{{messageobjectif.value.length}} / 256</mat-hint>
+                    <mat-icon matSuffix>edit</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Bloc de Compétence </mat-label>
+                    <input matInput #messagebloc maxlength="256" placeholder="Ex. Bloc de Compétence..." name="bloc" ngModel="">
+                    <mat-hint align="end">{{messagebloc.value.length}} / 256</mat-hint>
+                    <mat-icon matSuffix>edit</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>Choisissez le formateur</mat-label>
+                    <mat-select ngModel="" name="formateur" required>
+                        <mat-option *ngFor="let f of formateurs" [value]="f">
+                            {{f.nom}} {{f.prenom}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <br>
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>Choisissez le(s) candidat</mat-label>
+                    <mat-select ngModel="" name="candidat" required>
+                        <mat-option *ngFor="let c of candidats" [value]="c">
+                            {{c.nom}} {{c.prenom}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <br>
+
+            <button type="submit" mat-stroked-button color="accent" class="center">Valider</button>
+        </form>
+    </div>
+</div>
