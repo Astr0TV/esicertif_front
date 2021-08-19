@@ -1,89 +1,59 @@
-<div class="row">
-    <div class="col">
-        <div class="imglogo">
-            <img src="/assets/esicertif3.png">
-        </div>
-    </div>
-    <div class="col">
-
-    </div>
-    <div class="col">
-    </div>
-    <div *ngFor="let p of connexionnew" class="col">
-        <p>{{ p.nom }} {{ p.prenom }}
-            <a (click)="goToPage('acceuil')">
-                <mat-icon class="icon">power_settings_new</mat-icon>
-            </a>
-        </p>
-
-    </div>
-</div>
-
-
 <div class="container">
     <div class="row">
-        <div class="mb-3">
-            <nav class="foxnav">
-                <ul>
-                    <li>
-                        <a routerLink="/homeformateur">
-                            <mat-icon class="active">home</mat-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="/formationformateur">
-                            <mat-icon>description</mat-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="/getacceptformateur">
-                            <mat-icon>task_alt</mat-icon>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+        <div class="col-sm-2">
+            <img src="/assets/logo1.png" width="150">
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-9">
+            <div *ngFor="let p of connexionnew">
+                <p class="entete">
+                    {{ p.nom }}
+                    <a (click)="goToPage('acceuil')">
+                        <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
+                    </a>
+                </p>
+            </div><br><br>
         </div>
     </div>
-</div>
+    <div class="container  topBotomBordersIn">
+        <a routerLink="/homeadmin">ACCEUIL</a>
+        <a routerLink="/formationformateur">FORMATIONS</a>
+        <a routerLink="/getacceptformateur">GETACCEPT</a>
+    </div>
 
-<div class="row">
-    <div class="col">
-        <img alt="candidat sur une chaise" class="imgcandidat" src="assets\candidatg.jpg" />
+
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col">
+            <div class="text-center margin50">
+                <cdk-accordion class="example-accordion">
+                    <cdk-accordion-item *ngFor="let p of formation" #accordionItem="cdkAccordionItem"
+                        class="example-accordion-item" role="button" tabindex="0" [attr.id]="'accordion-header-'"
+                        [attr.aria-expanded]="accordionItem.expanded" [attr.aria-controls]="'accordion-body-'">
+                        <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+                            <mat-icon mat-raised-right matTooltip="click pour modifier la formation"
+                                matTooltipPosition=left matTooltipClass="example-tooltip-red"
+                                aria-label="Button that shows a red tooltip" (click)="updateformation(p);openDialog()">
+                                edit</mat-icon> {{ p.nom }}
+                            <span class="example-accordion-item-description">
+                                Click pour {{ accordionItem.expanded ? 'close' : 'open' }}
+                            </span>
+                        </div>
+                        <div *ngFor="let b of p.candidat" class="example-accordion-item-body" role="region"
+                            [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-'"
+                            [attr.aria-labelledby]="'accordion-header-' ">
+                            {{ b.nom }} {{ b.prenom }} <a (click)="fichepresence(b);nomformation(p)">
+                                <mat-icon class="presence" mat-raised-right
+                                    matTooltip="pour remplir la fiche de presence click sur icone"
+                                    matTooltipPosition=right matTooltipClass="example-tooltip-red"
+                                    aria-label="Button that shows a red tooltip">pending_actions</mat-icon>
+                            </a>
+                        </div>
+                    </cdk-accordion-item>
+                </cdk-accordion>
+            </div>
+        </div>
+        <div class="col"></div>
     </div>
-    <div class="col">
-        <div class="text-center margin50">
-            <cdk-accordion class="example-accordion">
-                <cdk-accordion-item
-                *ngFor="let p of formation"
-                  #accordionItem="cdkAccordionItem"
-                  class="example-accordion-item"
-                  role="button"
-                  tabindex="0"
-                  [attr.id]="'accordion-header-'"
-                  [attr.aria-expanded]="accordionItem.expanded"
-                  [attr.aria-controls]="'accordion-body-'">
-                  <div class="example-accordion-item-header"   (click)="accordionItem.toggle()">
-                    <mat-icon class="presence" (click)="updateformation(p);openDialog()" >edit</mat-icon> {{ p.nom }}
-                    <span class="example-accordion-item-description">
-                      Click pour {{ accordionItem.expanded ? 'close' : 'open' }}
-                    </span>
-                  </div>
-                  <div *ngFor="let b of p.candidat"
-                    class="example-accordion-item-body"
-                    role="region"
-                    [style.display]="accordionItem.expanded ? '' : 'none'"
-                    [attr.id]="'accordion-body-'" 
-                    [attr.aria-labelledby]="'accordion-header-' ">
-                    {{ b.nom }} {{ b.prenom }} <a   (click)="fichepresence(b);nomformation(p)" ><mat-icon class="presence"
-                        mat-raised-right
-                        matTooltip="pour remplir la fiche de presence click sur icone"
-                        matTooltipPosition= right
-                        matTooltipClass="example-tooltip-red"
-                        aria-label="Button that shows a red tooltip">pending_actions</mat-icon></a>
-                  </div>
-                </cdk-accordion-item>
-              </cdk-accordion>
-    </div>
-</div>
-<div class="col"></div>
-</div>

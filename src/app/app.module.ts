@@ -14,14 +14,13 @@ import { HomecandidateComponent } from './homecandidate/homecandidate.component'
 import { FormationCandidatComponent } from './formation-candidat/formation-candidat.component';
 import { CertificationcandidatComponent } from './certificationcandidat/certificationcandidat.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -40,19 +39,26 @@ import { FormationadminComponent } from './formationadmin/formationadmin.compone
 import { FormateursCandidatAdminComponent } from './formateurs-candidat-admin/formateurs-candidat-admin.component';
 import { CertficatsadminComponent } from './certficatsadmin/certficatsadmin.component';
 import { FichepresenceformateurComponent } from './fichepresenceformateur/fichepresenceformateur.component';
-import {CdkAccordionModule} from '@angular/cdk/accordion';
-import {MatTableModule} from '@angular/material/table';
-import {MatChipsModule} from '@angular/material/chips';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { MatChipsModule } from '@angular/material/chips';
 import { CreateformationComponent } from './createformation/createformation.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ListecandidatadminComponent } from './listecandidatadmin/listecandidatadmin.component';
 import { ListeformateuradminComponent } from './listeformateuradmin/listeformateuradmin.component';
 import { CreatecandidatComponentComponent } from './createcandidat-component/createcandidat-component.component';
 import { CreateformateurComponent } from './createformateur/createformateur.component';
 import { DetailsformationComponent } from './detailsformation/detailsformation.component';
-import { ModifformationComponent } from './modifformation/modifformation.component';
 import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confirmsuppleformateur.component';
 import { StatadminComponent } from './statadmin/statadmin.component';
+import { GetacceptComponent } from './fichepresenceformateur/getaccept/getaccept.component';
+import { UpdateformationformateurComponent } from './homeformateur/updateformationformateur/updateformationformateur.component';
+import { GetacceptformateurComponent } from './getacceptformateur/getacceptformateur.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DatePipe } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ModifformationComponent } from './modifformation/modifformation.component';
+
 
 
 @NgModule({
@@ -74,9 +80,18 @@ import { StatadminComponent } from './statadmin/statadmin.component';
     FormateursCandidatAdminComponent,
     CertficatsadminComponent,
     FichepresenceformateurComponent,
-    GetacceptComponent,
     UpdateformationformateurComponent,
     GetacceptformateurComponent,
+    StatadminComponent,
+    DetailsformationComponent,
+    ListecandidatadminComponent,
+    ListeformateuradminComponent,
+    CreateformationComponent,
+    GetacceptComponent,
+    CreateformateurComponent,
+    CreatecandidatComponentComponent,
+    ModifformationComponent
+
   ],
   imports: [
     BrowserModule,
@@ -101,15 +116,13 @@ import { StatadminComponent } from './statadmin/statadmin.component';
     MatListModule, MatRadioModule,
     MatCarouselModule.forRoot(),
     MatTabsModule,
-    CdkAccordionModule,MatTableModule,MatChipsModule,
+    CdkAccordionModule, MatChipsModule,
     MatDialogModule,
     MatProgressSpinnerModule,
     Ng2SearchPipeModule,
-
-    
-
-    CreateformationComponent,CreatecandidatComponentComponent,CreateformateurComponent,ModifformationComponent,ConfirmsuppleformateurComponent
+    MatRippleModule,
   ],
+
   providers: [DatePipe],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

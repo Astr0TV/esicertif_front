@@ -1,50 +1,27 @@
-<div class="row">
-    <div class="col">
-        <div class="imglogo">
-            <img src="/assets/esicertif3.png">
-        </div>
-    </div>
-    <div class="col">
-
-    </div>
-    <div class="col">
-    </div>
-    <div *ngFor="let p of connexionnew" class="col">
-        <p>{{ p.nom }} {{ p.prenom }}
-            <a (click)="goToPage('acceuil')">
-                <mat-icon class="icon">power_settings_new</mat-icon>
-            </a>
-        </p>
-
-    </div>
-</div>
-
-
 <div class="container">
     <div class="row">
-        <div class="mb-3">
-            <nav class="foxnav">
-                <ul>
-                    <li>
-                        <a routerLink="/homeformateur">
-                            <mat-icon class="active">home</mat-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="/formationformateur">
-                            <mat-icon>description</mat-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="/getacceptformateur">
-                            <mat-icon>task_alt</mat-icon>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+        <div class="col-sm-2">
+            <img src="/assets/logo1.png" width="150">
         </div>
+        <div class="col-sm-1"></div>
+    <div class="col-sm-9">
+        <div *ngFor="let p of connexionnew">
+            <p class="entete">
+                {{ p.nom }}
+                <a (click)="goToPage('acceuil')">
+                    <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
+                </a>
+            </p>
+        </div><br><br>
     </div>
 </div>
+<div class="container  topBotomBordersIn">
+    <a routerLink="/homeadmin">ACCEUIL</a>
+    <a routerLink="/formationformateur">FORMATIONS</a>
+    <a routerLink="/getacceptformateur">GETACCEPT</a>
+</div>
+
+
 
 <div class="row">
     <div class="col">
@@ -81,55 +58,44 @@
             <div class="text-center margin50">
                 <button mat-raised-button color="primary" (click)="getaccept();openDialog()">Valider La
                     formation</button><br><br>
-                <table class="table table-hover ">
-
-                    <thead style="box-shadow: 0px -2px 5px #888;">
-                        <tr class="table-primary ">
-                        <th scope=" col"
-                            style="padding: 30px; background-color: rgb(203, 236, 200); color: rgb(45, 155, 35)">DATE 
-                            </th>
-                            <th scope="col"
-                                style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
-                                Heurs
-                            </th>
-                            <th scope="col"
-                                style="padding: 30px; background-color: rgb(255, 255, 255); color: rgb(45, 155, 35)">
-                                Commentaire
-                            </th>
-
-
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr style="color: rgb(126, 212, 118); font-weight: bold;">
-                            <th scope="row">
-                                <mat-form-field floatLabel="auto" appearance="outline" color="warn">
-                                    <input type="date" matInput #jour1 name="jour1" ngModel="">
-                                </mat-form-field>
-                            </th>
-                            <td>
-                                <div class="mmligne">
-                                <mat-form-field floatLabel="auto" class="example-full-width" appearance="outline" appearance="fill">
-                                    <input  type="time" matInput #hours1 name="hours1" ngModel="">
-                                </mat-form-field>
-                                <label>TO</label>
-                                <mat-form-field floatLabel="auto" class="example-full-width" appearance="outline" appearance="fill">
-                                    <input  type="time" matInput #hours2 name="hours1" ngModel="">
-                                </mat-form-field></div>
-                            </td>
-                            <td>
-                                <mat-form-field floatLabel="auto" appearance="outline" color="warn">
-                                    <input matInput name="prenom">
-                                    <button class="icone" mat-icon-button matSuffix required>
-                                        <mat-icon>edit</mat-icon>
-                                    </button>
-                                </mat-form-field>
-                            </td>
-                        </tr>
-                    </tbody>
-
-                </table>
+                <div class="table-wrapper">
+                    <table class="fl-table">
+                        <thead>
+                            <tr>
+                                <th style="text-transform: uppercase; letter-spacing: 1px;">DATE</th>
+                                <th style="text-transform: uppercase; letter-spacing: 1px;">HEURE</th>
+                                <th style="text-transform: uppercase; letter-spacing: 1px;">COMMENTAIRE</th>
+                            </tr>
+                        </thead>
+                            <tbody>
+                                <tr
+                                    style="color: rgb(126, 212, 118); font-weight: bold;">
+                                    <th > 
+                                        <mat-form-field floatLabel="auto" appearance="outline" color="warn">
+                                        <input type="date" matInput #jour1 name="jour1" ngModel="">
+                                    </mat-form-field></th>
+                                    <td>
+                                        <div class="mmligne">
+                                        <mat-form-field floatLabel="auto" class="example-full-width" appearance="outline" appearance="fill">
+                                            <input  type="time" matInput #hours1 name="hours1" ngModel="">
+                                        </mat-form-field>
+                                        <label>TO</label>
+                                        <mat-form-field floatLabel="auto" class="example-full-width" appearance="outline" appearance="fill">
+                                            <input  type="time" matInput #hours2 name="hours1" ngModel="">
+                                        </mat-form-field></div>
+                                    </td>
+                                    <td>
+                                        <mat-form-field floatLabel="auto" appearance="outline" color="warn">
+                                            <input matInput name="prenom">
+                                            <button class="icone" mat-icon-button matSuffix required>
+                                                <mat-icon>edit</mat-icon>
+                                            </button>
+                                        </mat-form-field>
+                                    </td>
+                            </tr>
+                            </tbody>
+                    </table>
+                </div>
                 <button class="btn btn-success" type="submit"
                     (click)="ajoute(jour1.value,hours1.value,hours2.value)">Envoyer</button>
             </div>

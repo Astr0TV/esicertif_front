@@ -56,6 +56,7 @@ const routes: Routes = [
   {path:'modifformation', component: ModifformationComponent},
   {path:'confirmationlasupprissionduformateur', component: ConfirmsuppleformateurComponent},
   {path:'statadmin', component: StatadminComponent},
+  {path: 'getacceptformateur', component: GetacceptformateurComponent}
 
 ];
 
