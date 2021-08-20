@@ -53,6 +53,7 @@ import { DetailsformationComponent } from './detailsformation/detailsformation.c
 import { ModifformationComponent } from './modifformation/modifformation.component';
 import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confirmsuppleformateur.component';
 import { StatadminComponent } from './statadmin/statadmin.component';
+import { ExemplecertificatComponent } from './exemplecertificat/exemplecertificat.component';
 
 
 @NgModule({
@@ -82,7 +83,8 @@ import { StatadminComponent } from './statadmin/statadmin.component';
     DetailsformationComponent,
     ModifformationComponent,
     ConfirmsuppleformateurComponent,
-    StatadminComponent
+    StatadminComponent,
+    ExemplecertificatComponent
     
   ],
   imports: [
@@ -117,7 +119,7 @@ import { StatadminComponent } from './statadmin/statadmin.component';
   ],
   entryComponents:[
 
-    CreateformationComponent,CreatecandidatComponentComponent,CreateformateurComponent,ModifformationComponent,ConfirmsuppleformateurComponent
+    CreateformationComponent,CreatecandidatComponentComponent,CreateformateurComponent,ModifformationComponent,ConfirmsuppleformateurComponent,ExemplecertificatComponent
   ],
   providers: [],
   bootstrap: [AppComponent],

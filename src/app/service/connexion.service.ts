@@ -10,6 +10,7 @@ export class ConnexionService {
   nomformation: any;
   modifinformation:any;
   supprimeformateur: any
+  nbreformationparformateur:any;
 
   constructor(private route: Router) { }
 

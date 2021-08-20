@@ -1,0 +1,28 @@
+<div class="card card-5" id="card" #card *ngFor="let p of formation">
+    <h3 class="titre">ATTESTATION FIN DE FORMATION</h3>
+    <div class="container">
+        <br><br>
+        <div>Je soussignée, <strong> Michèle ELBAZ </strong> , Gérante, atteste que M./Mme
+
+            <strong class="entete">{{p.candidat.nom}} {{p.candidat.prenom}}</strong> a suivi la formation suivante :</div><br> <br> Intitulé de l'action :
+
+        <strong>{{p.nom}}</strong><br> Nature : Action d 'acquisition, d'entretien ou de perfectionnement des connaissances.
+        <br> Objectifs : {{p.objectif}}<br> <br> Dates : {{p.date_debut}}<br> <br> Durée :({{p.nombreHeure}} H)
+        <br>Intervenant(s) : {{p.formateur.nom}}{{p.formateur.prenom}} <br>Résultats de l’évaluation des acquis :<br> B=C ompétences acquises et validation du module {{p.bloc}} intégré dans le bloc de compétences {{p.bloc}} de la formation {{p.nom}} (code
+        RNCP du bloc de compétence)<br><br><br> Fait à Malakoff, <br>le {{p.date_fin}} Michèle ELBAZ, Gérante<br>
+        <br><br>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

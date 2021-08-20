@@ -28,46 +28,45 @@
             <mat-icon>add</mat-icon>
         </button>
     </div>
-
-
 </div>
-
-
-
-
-<!-- -->
-<div id="container">
-
+<div id="container" *ngFor=" let p of candidat">
     <div class="product-image image">
 
         <img src="https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=761&q=80" alt="">
         <div class="info">
-            <br><br>
             <h5 style="text-align: center;"> Description</h5>
             <ul>
-                <li><strong>Nombre de formation : </strong>5 Ft </li>
-                <li><strong>Nombre de certificat : </strong>Olive green</li>
+                <li><strong style="font-size: small; ">Nombre de formation : </strong>{{nbreformationparcandidat}} </li>
+                <li><strong style="font-size: small; ">Nombre de certificat : </strong>{{nbrecertificatparcandidat}}
+                </li>
             </ul>
         </div>
     </div>
-    <div class="product-details" *ngFor=" let p of candidat">
-
-        <h1><span style="text-transform: uppercase;font-size: small;">{{p.nom}}</span><span style="font-size: small;">
-                {{p.prenom}}</span> </h1>
-        <p class="information">Contact :</p>
-        <br>
-
-        <div class="control">
-
-            <button class="btn">
-
-                <span class="buy">Get now</span>
+    <div class="product-details">
+        <h1><button (click)="deletecandidat(p)" class=" btnrouge espaceright " mat-mini-fab aria-label="Example icon button with a delete icon">
+                <mat-icon>delete </mat-icon>
             </button>
-
-            <button (click)="deletecandidat(p)" class=" btn" mat-mini-fab aria-label="Example icon button with a delete icon">
-                <mat-icon >delete </mat-icon>
-            </button>
+            <span style="color:rgb(1, 1, 179);text-transform: uppercase;font-size: medium;text-align: center; ">{{p.nom}}</span><span style="font-size: medium;color:rgb(1, 1, 179);">
+                {{p.prenom}}</span>
+        </h1>
+        <div>
+            <mat-icon style="font-size: 10px;color:rgb(1, 1, 179);">
+                email
+            </mat-icon>
+            {{p.email}}
+        </div>
+        <div>
+            <mat-icon style="font-size: 10px;color:rgb(1, 1, 179);">call</mat-icon>
+            {{p.tele}}
         </div>
 
+        <div class="control">
+            <button class="btn ">
+                <span class="buy ">RECOMMANDER</span>
+            </button>
+            <button class="btn espaceleft">
+                <span class="buy">FEED BACK</span>
+            </button>
+        </div>
     </div>
 </div>

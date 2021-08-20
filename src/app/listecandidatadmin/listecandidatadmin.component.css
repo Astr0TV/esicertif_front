@@ -1,3 +1,5 @@
+/**navbar**/
+
 @import 'https://fonts.googleapis.com/css?family=Raleway';
 div.container {
     font-family: Raleway;
@@ -47,9 +49,6 @@ div.topBotomBordersIn a:hover:after {
     transform: translateY(0px);
 }
 
-
-/***/
-
 .entete {
     color: rgb(5, 49, 131);
     text-decoration: none;
@@ -65,14 +64,6 @@ div.topBotomBordersIn a:hover:after {
     color: green;
 }
 
-.image {
-    border-radius: 80% 80%;
-    -webkit-border-radius: 80% 80%;
-    -moz-border-radius: 80% 80%;
-    -ms-border-radius: 80% 80%;
-    -o-border-radius: 80% 80%;
-}
-
 
 /**/
 
@@ -83,58 +74,28 @@ div.topBotomBordersIn a:hover:after {
     text-align: center;
     border-radius: 5px;
     overflow: hidden;
-    margin: 5em auto;
-    height: 350px;
-    width: 700px;
-}
-
-.product-details {
-    position: relative;
-    text-align: left;
-    overflow: hidden;
-    padding: 30px;
-    height: 100%;
-    float: left;
-    width: 40%;
+    margin-left: 50px;
+    height: 280px;
+    width: 500px;
+    margin-top: 22px;
 }
 
 #container .product-details h1 {
-    font-family: 'Bebas Neue', cursive;
-    display: inline-block;
-    position: relative;
-    font-size: 30px;
+    font-size: 35px;
     color: #344055;
-    margin: 0;
+    margin-top: 1px;
+    text-align: center;
 }
 
 #container .product-details h1:before {
-    position: absolute;
     content: '';
-    right: 0%;
-    top: 0%;
     transform: translate(25px, -15px);
     font-family: 'Bree Serif', serif;
-    display: inline-block;
     background: #ffe6e6;
     border-radius: 5px;
     font-size: 14px;
-    padding: 5px;
     color: white;
-    margin: 0;
     animation: chan-sh 6s ease infinite;
-}
-
-#container .product-details>p {
-    font-family: 'EB Garamond', serif;
-    text-align: center;
-    font-size: 18px;
-    color: #7d7d7d;
-}
-
-.control {
-    position: absolute;
-    bottom: 20%;
-    left: 22.8%;
 }
 
 .btn {
@@ -152,48 +113,63 @@ div.topBotomBordersIn a:hover:after {
     margin: 0;
 }
 
+.btnrouge {
+    transform: translateY(0px);
+    transition: 0.3s linear;
+    background: #ff8080;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #eee;
+    padding: 0;
+    margin: 0;
+}
+
+.btnvert {
+    transform: translateY(0px);
+    transition: 0.3s linear;
+    background: #80ffd5;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #eee;
+    padding: 0;
+    margin: 0;
+}
+
 .btn:hover {
     transform: translateY(-6px);
     background: #1a66ff;
+}
+
+.btnrouge:hover {
+    transform: translateY(-6px);
+    background: #ff1a1a;
+}
+
+.btnvert:hover {
+    transform: translateY(-6px);
+    background: #1aff4c;
 }
 
 .btn span {
     font-family: 'Farsan', cursive;
     transition: transform 0.3s;
     display: inline-block;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    margin: 0;
+    padding: 2px 8px;
+    font-size: 12px;
 }
 
 .btn .price,
 .shopping-cart {
     background: #333;
     border: 0;
-    margin: 0;
-}
-
-.btn .price {
-    transform: translateX(-10%);
-    padding-right: 15px;
-}
-
-.btn .shopping-cart {
-    transform: translateX(-100%);
-    position: absolute;
-    background: #333;
-    z-index: 1;
-    left: 0;
-    top: 0;
-}
-
-.btn .buy {
-    z-index: 3;
-    font-weight: bolder;
-}
-
-.btn:hover .price {
-    transform: translateX(-110%);
 }
 
 .btn:hover .shopping-cart {
@@ -237,6 +213,14 @@ div.topBotomBordersIn a:hover:after {
     text-align: center
 }
 
+.image {
+    border-radius: 80% 80%;
+    -webkit-border-radius: 80% 80%;
+    -moz-border-radius: 80% 80%;
+    -ms-border-radius: 80% 80%;
+    -o-border-radius: 80% 80%;
+}
+
 .product-image:hover .info {
     transform: translateX(0);
 }
@@ -255,4 +239,12 @@ div.topBotomBordersIn a:hover:after {
 
 .product-image:hover img {
     transform: scale(1.2, 1.2);
+}
+
+.espaceleft {
+    margin-left: 22px;
+}
+
+.espaceright {
+    margin-right: 35px;
 }

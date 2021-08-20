@@ -1,79 +1,65 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-4">
-            <img src="/assets/esicertif3.png" width="100">
+        <div class="col-sm-2">
+            <img src="/assets/logo1.png" width="150">
         </div>
-
-        <div class="col-sm-8" *ngFor="let p of connexionnew">
-            <p class="entete">
-                <mat-icon class="iconentete">person</mat-icon>{{ p.nom }} {{ p.prenom }}
-                <a (click)="goToPage('acceuil')">
-                    <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
-                </a>
-            </p>
-
+        <div class="col-sm-1"></div>
+        <div class="col-sm-9">
+            <div *ngFor="let p of connexionnew">
+                <p class="entete">
+                    {{ p.nom }}
+                    <a (click)="goToPage('acceuil')">
+                        <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
+                    </a>
+                </p>
+            </div>
         </div>
-
     </div>
-
-    <div class="mb-3">
-        <nav>
-            <ul>
-                <li>
-                    <a routerLink="/homeadmin">
-                        <mat-icon class="icons">home</mat-icon>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/formationadmin">
-                        <mat-icon class="icons">description</mat-icon>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/formateurcandidatadmin">
-                        <mat-icon class="active">person</mat-icon>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/certificatadmin">
-                        <mat-icon class="icons">school</mat-icon>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <br><br>
-
-    <div>
-        <button (click)="createformateur()" class="iconadd" mat-mini-fab color="primary" aria-label="Example icon button with a add icon">
-          <mat-icon >add</mat-icon>
-        </button>
-
+    <div class="container  topBotomBordersIn">
+        <a routerLink="/homeadmin">ACCEUIL</a>
+        <a routerLink="/formationadmin">FORMATIONS</a>
+        <a routerLink="/formateurcandidatadmin">FORMATEURS/CANDIDATS</a>
+        <a routerLink="/certificatadmin">CERTIFICATIONS</a>
+        <a routerLink="/statadmin">VUE D'ENSEMBLE</a>
     </div>
     <br>
-    <div class="row">
-        <div *ngFor=" let p of formateur" class="col-sm-4">
-            <div class="card1 p-1 mb-2">
-                <div class="row">
-                    <div class="col-sm-9">
-                        <h5 class="small">{{p.nom}} {{p.prenom}}
-                        </h5>
-                    </div>
-                    <div class="go-corner" href="#">
-                        <div class="go-arrow">
-                            →
-                        </div>
-                    </div>
-                    <div class=" text-end ">
+    <div>
+        <button (click)="createformateur()" class="iconadd" mat-mini-fab color="primary" aria-label="Example icon button with a add icon">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>
+<div id="container" *ngFor=" let p of formateur">
+    <div class="product-image image">
 
-                        <button (click)="deleteformateur(p)" class="taillebutton" matTooltip="La suppression est irreversible! " mat-mini-fab color="warn" aria-label="Example icon button with a remove icon">
-                          <mat-icon class="tailleicon">remove </mat-icon>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
+        <img src="https://images.unsplash.com/photo-1519124040388-0c8421105fe0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmVzc29yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+        <div class="info">
+            <h5 style="text-align: center;"> Description</h5>
+            <ul>
+                <li><strong style="font-size: small; ">Nombre de formation : </strong>{{nbreformationparformateur}} </li>
+                <li><strong style="font-size: small; ">Score : </strong>{{scoreformateur}}
+                </li>
+            </ul>
         </div>
     </div>
-</div>!
+    <div class="product-details">
+        <h1><button (click)="deleteformateur(p)" class=" btnrouge espaceright " mat-mini-fab aria-label="Example icon button with a delete icon">
+                <mat-icon>delete </mat-icon>
+            </button>
+            <span style="color:rgb(1, 1, 179);text-transform: uppercase;font-size: medium;text-align: center; ">{{p.nom}}</span><span style="font-size: medium;color:rgb(1, 1, 179);">
+                {{p.prenom}}</span>
+        </h1>
+        <div>
+            <mat-icon style="font-size: 10px;color:rgb(1, 1, 179);">
+                email
+            </mat-icon>
+            {{p.email}}
+        </div>
+        <div>
+            <mat-icon style="font-size: 10px;color:rgb(1, 1, 179);">call</mat-icon>
+            {{p.tele}}
+        </div>
+
+
+    </div>
+</div>

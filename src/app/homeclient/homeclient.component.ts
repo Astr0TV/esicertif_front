@@ -1,65 +1,35 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ConnexionService } from '../service/connexion.service';
-
+import {jsPDF} from 'jspdf';
 @Component({
   selector: 'app-homeclient',
   templateUrl: './homeclient.component.html',
   styleUrls: ['./homeclient.component.css']
 })
 export class HomeclientComponent implements OnInit {
+@ViewChild('content',{static:false}) el!: ElementRef;
 
-  seanceForm: FormGroup;
-  user: any;
+  constructor(private http: HttpClient,private route: Router,private contact:ConnexionService,private builder: FormBuilder ) {
+  } 
 
+ 
 
-  constructor(private http: HttpClient,private route: Router,private connexionservice:ConnexionService,private fb: FormBuilder) {
-    this.seanceForm = this.fb.group({
-      name: '',
-      seance: this.fb.array([]),
-    });
-  }
-  seance(): FormArray {
-    return this.seanceForm.get("seance") as FormArray
-  }
-
-  ajoute(val: any): any {
-    console.log ('form val ', val);
-    this.http.post('http://localhost:8089/presence', val).subscribe({
-      next: (data) => {
-        console.log(data);
-        this.user = data;
-        if (this.user != null ) {
-          console.log("bien ajoute")
-        } else {  console.log('identifiants incorrectes ! ')}
-      }, error: (err) => { console.log(err) }
-    })
-  }
-
-  newSeance(): FormGroup {
-    return this.fb.group({
-      jour1: '',
-      heure1: '',
-    })
-  }
-
-  addSeance() {
-    this.seance().push(this.newSeance());
-  }
-
-  removeSeance(i: number) {
-    this.seance().removeAt(i);
-  }
-
-  onSubmit() {
-    console.log(this.seanceForm.value);
-  }
   
   ngOnInit() {
-  
 
+    }
+   
+  makePDF(){
+    let pdf =new jsPDF('p','pt','a4');
+    pdf.html(this.el.nativeElement,{
+      callback: (pdf)=> {
+        pdf.save("demo.pdf");
+      }
+    });
+   
   }
-}
+
+    }
