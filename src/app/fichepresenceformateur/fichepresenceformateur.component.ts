@@ -178,10 +178,10 @@ export class FichepresenceformateurComponent implements OnInit {
       },
       error: (err) => { console.log(err); }
     });
-    this.http.get('http://localhost:8089/user/' + this.connexionservice.presence.id).subscribe({
+    this.http.get('http://localhost:8089/user/' + this.connexionservice.presence.candidat.id).subscribe({
       next: (data) => {
         this.condiatenew = data;
-        console.log('colsole' + this.connexionservice.presence.nom);
+        console.log(this.connexionservice.presence.candidat.id);
         console.log('condiadte recupere');
         console.log(data)
       },
