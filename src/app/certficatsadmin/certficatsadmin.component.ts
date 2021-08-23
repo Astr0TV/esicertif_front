@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConnexionService } from '../service/connexion.service';
+import {jsPDF} from 'jspdf';
 @Component({
   selector: 'app-certficatsadmin',
   templateUrl: './certficatsadmin.component.html',
@@ -12,6 +13,7 @@ export class CertficatsadminComponent implements OnInit {
   certificat:any
   candidatcertifie:any;
 constructor(private route:Router, private connexionservice:ConnexionService, private http: HttpClient) { }
+@ViewChild('card',{static:false}) el!: ElementRef;
 
   
   ngOnInit(): void {
@@ -51,5 +53,15 @@ goToPage(pageName:string ): void{
     localStorage.clear();
   }
 
+  makePDF(){
+    let pdf =new jsPDF('p','pt','a4');
+    pdf.html(this.el.nativeElement,{
+      callback: (pdf)=> {
+        pdf.save("demo.pdf");
+      }
+    });
+   
+  }
 
-}
+    }
+

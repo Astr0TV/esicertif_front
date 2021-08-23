@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import * as jspdf from 'jspdf'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

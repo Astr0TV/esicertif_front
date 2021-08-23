@@ -50,6 +50,7 @@ import { CreateformateurComponent } from './createformateur/createformateur.comp
 import { DetailsformationComponent } from './detailsformation/detailsformation.component';
 import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confirmsuppleformateur.component';
 import { StatadminComponent } from './statadmin/statadmin.component';
+<<<<<<< HEAD
 import { GetacceptComponent } from './fichepresenceformateur/getaccept/getaccept.component';
 import { UpdateformationformateurComponent } from './homeformateur/updateformationformateur/updateformationformateur.component';
 import { GetacceptformateurComponent } from './getacceptformateur/getacceptformateur.component';
@@ -58,6 +59,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DatePipe } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ModifformationComponent } from './modifformation/modifformation.component';
+=======
+import { ExemplecertificatComponent } from './exemplecertificat/exemplecertificat.component';
+import {​​​​​​​​ScrollingModule}​​​​​​​​ from '@angular/cdk/scrolling';
+>>>>>>> ce8208bb6fff5072285dc7e94c8464692dc4f0b6
 
 
 
@@ -89,9 +94,18 @@ import { ModifformationComponent } from './modifformation/modifformation.compone
     CreateformationComponent,
     GetacceptComponent,
     CreateformateurComponent,
+<<<<<<< HEAD
     CreatecandidatComponentComponent,
     ModifformationComponent
 
+=======
+    DetailsformationComponent,
+    ModifformationComponent,
+    ConfirmsuppleformateurComponent,
+    StatadminComponent,
+    ExemplecertificatComponent
+    
+>>>>>>> ce8208bb6fff5072285dc7e94c8464692dc4f0b6
   ],
   imports: [
     BrowserModule,
@@ -118,12 +132,24 @@ import { ModifformationComponent } from './modifformation/modifformation.compone
     MatTabsModule,
     CdkAccordionModule, MatChipsModule,
     MatDialogModule,
+<<<<<<< HEAD
     MatProgressSpinnerModule,
     Ng2SearchPipeModule,
     MatRippleModule,
+=======
+    MatTooltipModule,
+    ​​​​​​​​ScrollingModule
+
+>>>>>>> ce8208bb6fff5072285dc7e94c8464692dc4f0b6
   ],
 
+<<<<<<< HEAD
   providers: [DatePipe],
+=======
+    CreateformationComponent,CreatecandidatComponentComponent,CreateformateurComponent,ModifformationComponent,ConfirmsuppleformateurComponent,ExemplecertificatComponent
+  ],
+  providers: [],
+>>>>>>> ce8208bb6fff5072285dc7e94c8464692dc4f0b6
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

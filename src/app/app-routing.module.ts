@@ -27,6 +27,7 @@ import { DetailsformationComponent } from './detailsformation/detailsformation.c
 import { ModifformationComponent } from './modifformation/modifformation.component';
 import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confirmsuppleformateur.component';
 import { StatadminComponent } from './statadmin/statadmin.component';
+import { ExemplecertificatComponent } from './exemplecertificat/exemplecertificat.component';
 
 
 const routes: Routes = [
@@ -56,8 +57,8 @@ const routes: Routes = [
   {path:'modifformation', component: ModifformationComponent},
   {path:'confirmationlasupprissionduformateur', component: ConfirmsuppleformateurComponent},
   {path:'statadmin', component: StatadminComponent},
-  {path: 'getacceptformateur', component: GetacceptformateurComponent}
-
+  {path: 'getacceptformateur', component: GetacceptformateurComponent},
+  {path:'exemplecertificat', component: ExemplecertificatComponent},
 ];
 
 @NgModule({

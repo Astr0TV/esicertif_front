@@ -14,6 +14,9 @@ import {TooltipPosition} from '@angular/material/tooltip';
 export class ListeformateuradminComponent implements OnInit {
   connexionnew:any;
   formateur:any;
+  nbreformationparformateur:any;
+  scoreformateur:any;
+  array: any;
   constructor(private route:Router,private connexionservice:ConnexionService, private http: HttpClient,private dialog:MatDialog) { }
 
   ngOnInit(): void {
@@ -32,15 +35,26 @@ this.route.navigateByUrl('connexion');
 }
 this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
 next: (data) => { this.connexionnew = data; 
-  console.log('this msg concernec les informations de'); 
-  console.log(data) },
+  console.log('this msg concerne la personne connecté ',data); 
+ },
 error: (err) =>
  {console.log(err); }
 });
 this.http.get('http://localhost:8089/usersrole/formateur ').subscribe({
     next: (data) => { this.formateur = data; 
-      console.log('this msg concernec les informations de'); 
-      console.log(data) },
+      this.connexionservice.nbreformationparformateur=data;
+      console.log('information de user by role',data) },
+      
+    error: (err) => 
+    {
+      console.log(err); }
+  });
+  this.http.get('http://localhost:8089/nbreformationbyformateur/'+39).subscribe({
+    next: (data) => { this.nbreformationparformateur = data; 
+      console.log('this msg concerne nmbre de formation par formateur',data); 
+      console.log(this.connexionservice.nbreformationparformateur.id)
+
+       },
     error: (err) => 
     {console.log(err); }
   });

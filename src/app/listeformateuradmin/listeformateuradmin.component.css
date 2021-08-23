@@ -1,66 +1,61 @@
-.icons {
-    font-size: 30px;
-    color: gray;
-}
+/**navbar**/
 
-.icons:hover {
-    color: green;
-}
-
-.iconadd {
-    margin-left: 650px;
-}
-
-.tailleicon {
-    font-size: 12px;
-    margin-top: -10px;
-    margin-left: -6px;
-    margin-right: -6px;
-}
-
-.taillebutton {
-    width: 18px;
-    height: 18px;
-}
-
-.active {
-    color: green
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border-radius: 18px;
-    margin-left: 43%;
-    margin-right: 38%;
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+div.container {
+    font-family: Raleway;
+    margin: 0 auto;
     text-align: center;
-    box-shadow: 0px 0px black, 0em 0 1em black;
 }
 
-.border {
-    box-shadow: 0px 0px black, 0em 0 1em black;
+div.container a {
+    color: rgb(25, 80, 180);
+    text-decoration: none;
+    font: 20px Raleway;
+    margin: 0px 10px;
+    padding: 10px 10px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
 }
 
-li {
-    display: inline-block;
+
+/* Top and Bottom borders come in */
+
+div.topBotomBordersIn a:before,
+div.topBotomBordersIn a:after {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: rgb(3, 190, 190);
+    content: "";
+    opacity: 0;
+    transition: all 0.3s;
 }
 
-li a {
-    width: 3em;
-    display: block;
-    padding: 20px;
-    text-align: center;
+div.topBotomBordersIn a:before {
+    top: 0px;
+    transform: translateY(-10px);
+}
+
+div.topBotomBordersIn a:after {
+    bottom: 0px;
+    transform: translateY(10px);
+}
+
+div.topBotomBordersIn a:hover:before,
+div.topBotomBordersIn a:hover:after {
+    opacity: 1;
+    transform: translateY(0px);
 }
 
 .entete {
-    color: rgba(0, 128, 0, 0.521);
+    color: rgb(5, 49, 131);
     text-decoration: none;
     text-transform: uppercase;
     font-size: small;
-    font-weight: 400;
-    margin-left: 700px;
+    font-weight: 800;
+    margin-left: 650px;
 }
 
 .iconentete {
@@ -70,90 +65,186 @@ li a {
 }
 
 
-/***/
+/**/
 
-* {
-    transition: all 0.3s ease-out;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
+#container {
+    box-shadow: 0 15px 30px 1px grey;
+    background: rgba(255, 255, 255, 0.90);
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: 50px;
+    height: 280px;
+    width: 500px;
+    margin-top: 22px;
 }
 
-h3 {
-    color: #262626;
-    font-size: 17px;
-    line-height: 24px;
-    font-weight: 700;
-    margin-bottom: 4px;
+#container .product-details h1 {
+    font-size: 35px;
+    color: #344055;
+    margin-top: 1px;
+    text-align: center;
 }
 
-p {
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #666666;
-}
-
-p.small {
+#container .product-details h1:before {
+    content: '';
+    transform: translate(25px, -15px);
+    font-family: 'Bree Serif', serif;
+    background: #ffe6e6;
+    border-radius: 5px;
     font-size: 14px;
-}
-
-.go-corner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    overflow: hidden;
-    top: 0;
-    right: 0;
-    background-color: #cce3fd;
-    border-radius: 0 4px 0 32px;
-}
-
-.go-arrow {
-    margin-top: -4px;
-    margin-right: -4px;
     color: white;
-    font-family: courier, sans;
+    animation: chan-sh 6s ease infinite;
 }
 
-.card1 {
-    display: block;
+.btn {
+    transform: translateY(0px);
+    transition: 0.3s linear;
+    background: #809fff;
+    border-radius: 5px;
     position: relative;
-    max-width: 262px;
-    background-color: #f2f8f9;
-    border-radius: 4px;
-    padding: 32px 24px;
-    margin: 12px;
-    text-decoration: none;
-    z-index: 0;
     overflow: hidden;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #eee;
+    padding: 0;
+    margin: 0;
 }
 
-.card1:before {
-    content: "";
+.btnrouge {
+    transform: translateY(0px);
+    transition: 0.3s linear;
+    background: #ff8080;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #eee;
+    padding: 0;
+    margin: 0;
+}
+
+.btnvert {
+    transform: translateY(0px);
+    transition: 0.3s linear;
+    background: #80ffd5;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #eee;
+    padding: 0;
+    margin: 0;
+}
+
+.btn:hover {
+    transform: translateY(-6px);
+    background: #1a66ff;
+}
+
+.btnrouge:hover {
+    transform: translateY(-6px);
+    background: #ff1a1a;
+}
+
+.btnvert:hover {
+    transform: translateY(-6px);
+    background: #1aff4c;
+}
+
+.btn span {
+    font-family: 'Farsan', cursive;
+    transition: transform 0.3s;
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 12px;
+}
+
+.btn .price,
+.shopping-cart {
+    background: #333;
+    border: 0;
+}
+
+.btn:hover .shopping-cart {
+    transform: translateX(0%);
+}
+
+.product-image {
+    transition: all 0.3s ease-out;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    float: right;
+    width: 45%;
+    display: inline-block;
+}
+
+#container img {
+    width: 100%;
+    height: 100%;
+}
+
+.info {
+    background: rgba(27, 26, 26, 0.9);
+    font-family: 'Bree Serif', serif;
+    transition: all 0.3s ease-out;
+    transform: translateX(-100%);
     position: absolute;
-    z-index: -1;
-    top: -16px;
-    right: -16px;
-    background-color: #cce3fd;
-    height: 32px;
-    width: 32px;
-    border-radius: 32px;
-    transform: scale(1);
-    transform-origin: 50% 50%;
-    transition: transform 0.25s ease-out;
+    line-height: 1.8;
+    text-align: left;
+    font-size: 105%;
+    cursor: no-drop;
+    color: #FFF;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
 }
 
-.card1:hover:before {
-    transform: scale(21);
+.info h2 {
+    text-align: center
 }
 
-.card1:hover p {
+.image {
+    border-radius: 80% 80%;
+    -webkit-border-radius: 80% 80%;
+    -moz-border-radius: 80% 80%;
+    -ms-border-radius: 80% 80%;
+    -o-border-radius: 80% 80%;
+}
+
+.product-image:hover .info {
+    transform: translateX(0);
+}
+
+.info ul li {
+    transition: 0.3s ease;
+}
+
+.info ul li:hover {
+    transform: translateX(50px) scale(1.3);
+}
+
+.product-image:hover img {
     transition: all 0.3s ease-out;
-    color: rgba(255, 255, 255, 0.8);
 }
 
-.card1:hover h3 {
-    transition: all 0.3s ease-out;
-    color: #ffffff;
+.product-image:hover img {
+    transform: scale(1.2, 1.2);
+}
+
+.espaceleft {
+    margin-left: 22px;
+}
+
+.espaceright {
+    margin-right: 35px;
 }

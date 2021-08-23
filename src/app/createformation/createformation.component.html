@@ -4,21 +4,21 @@
             <div class="form-group">
                 <mat-form-field appearance="outline">
                     <mat-label>Intitulé de la formation</mat-label>
-                    <input matInput placeholder="Intitulé de la formation" name="nom" ngModel="">
+                    <input matInput type="text" placeholder="Intitulé de la formation" name="nom" ngModel="">
                     <mat-icon matSuffix>edit</mat-icon>
                 </mat-form-field>
             </div>
             <div class="form-group">
                 <mat-form-field appearance="outline">
                     <mat-label>Nombre des heures</mat-label>
-                    <input matInput placeholder="Nombre des heures" name="nombreHeure" ngModel="">
+                    <input matInput type="number" placeholder="Nombre des heures" name="nombreHeure" ngModel="">
                     <mat-icon matSuffix>edit</mat-icon>
                 </mat-form-field>
             </div>
             <div class="form-group">
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>Objectif </mat-label>
-                    <input matInput #messageobjectif maxlength="256" placeholder="Ex. L'objectif de la formation est..." name="objectif" ngModel="">
+                    <input matInput type="text" #messageobjectif maxlength="256" placeholder="Ex. L'objectif de la formation est..." name="objectif" ngModel="">
                     <mat-hint align="end">{{messageobjectif.value.length}} / 256</mat-hint>
                     <mat-icon matSuffix>edit</mat-icon>
                 </mat-form-field>
@@ -26,7 +26,7 @@
             <div class="form-group">
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>Bloc de Compétence </mat-label>
-                    <input matInput #messagebloc maxlength="256" placeholder="Ex. Bloc de Compétence..." name="bloc" ngModel="">
+                    <input matInput type="text" #messagebloc maxlength="256" placeholder="Ex. Bloc de Compétence..." name="bloc" ngModel="">
                     <mat-hint align="end">{{messagebloc.value.length}} / 256</mat-hint>
                     <mat-icon matSuffix>edit</mat-icon>
                 </mat-form-field>

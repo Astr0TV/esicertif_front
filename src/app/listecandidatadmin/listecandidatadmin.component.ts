@@ -13,6 +13,8 @@ import { ConnexionService } from '../service/connexion.service';
 export class ListecandidatadminComponent implements OnInit {
   connexionnew:any;
   candidat:any;
+  nbreformationparcandidat:any;
+  nbrecertificatparcandidat:any;
   constructor(private route:Router,private connexionservice:ConnexionService, private http: HttpClient,private dialog:MatDialog) { }
 
   ngOnInit(): void {
@@ -43,8 +45,20 @@ this.http.get('http://localhost:8089/usersrole/candidat').subscribe({
     error: (err) => 
     {console.log(err); }
   });
-
-
+  this.http.get('http://localhost:8089/nbreformationbycandidat').subscribe({
+    next: (data) => { this.nbreformationparcandidat = data; 
+      console.log('this msg concernec les informations de'); 
+      console.log(data) },
+    error: (err) => 
+    {console.log(err); }
+  });
+  this.http.get('http://localhost:8089/nbrecertificatbycandidat').subscribe({
+    next: (data) => { this.nbrecertificatparcandidat = data; 
+      console.log('this msg concernec les informations de'); 
+      console.log(data) },
+    error: (err) => 
+    {console.log(err); }
+  });
 }
 goToPage(pageName:string ): void{
   this.route.navigate([`${pageName}`]);
@@ -59,7 +73,8 @@ createcandidat():any{
     }
 deletecandidat(p:any){ 
   this.http.delete(' http://localhost:8089/userremove/'+p.id).subscribe({
-  next:(data)=>{  this.ngOnInit();
+  next:(data)=>{ 
+     this.ngOnInit();
   
   },
   error:(err)=>{console.log(err);}

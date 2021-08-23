@@ -1,0 +1,58 @@
+.card-5 {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.titre {
+    text-indent: 80px;
+    font-family: Georgia, serif;
+    color: rgb(60, 103, 184);
+}
+
+.entete {
+    margin-right: 2px;
+}
+
+.indent {
+    text-indent: 15px;
+}
+
+.nom {
+    text-transform: uppercase;
+    color: rgb(48, 96, 184);
+    font-size: small;
+    font-weight: 700;
+}
+
+.paragraphe {
+    font-size: small;
+}
+
+.example-viewport {
+    height: 3000px;
+    width: 1000px;
+    border: 1px solid black;
+}
+
+.example-dt {
+    height: 30px;
+    font-weight: bold;
+}
+
+.example-dd {
+    height: 30px;
+}
+
+.modal {
+    display: block !important;
+}
+
+.modal-dialog {
+    overflow-y: initial !important;
+    width: 1700px;
+    height: 1700px;
+}
+
+.modal-body {
+    height: 350px;
+    overflow-y: auto;
+}

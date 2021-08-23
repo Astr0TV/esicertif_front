@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>
+</h2>
+<mat-dialog-content class="mat-typography">
+
+    <dl class="example-dl">
+        <div class="card card-5" id="card" *ngFor="let p of formation" #card>
+            <h5 class="titre">ATTESTATION FIN DE FORMATION</h5>
+            <div class="container">
+                <br><br>
+                <div style="font-size: small; text-indent: 20px;">Je soussignée, <strong class="nom"> Michèle ELBAZ </strong> , Gérante, atteste que M./Mme
+
+                    <strong class="nom">{{p.candidat.nom}} {{p.candidat.prenom}}</strong>
+                    <div class="indent">a suivi la formation suivante :</div>
+                </div>
+                <br>
+                <div class="paragraphe">
+                    Intitulé de l'action :
+                    <strong class="nom">{{p.nom}}</strong>
+                </div>
+                <br>
+                <div class="paragraphe"> Nature : Action d 'acquisition, d'entretien ou de perfectionnement des connaissances.
+                </div>
+                <br>
+                <div class="paragraphe">
+                    Objectifs : {{p.objectif}}
+                </div>
+                <br>
+                <div class="paragraphe">
+                    Dates : {{p.date_debut}}
+                </div>
+                <br>
+                <div class="paragraphe">
+                    Durée : {{p.nombreHeure}} heures
+                </div>
+                <br>
+                <div class="paragraphe">
+                    Intervenant(s) :
+                    <strong class="nom">{{p.formateur.nom}} {{p.formateur.prenom}}</strong> </div>
+                <div class="paragraphe"><br>Résultats de l’évaluation des acquis :<br>
+                    <div class="indent"> B = Compétences acquises et validation du module {{p.bloc}} intégré dans le bloc de compétences
+                        <div class="indent">
+                            {{p.bloc}} de la formation {{p.nom}} (code RNCP du bloc de compétence) </div>
+                    </div><br><br> Fait à Malakoff, le {{p.date_fin}} <br><br> Michèle ELBAZ, Gérante <br><br><br><br><br> </div>
+            </div>
+        </div>
+    </dl>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]=" true " cdkFocusInitial (click)="makePDF() ">Télécharger</button>
+</mat-dialog-actions>
