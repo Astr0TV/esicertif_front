@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="container  topBotomBordersIn">
-        <a routerLink="/homeadmin">ACCEUIL</a>
+        <a routerLink="/homeformateur">ACCEUIL</a>
         <a routerLink="/formationformateur">FORMATIONS</a>
         <a routerLink="/getacceptformateur">GETACCEPT</a>
     </div>
@@ -29,31 +29,23 @@
         <div class="col">
             <div class="text-center margin50">
                 <cdk-accordion class="example-accordion">
-                    <cdk-accordion-item *ngFor="let p of formation" #accordionItem="cdkAccordionItem"
-                        class="example-accordion-item" role="button" tabindex="0" [attr.id]="'accordion-header-'"
-                        [attr.aria-expanded]="accordionItem.expanded" [attr.aria-controls]="'accordion-body-'">
+                    <cdk-accordion-item *ngFor="let p of formation" #accordionItem="cdkAccordionItem" class="example-accordion-item" role="button" tabindex="0" [attr.id]="'accordion-header-'" [attr.aria-expanded]="accordionItem.expanded" [attr.aria-controls]="'accordion-body-'">
                         <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
-                            <mat-icon mat-raised-right matTooltip="click pour modifier la formation"
-                                matTooltipPosition=left matTooltipClass="example-tooltip-red"
-                                aria-label="Button that shows a red tooltip" (click)="updateformation(p);openDialog()">
+                            <mat-icon mat-raised-right matTooltip="click pour modifier la formation" matTooltipPosition=left matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip" (click)="updateformation(p);openDialog()">
                                 edit</mat-icon> {{ p.nom }}
                             <span class="example-accordion-item-description">
                                 Click pour {{ accordionItem.expanded ? 'close' : 'open' }}
                             </span>
                         </div>
-                        <div *ngFor="let b of p.candidat" class="example-accordion-item-body" role="region"
-                            [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-'"
-                            [attr.aria-labelledby]="'accordion-header-' ">
-                            {{ b.nom }} {{ b.prenom }} <a (click)="fichepresence(b);nomformation(p)">
-                                <mat-icon class="presence" mat-raised-right
-                                    matTooltip="pour remplir la fiche de presence click sur icone"
-                                    matTooltipPosition=right matTooltipClass="example-tooltip-red"
-                                    aria-label="Button that shows a red tooltip">pending_actions</mat-icon>
+                        <div *ngFor="let b of p.candidat" class="example-accordion-item-body" role="region" [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-'" [attr.aria-labelledby]="'accordion-header-' ">
+                            {{ b.nom }} {{ b.prenom }}
+                            <a (click)="fichepresence(b);nomformation(p)">
+                                <mat-icon class="presence" mat-raised-right matTooltip="pour remplir la fiche de presence click sur icone" matTooltipPosition=right matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip">pending_actions</mat-icon>
                             </a>
                         </div>
                     </cdk-accordion-item>
                 </cdk-accordion>
-            </div>
         </div>
-        <div class="col"></div>
     </div>
+    <div class="col"></div>
+</div>

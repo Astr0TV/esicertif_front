@@ -62,7 +62,6 @@ import { ExemplecertificatComponent } from './exemplecertificat/exemplecertifica
 import {​​​​​​​​ScrollingModule}​​​​​​​​ from '@angular/cdk/scrolling';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -130,7 +129,6 @@ import {​​​​​​​​ScrollingModule}​​​​​​​​ from '@
     MatRippleModule,
     MatTooltipModule,
     ​​​​​​​​ScrollingModule
-
   ],
 
   providers: [DatePipe],
