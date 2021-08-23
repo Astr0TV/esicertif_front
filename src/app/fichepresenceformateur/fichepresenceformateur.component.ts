@@ -69,7 +69,7 @@ export class FichepresenceformateurComponent implements OnInit {
       "value": 0,
       "recipients": [{
         "first_name": this.connexionservice.presence.prenom,
-        "last_name": this.connexionservice.presence.nom,
+        "last_name": this.connexionservice.presence.candidat.nom,
         "email": "lamsaouriismail@gmail.com",
         "role": "signer"
       }]
@@ -115,7 +115,7 @@ export class FichepresenceformateurComponent implements OnInit {
       "hours1": latest_houre,
       "nbheure": calcul,
       "formation": { "id": this.connexionservice.nomformation.id },
-      "candidat": { "id": this.connexionservice.presence.id },
+      "candidat": { "id": this.connexionservice.presence.candidat.id },
       "formateur": { "id": formateur.id }
 
     };
@@ -148,7 +148,7 @@ export class FichepresenceformateurComponent implements OnInit {
 
     }
 
-    this.http.get('http://localhost:8089/presence/candidat/' + this.connexionservice.presence.id).subscribe({
+    this.http.get('http://localhost:8089/presence/candidat/' + this.connexionservice.presence.candidat.id).subscribe({
       next: (data) => {
         this.presence = data;
         console.log('presence');
