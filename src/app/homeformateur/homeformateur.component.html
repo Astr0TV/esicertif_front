@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="container  topBotomBordersIn">
-        <a routerLink="/homeadmin">ACCEUIL</a>
+        <a routerLink="/homeformateur">ACCEUIL</a>
         <a routerLink="/formationformateur">FORMATIONS</a>
         <a routerLink="/getacceptformateur">GETACCEPT</a>
     </div>
@@ -41,10 +41,10 @@
                                 Click pour {{ accordionItem.expanded ? 'close' : 'open' }}
                             </span>
                         </div>
-                        <div *ngFor="let b of p.candidat" class="example-accordion-item-body" role="region"
+                        <div  class="example-accordion-item-body" role="region"
                             [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-'"
                             [attr.aria-labelledby]="'accordion-header-' ">
-                            {{ b.nom }} {{ b.prenom }} <a (click)="fichepresence(b);nomformation(p)">
+                            {{ p.candidat.nom }} {{ p.candidat.prenom }} <a (click)="fichepresence(p);nomformation(p)">
                                 <mat-icon class="presence" mat-raised-right
                                     matTooltip="pour remplir la fiche de presence click sur icone"
                                     matTooltipPosition=right matTooltipClass="example-tooltip-red"
