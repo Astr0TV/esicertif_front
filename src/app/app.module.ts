@@ -54,6 +54,8 @@ import { ModifformationComponent } from './modifformation/modifformation.compone
 import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confirmsuppleformateur.component';
 import { StatadminComponent } from './statadmin/statadmin.component';
 import { ExemplecertificatComponent } from './exemplecertificat/exemplecertificat.component';
+import {​​​​​​​​ScrollingModule}​​​​​​​​ from '@angular/cdk/scrolling';
+
 
 
 @NgModule({
@@ -114,7 +116,8 @@ import { ExemplecertificatComponent } from './exemplecertificat/exemplecertifica
     MatTableModule,
     MatChipsModule,
     MatDialogModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ​​​​​​​​ScrollingModule
 
   ],
   entryComponents:[
