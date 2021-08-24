@@ -29,10 +29,13 @@
     </button>
 
     </div>
-
+    <mat-form-field class="px-16" style="width: 30%">
+        <input matInput #filter placeholder="Search..." [(ngModel)]="data" id="listSearch" autocomplete="off" style="width: 100%">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
     <!-- card 2-->
     <section class="page-contain">
-        <div class="data-card" *ngFor=" let p of formation">
+        <div class="data-card" *ngFor=" let p of formation | filter: data">
             <h5 style="color: rgb(172, 198, 255);text-align: center; text-transform: uppercase;margin-top:7px">{{p.nom}}<br><span style="color: rgb(180, 180, 180);  font-size: 12px; ">({{p.nombreHeure}} H) </span></h5>
             <br>
             <p style="color: rgb(172, 232, 255) ;font-size: 10px;">Nom de formateur: <br> <span style="color: rgb(255, 255, 255); font-size: 18px; text-align: center; text-transform: uppercase;">{{p.formateur.nom}} {{p.formateur.prenom}}</span></p>

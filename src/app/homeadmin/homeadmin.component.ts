@@ -11,6 +11,7 @@ import { ConnexionService } from '../service/connexion.service';
 export class HomeadminComponent implements OnInit {
   connexionnew: any;
   formation: any;
+  data: any;
   constructor(private route:Router,private connexionservice:ConnexionService,private http: HttpClient) { }
   goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);

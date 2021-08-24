@@ -29,7 +29,9 @@ export class CertificationcandidatComponent implements OnInit {
       }else if (test.role == 'candidat') {
         this.route.navigateByUrl('certificatcandidat');
       }
-      
+      else if (test.role == 'admin') {
+        this.route.navigateByUrl('certificatadmin');
+      }
   } else {
     this.route.navigateByUrl('connexion');
   
@@ -49,7 +51,10 @@ export class CertificationcandidatComponent implements OnInit {
       error: (err) => {console.log(err); }
     });
   }
-  opendialog(){
+
+
+  opendialog(p:any){
+    this.connexionservice.cartif =  p;
     this.dialog.open(ExemplecertificatComponent);
   }
 

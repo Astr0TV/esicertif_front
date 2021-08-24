@@ -14,6 +14,7 @@ export class ConnexionService {
   modifinformation:any;
   supprimeformateur: any
   nbreformationparformateur:any;
+  cartif: any
 
   constructor(private route: Router) { }
 
