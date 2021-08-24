@@ -105,14 +105,16 @@ export class FichepresenceformateurComponent implements OnInit {
   }
 
 
-  ajoute(j: any, h1: any, h2: any): any {
+  ajoute(j: any, h1: any, h2: any,h3: any,h4: any): any {
     var formateur = JSON.parse(localStorage.getItem('userConnect') || '{}')
     let latest_date = this.datepipe.transform(j, 'dd/MM/yyyy');
     let latest_houre = h1 + " - " + h2
-    let calcul = parseInt(h2) - parseInt(h1);
+    let latest_houre2 = h3 + " - " + h4
+    let calcul = parseInt(h2) - parseInt(h1) + parseInt(h3) - parseInt(h4);
     var getaccept = {
       "jour1": latest_date,
       "hours1": latest_houre,
+      "hours2": latest_houre2,
       "nbheure": calcul,
       "formation": { "id": this.connexionservice.nomformation.id },
       "candidat": { "id": this.connexionservice.presence.candidat.id },
