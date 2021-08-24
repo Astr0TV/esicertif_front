@@ -28,7 +28,7 @@
     </div>
     <div class="col">
         <div class="text-center margin50">
-            <mat-form-field class="px-16" style="width: 85%">
+            <mat-form-field class="px-16" style="width: 30%">
                 <input matInput #filter placeholder="Search..."  [(ngModel)]="data" id="listSearch" autocomplete="off" style="width: 100%">
                 <mat-icon matSuffix>search</mat-icon>
               </mat-form-field>
@@ -38,6 +38,7 @@
                             <tr>
                                 <th style="text-transform: uppercase; letter-spacing: 1px;">Nom et Prenom DES CANDIDATS</th>
                                 <th style="text-transform: uppercase; letter-spacing: 1px;">STATUS</th>
+                                <th style="text-transform: uppercase; letter-spacing: 1px;">DOWNLOAD</th>
                             </tr>
                         </thead>
                         <ng-container *ngFor="let g of getaccept">
@@ -46,6 +47,7 @@
                                     style="color: rgb(126, 212, 118); font-weight: bold;">
                                     <th  *ngIf="g.id == i.getaccept" scope="row">{{ b.first_name }} {{b.last_name}}</th>
                                     <td  *ngIf="g.id == i.getaccept">{{g.status}}</td>
+                                    <td  *ngIf="g.id == i.getaccept"><button mat-raised-button color="primary" (click)="download(g.id)">Télécharger</button></td>
                             </tr>
                             </tbody>
                         </ng-container>

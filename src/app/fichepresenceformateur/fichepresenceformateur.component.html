@@ -4,85 +4,102 @@
             <img src="/assets/logo1.png" width="150">
         </div>
         <div class="col-sm-1"></div>
-    <div class="col-sm-9">
-        <div *ngFor="let p of connexionnew">
-            <p class="entete">
-                {{ p.nom }}
-                <a (click)="goToPage('acceuil')">
-                    <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
-                </a>
-            </p>
-        </div><br><br>
+        <div class="col-sm-9">
+            <div *ngFor="let p of connexionnew">
+                <p class="entete">
+                    {{ p.nom }}
+                    <a (click)="goToPage('acceuil')">
+                        <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
+                    </a>
+                </p>
+            </div><br><br>
+        </div>
     </div>
-</div>
-<div class="container  topBotomBordersIn">
-    <a routerLink="/homeformateur">ACCEUIL</a>
-    <a routerLink="/formationformateur">FORMATIONS</a>
-    <a routerLink="/getacceptformateur">GETACCEPT</a>
-</div>
-
-
-
-<div class="row">
-    <div class="col">
-
+    <div class="container  topBotomBordersIn">
+        <a routerLink="/homeformateur">ACCEUIL</a>
+        <a routerLink="/formationformateur">FORMATIONS</a>
+        <a routerLink="/getacceptformateur">GETACCEPT</a>
     </div>
-    <div class="col"><br>
-        <form>
-            <mat-form-field *ngFor="let c of condiatenew" floatLabel="auto" appearance="outline" color="warn">
-                <mat-label style="color: black; font-weight: bold;">Nom :</mat-label>
-                <mat-label style="color: black; font-weight: bold;"> {{ c.nom }} </mat-label>
-                <input matInput disabled name="nom">
-                <button class="icone" mat-icon-button matSuffix required>
-                    <mat-icon>person</mat-icon>
-                </button>
-            </mat-form-field>
 
-            <br>
-            <mat-form-field *ngFor="let c of condiatenew" floatLabel="auto" appearance="outline" color="warn">
-                <mat-label style="color: black; font-weight: bold;">Prenom :</mat-label>
-                <mat-label style="color: black; font-weight: bold;"> {{ c.prenom }} </mat-label>
-                <input matInput disabled name="nom" ngModel="">
-                <button class="icone" mat-icon-button matSuffix required>
-                    <mat-icon>badge</mat-icon>
-                </button>
-            </mat-form-field><br>
-            <mat-form-field *ngFor="let c of nomformation" floatLabel="auto" appearance="outline" color="warn">
-                <mat-label style="color: black; font-weight: bold;">Formation :</mat-label>
-                <mat-label style="color: black; font-weight: bold;"> {{ c.nom }} </mat-label>
-                <input matInput disabled name="nom">
-                <button class="icone" mat-icon-button matSuffix required>
-                    <mat-icon>sticky_note_2</mat-icon>
-                </button>
-            </mat-form-field>
-            <div class="text-center margin50">
-                <button mat-raised-button color="primary" (click)="getaccept();openDialog()">Valider La
-                    formation</button><br><br>
-                <div class="table-wrapper">
-                    <table class="fl-table">
-                        <thead>
-                            <tr>
-                                <th style="text-transform: uppercase; letter-spacing: 1px;">DATE</th>
-                                <th style="text-transform: uppercase; letter-spacing: 1px;">HEURE</th>
-                                <th style="text-transform: uppercase; letter-spacing: 1px;">COMMENTAIRE</th>
-                            </tr>
-                        </thead>
+
+
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col"><br>
+            <form>
+                <mat-form-field *ngFor="let c of condiatenew" floatLabel="auto" appearance="outline" color="warn">
+                    <mat-label style="color: black; font-weight: bold;">Nom :</mat-label>
+                    <mat-label style="color: black; font-weight: bold;"> {{ c.nom }} </mat-label>
+                    <input matInput disabled name="nom">
+                    <button class="icone" mat-icon-button matSuffix required>
+                        <mat-icon>person</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <br>
+                <mat-form-field *ngFor="let c of condiatenew" floatLabel="auto" appearance="outline" color="warn">
+                    <mat-label style="color: black; font-weight: bold;">Prenom :</mat-label>
+                    <mat-label style="color: black; font-weight: bold;"> {{ c.prenom }} </mat-label>
+                    <input matInput disabled name="nom" ngModel="">
+                    <button class="icone" mat-icon-button matSuffix required>
+                        <mat-icon>badge</mat-icon>
+                    </button>
+                </mat-form-field><br>
+                <mat-form-field *ngFor="let c of nomformation" floatLabel="auto" appearance="outline" color="warn">
+                    <mat-label style="color: black; font-weight: bold;">Formation :</mat-label>
+                    <mat-label style="color: black; font-weight: bold;"> {{ c.nom }} </mat-label>
+                    <input matInput disabled name="nom">
+                    <button class="icone" mat-icon-button matSuffix required>
+                        <mat-icon>sticky_note_2</mat-icon>
+                    </button>
+                </mat-form-field>
+                <div class="text-center margin50">
+                    <button mat-raised-button color="primary" (click)="getaccept();openDialog()">Valider La
+                        formation</button><br><br>
+                    <div class="table-wrapper">
+                        <table class="fl-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-transform: uppercase; letter-spacing: 1px;">DATE</th>
+                                    <th style="text-transform: uppercase; letter-spacing: 1px;">HEURE MATINEE</th>
+                                    <th style="text-transform: uppercase; letter-spacing: 1px;">HEURE APRES-MIDI</th>
+                                    <th style="text-transform: uppercase; letter-spacing: 1px;">COMMENTAIRE</th>
+                                </tr>
+                            </thead>
                             <tbody>
-                                <tr
-                                    style="color: rgb(126, 212, 118); font-weight: bold;">
-                                    <th > 
+                                <tr style="color: rgb(126, 212, 118); font-weight: bold;">
+                                    <th >
                                         <mat-form-field floatLabel="auto" appearance="outline" color="warn">
-                                        <input type="date" matInput #jour1 name="jour1" ngModel="">
-                                    </mat-form-field></th>
+                                            <input type="date" matInput #jour1 name="jour1" ngModel="">
+                                        </mat-form-field>
+                                    </th>
                                     <td>
                                         <div class="mmligne">
-                                        <mat-form-field floatLabel="auto" class="example-full-width" appearance="outline" appearance="fill">
-                                            <input  type="time" matInput #hours1 name="hours1" ngModel="">
-                                        </mat-form-field>
-                                        <label>TO</label>
-                                        <mat-form-field floatLabel="auto" class="example-full-width" appearance="outline" appearance="fill">
-                                            <input  type="time" matInput #hours2 name="hours1" ngModel="">
-                                        </mat-form-field></div>
+                                            <mat-form-field floatLabel="auto" class="example-full-width"
+                                                appearance="outline" appearance="fill">
+                                                <input type="time" matInput #hours1 name="hours1" ngModel="">
+                                            </mat-form-field>
+                                            <label>TO</label>
+                                            <mat-form-field floatLabel="auto" class="example-full-width"
+                                                appearance="outline" appearance="fill">
+                                                <input type="time" matInput #hours2 name="hours1" ngModel="">
+                                            </mat-form-field>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="mmligne">
+                                            <mat-form-field floatLabel="auto" class="example-full-width"
+                                                appearance="outline" appearance="fill">
+                                                <input type="time" matInput #hours3 name="hours3" ngModel="">
+                                            </mat-form-field>
+                                            <label>TO</label>
+                                            <mat-form-field floatLabel="auto" class="example-full-width"
+                                                appearance="outline" appearance="fill">
+                                                <input type="time" matInput #hours4 name="hours4" ngModel="">
+                                            </mat-form-field>
+                                        </div>
                                     </td>
                                     <td>
                                         <mat-form-field floatLabel="auto" appearance="outline" color="warn">
@@ -92,13 +109,13 @@
                                             </button>
                                         </mat-form-field>
                                     </td>
-                            </tr>
+                                </tr>
                             </tbody>
-                    </table>
+                        </table>
+                    </div>
+                    <button class="btn btn-success" type="submit"
+                        (click)="ajoute(jour1.value,hours1.value,hours2.value,hours3.value,hours4.value)">Envoyer</button>
                 </div>
-                <button class="btn btn-success" type="submit"
-                    (click)="ajoute(jour1.value,hours1.value,hours2.value)">Envoyer</button>
-            </div>
-        </form>
-    </div>
-    <div class="col"></div>
+            </form>
+        </div>
+        <div class="col"></div>

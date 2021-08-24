@@ -23,7 +23,7 @@ export class UpdateformationformateurComponent implements OnInit {
        "date_fin": datefin,
        "nombreheursformation": this.connexionservice.updateformation.nombreheursformation,
        "progress":this.connexionservice.updateformation.progress,"valider": this.connexionservice.updateformation.valider,
-       "candidat":[{"id": this.connexionservice.updateformation.candidat.id}],
+       "candidat":{"id": this.connexionservice.updateformation.candidat.id},
        "formateur":{"id": this.connexionservice.updateformation.formateur.id}
      };
     let headers = new HttpHeaders();
