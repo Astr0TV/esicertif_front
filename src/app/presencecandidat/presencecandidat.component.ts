@@ -31,7 +31,7 @@ export class PresencecandidatComponent implements OnInit {
     this.connexionservice.presencevalider = p;
     this.http.get('http://localhost:8089/presence/'+this.connexionservice.presencevalider.id+'/'+this.connexionservice.presencevalider.formateur.id).subscribe({
       next: (data) => {
-        console.log('valider candiat');
+        console.log('Presence valider');
         console.log(data)
       },
       error: (err) => { console.log(err); }
