@@ -66,6 +66,9 @@ export class HomeformateurComponent implements OnInit {
       } else if (test.role == 'admin') {
         this.route.navigateByUrl('homeadmin');
       }
+      else if (test.role == 'admin') {
+        this.route.navigateByUrl('homeadmin');
+      }
 
     } else {
       this.route.navigateByUrl('connexion');

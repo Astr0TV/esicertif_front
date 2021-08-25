@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { HomeclientComponent } from './homeclient/homeclient.component';
@@ -63,7 +62,7 @@ import {​​​​​​​​ScrollingModule}​​​​​​​​ from '@
 import { AlertComponent } from './alert/alert.component';
 import { PresencecandidatComponent } from './presencecandidat/presencecandidat.component';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -135,7 +134,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatTooltipModule,
     ​​​​​​​​ScrollingModule,
     MatExpansionModule,
-
+    ​​​​​​​​ScrollingModule
   ],
 
   providers: [DatePipe],

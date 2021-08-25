@@ -24,7 +24,10 @@
     </div>
 
     <br><br><br><br><br>
-
+    <mat-form-field class="px-16" style="width: 30%">
+        <input matInput #filter placeholder="Search..." [(ngModel)]="data" id="listSearch" autocomplete="off" style="width: 100%">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
     <div class="table-wrapper">
         <table class="fl-table">
             <thead>
@@ -36,7 +39,7 @@
                     <th style="text-transform: uppercase; letter-spacing: 1px;">FICHE D'EVALUATION</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let p of formation">
+            <tbody *ngFor="let p of formation | filter: data">
                 <tr>
                     <td>{{ p.nom }}</td>
                     <td>{{p.formateur.nom}}</td>

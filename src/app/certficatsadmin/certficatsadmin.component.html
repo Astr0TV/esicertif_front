@@ -22,30 +22,49 @@
         <a routerLink="/certificatadmin">CERTIFICATIONS</a>
         <a routerLink="/statadmin">VUE D'ENSEMBLE</a>
     </div>
-    <br> <br> <br>
+    <br> <br>
 </div>
 
+<!--<div class="container">
+    <div class="card" *ngFor=" let p of candidatcertifie">
+        <div class="card-header">
+            <img src="https://www.ufhb-dptanglais.com/storage/actualites/216-91749309-chapeau-de-graduation-avec-certificat-isole-sur-fond-blanc.jpg" alt="rover" />
+        </div>
+        <div class="card-body">
 
-<div class="div" id="card" #card>
-    <section class="cards" *ngFor=" let p of candidatcertifie">
-        <article class="card card--1">
+            <h4>
+                {{p.nom}}
+            </h4>
 
-            <div class="card__img"></div>
-            <a class="card_link">
-                <div class="card__img--hover"></div>
-            </a>
-            <div class="card__info">
-                <span class="card__category"> Nom de la formation</span>
-                <h3 class="card__title" style="text-align: center;">{{p.nom}}</h3>
-                <span class="card__category">
-                    <p class="card__author" title="author" style="text-transform:uppercase;text-align: center;">
-                        {{p.candidat.nom}} {{p.candidat.prenom}}</p>
-                </span>
-
+            <div class="user">
+                <div class="user-info">
+                    <h5>{{p.candidat.nom}} {{p.candidat.prenom}}</h5>
+                    <small>                <mat-icon (click)="opendialog(p)" class="btn ">downloading</mat-icon>
+                    </small>
+                </div>
             </div>
-        </article>
-    </section>
+        </div>
+    </div>
+</div> -->
 
-</div><button (click)="makePDF()">
-        <mat-icon>download </mat-icon>
-    </button>
+
+
+<div class="cards-list" *ngFor=" let p of candidatcertifie">
+
+    <div class="card 1">
+        <div class="card_image"><br><br><br>
+            <div class="card_title title-black">
+                <p> <span style="color: grey;font-size: 12px;">NOM E FORMATION :</span>
+                    <strong style="color: rgb(71, 0, 99);text-transform:uppercase;font-size: 12px;">{{p.nom}}</strong></p>
+            </div>
+            <img src="https://media.istockphoto.com/photos/mortar-and-degree-picture-id891698738?k=6&m=891698738&s=170667a&w=0&h=bE4tB5CcOILs9hssIs5PnGqk9rEYOhNGrg1HndTt6GI=" /> </div>
+        <div class="card_title title-white">
+            <p style="text-transform: uppercase; color: rgb(188, 116, 255);font-size: 16px;"> {{p.candidat.nom}} {{p.candidat.prenom}}<br><br>
+                <mat-icon (click)="opendialog(p)" class="btn ">downloading</mat-icon>
+            </p>
+        </div>
+    </div>
+
+
+
+</div>

@@ -3,6 +3,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConnexionService } from '../service/connexion.service';
 import {jsPDF} from 'jspdf';
+import { ExemplecertificatComponent } from '../exemplecertificat/exemplecertificat.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-certficatsadmin',
   templateUrl: './certficatsadmin.component.html',
@@ -12,7 +14,7 @@ export class CertficatsadminComponent implements OnInit {
   connexionnew:any
   certificat:any
   candidatcertifie:any;
-constructor(private route:Router, private connexionservice:ConnexionService, private http: HttpClient) { }
+constructor(private route:Router, private connexionservice:ConnexionService, private http: HttpClient,public dialog: MatDialog) { }
 @ViewChild('card',{static:false}) el!: ElementRef;
 
   
@@ -61,6 +63,10 @@ goToPage(pageName:string ): void{
       }
     });
    
+  }
+  opendialog(p:any){
+    this.connexionservice.cartif =  p;
+    this.dialog.open(ExemplecertificatComponent);
   }
 
     }

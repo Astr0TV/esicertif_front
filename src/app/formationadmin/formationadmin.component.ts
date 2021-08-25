@@ -14,6 +14,7 @@ import { ConnexionService } from '../service/connexion.service';
 export class FormationadminComponent implements OnInit {
   connexionnew:any;
   formation: any;
+  data: any;
   constructor(private route:Router,private connexionservice:ConnexionService, private http: HttpClient,private dialog:MatDialog) { }
   ngOnInit(): void {
 

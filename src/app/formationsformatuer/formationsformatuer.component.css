@@ -17,6 +17,8 @@ div.container a {
     z-index: 0;
     cursor: pointer;
 }
+
+
 /* Top and Bottom borders come in */
 
 div.topBotomBordersIn a:before,
@@ -48,7 +50,7 @@ div.topBotomBordersIn a:hover:after {
 }
 
 .entete {
-    color: rgb(5, 49, 131);
+    color: rgb(55, 123, 248);
     text-decoration: none;
     text-transform: uppercase;
     font-size: small;
@@ -60,18 +62,6 @@ div.topBotomBordersIn a:hover:after {
     font-size: 30px;
     fill: white;
     color: gray;
-}
-
-.mat-icon:hover {
-    color: green;
-}
-
-.mat-icon:active {
-    color: rgb(53, 192, 116);
-}
-
-.active {
-    color: rgb(53, 192, 116);
 }
 
 ul {
@@ -131,16 +121,20 @@ li a {
         width: 20%;
     }
 }
+
 .margin50 {
     margin-top: 100px;
 }
+
 .imgcandidat {
     left: 0px;
     width: 420%;
 }
-.mat-progress-bar{
+
+.mat-progress-bar {
     color: grey;
 }
+
 .grey-text {
     color: grey;
 }
@@ -167,6 +161,8 @@ p {
     font-size: 17px;
     color: red;
 }
+
+
 /***table****/
 
 * {

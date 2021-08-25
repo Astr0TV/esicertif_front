@@ -23,6 +23,7 @@ formation: any;
 connexionnew: any;
 selectedValue: string;
 closeResult: string | undefined;
+data: any;
 
   constructor(private modalService: NgbModal,private http: HttpClient,private route: Router,private connexionservice: ConnexionService) { }
 

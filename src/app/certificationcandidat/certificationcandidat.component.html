@@ -37,8 +37,8 @@
             </thead>
             <tbody *ngFor="let p of formation">
                 <tr>
-                    <td>{{ p.nom }}</td>
-                    <td>{{p.formateur.nom}}</td>
+                    <td style="text-transform: uppercase;">{{ p.nom }}</td>
+                    <td style="text-transform: uppercase;">{{p.formateur.nom}}</td>
                     <td>{{p.date_debut}}</td>
                     <td>
                         <div *ngIf="p.progress == true">
@@ -52,7 +52,7 @@
                     </td>
                     <td>
                         <div *ngIf="p.valider == true"  class="form-check form-switch ">
-                            <mat-icon class="greenicon" type="button" matTooltip="Télecharger votre certificat" (click)="opendialog()">picture_as_pdf
+                            <mat-icon class="greenicon" type="button" matTooltip="Télecharger votre certificat" (click)="opendialog(p)">picture_as_pdf
                             </mat-icon>
                         </div>
                         <div *ngIf="p.valider == false"  class="form-check form-switch ">
