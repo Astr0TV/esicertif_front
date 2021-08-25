@@ -29,7 +29,7 @@ export class PresencecandidatComponent implements OnInit {
 
   validerpresence(p:any){
     this.connexionservice.presencevalider = p;
-    this.http.get('http://localhost:8089/presence/'+this.connexionservice.presencevalider.id).subscribe({
+    this.http.get('http://localhost:8089/presence/'+this.connexionservice.presencevalider.id+'/'+this.connexionservice.presencevalider.formateur.id).subscribe({
       next: (data) => {
         console.log('valider candiat');
         console.log(data)
