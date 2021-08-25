@@ -60,7 +60,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ModifformationComponent } from './modifformation/modifformation.component';
 import { ExemplecertificatComponent } from './exemplecertificat/exemplecertificat.component';
 import {​​​​​​​​ScrollingModule}​​​​​​​​ from '@angular/cdk/scrolling';
-
+import { AlertComponent } from './alert/alert.component';
+import { PresencecandidatComponent } from './presencecandidat/presencecandidat.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -97,7 +99,9 @@ import {​​​​​​​​ScrollingModule}​​​​​​​​ from '@
     ModifformationComponent,
     ConfirmsuppleformateurComponent,
     StatadminComponent,
-    ExemplecertificatComponent
+    ExemplecertificatComponent,
+    AlertComponent,
+    PresencecandidatComponent
     
   ],
   imports: [
@@ -129,7 +133,8 @@ import {​​​​​​​​ScrollingModule}​​​​​​​​ from '@
     Ng2SearchPipeModule,
     MatRippleModule,
     MatTooltipModule,
-    ​​​​​​​​ScrollingModule
+    ​​​​​​​​ScrollingModule,
+    MatExpansionModule,
 
   ],
 

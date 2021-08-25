@@ -47,17 +47,19 @@
                         <mat-icon>badge</mat-icon>
                     </button>
                 </mat-form-field><br>
-                <mat-form-field *ngFor="let c of nomformation" floatLabel="auto" appearance="outline" color="warn">
+            <cdk-accordion-item *ngFor="let c of nomformation">
+                <mat-form-field  floatLabel="auto" appearance="outline" color="warn">
                     <mat-label style="color: black; font-weight: bold;">Formation :</mat-label>
                     <mat-label style="color: black; font-weight: bold;"> {{ c.nom }} </mat-label>
                     <input matInput disabled name="nom">
                     <button class="icone" mat-icon-button matSuffix required>
                         <mat-icon>sticky_note_2</mat-icon>
                     </button>
-                </mat-form-field>
+                </mat-form-field><br><br>
+                <button mat-raised-button color="primary" (click)="getaccept();openDialog(c)">Valider La
+                    formation</button><br><br>
+                </cdk-accordion-item>
                 <div class="text-center margin50">
-                    <button mat-raised-button color="primary" (click)="getaccept();openDialog()">Valider La
-                        formation</button><br><br>
                     <div class="table-wrapper">
                         <table class="fl-table">
                             <thead>
@@ -114,7 +116,7 @@
                         </table>
                     </div>
                     <button class="btn btn-success" type="submit"
-                        (click)="ajoute(jour1.value,hours1.value,hours2.value,hours3.value,hours4.value)">Envoyer</button>
+                        (click)="ajoute(jour1.value,hours1.value,hours2.value,hours3.value,hours4.value);showMessage()">Envoyer</button>
                 </div>
             </form>
         </div>
