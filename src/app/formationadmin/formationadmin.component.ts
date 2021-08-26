@@ -55,6 +55,17 @@ var test = JSON.parse(localStorage.getItem('userConnect') || '{}' )
     console.log(nomformation);
   }
 
+
+
+  GetFormation():any{
+    this.http.get('https://api.sheety.co/dba41a05de6889f4d4f05bc684a26eb8/formationEsic/listeDesFormations').subscribe({
+      next: (data) => { this.formation = data; 
+        console.log('this msg concernec les informations de'); 
+        console.log(data) },
+      error: (err) => 
+      {console.log(err); }
+    });
+  }
   createformation():any{
 const myDialog=this.dialog.open(CreateformationComponent);
 myDialog.afterClosed().subscribe(result=>{
