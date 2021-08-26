@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -28,13 +28,13 @@ export class PresencecandidatComponent implements OnInit {
   }
 
   validerpresence(p:any){
+    let headers = new HttpHeaders();
+  headers = headers.set('Content-type', 'application/json')
     this.connexionservice.presencevalider = p;
-    this.http.get('http://localhost:8089/presence/'+this.connexionservice.presencevalider.id+'/'+this.connexionservice.presencevalider.formateur.id).subscribe({
-      next: (data) => {
-        console.log('Presence valider');
-        console.log(data)
-      },
-      error: (err) => { console.log(err); }
+    this.http.put('http://localhost:8089/presence/'+this.connexionservice.presencevalider.id+'/'+this.connexionservice.presencevalider.formateur.id, { headers: headers })
+    .subscribe(data => {
+      console.log("data getaccpet");
+      console.log(data);
     });
 
   }

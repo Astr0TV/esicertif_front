@@ -75,21 +75,19 @@ export class HomeformateurComponent implements OnInit {
 
     }
     this.http.get('http://localhost:8089/user/' + test.id).subscribe({
-      next: (data) => {
+      next: (data) => { 
         this.connexionnew = data;
         console.log('this msg concernec les informations de');
         console.log(data)
       },
       error: (err) => { console.log(err); }
     });
-    
+    console.log(test.prenom)
+    console.log(test.id)
     this.http.get('http://localhost:8089/formation/formateur/' + test.id).subscribe({
       next: (data) => {
         this.formation = data;
         console.log('this msg concernec les informations de');
-        for(var i=0; i < this.formation ; i++)
-        console.log('count');
-           console.log(+this.formation[i].length)
         console.log(data)
       },
       error: (err) => { console.log(err); }

@@ -40,7 +40,7 @@ constructor(private route:Router, private connexionservice:ConnexionService, pri
     error: (err) =>
      {console.log(err); }
   });
-  this.http.get('      http://localhost:8089/candidatcertifie').subscribe({
+  this.http.get('http://localhost:8089/candidatcertifie').subscribe({
     next: (data) => { this.candidatcertifie= data; 
       console.log('Ce message affiche le nombre totale des candidats'); 
       console.log(data) },
