@@ -46,10 +46,10 @@
                     <td>{{p.date_debut}}</td>
                     <td>
                         <div *ngIf="p.progress == true">
-                            <mat-progress-bar mode="buffer" value="100"></mat-progress-bar>
+                            <span style="color: green;font-weight: 800;">Terminé</span>
                         </div>
                         <div *ngIf="p.progress == false">
-                            <mat-progress-bar mode="buffer" value="50"></mat-progress-bar>
+                            <span style="color:grey;font-weight: 800;"></span> en cours
                         </div>
                     </td>
                     <td>

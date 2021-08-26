@@ -10,6 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class CreateformationComponent implements OnInit {
 formateurs:any;
 candidats:any;
+formation:any;
   constructor(private http:HttpClient,public dialogRef:MatDialogRef<CreateformationComponent>) { }
 
   ngOnInit(): void {
@@ -35,6 +36,16 @@ error:(err)=>{console.log(err);}
 
 });
 
+  }
+
+  GetFormation():any{
+    this.http.get('https://api.sheety.co/dba41a05de6889f4d4f05bc684a26eb8/formationEsic/listeDesFormations').subscribe({
+      next: (data) => { this.formation = data; 
+        console.log('this msg concernec les informations de'); 
+        console.log(data) },
+      error: (err) => 
+      {console.log(err); }
+    });
   }
   
 }

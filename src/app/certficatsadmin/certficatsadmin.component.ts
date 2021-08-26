@@ -14,6 +14,7 @@ export class CertficatsadminComponent implements OnInit {
   connexionnew:any
   certificat:any
   candidatcertifie:any;
+  data:any;
 constructor(private route:Router, private connexionservice:ConnexionService, private http: HttpClient,public dialog: MatDialog) { }
 @ViewChild('card',{static:false}) el!: ElementRef;
 
