@@ -1,0 +1,23 @@
+<div class="container">
+    <p>
+        <mat-form-field>
+            <mat-select [formControl]="formationCtrl" placeholder="Formations" #singleSelect>
+                <mat-option>
+                    <ngx-mat-select-search #filter [(ngModel)]="data"></ngx-mat-select-search>
+                </mat-option>
+                <mat-option *ngFor="let f of getformation.listeDesFormations | filter: data" [value]="f">
+                    {{f.formation}}
+                </mat-option>
+            </mat-select>
+
+            <mat-hint>{{formationCtrl.value?.duree}}</mat-hint>
+
+            <br>
+            <mat-hint>{{formationCtrl.value?.siteWeb}}</mat-hint>
+
+        </mat-form-field>
+
+    </p>
+
+
+</div>

@@ -28,6 +28,7 @@ import { ModifformationComponent } from './modifformation/modifformation.compone
 import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confirmsuppleformateur.component';
 import { StatadminComponent } from './statadmin/statadmin.component';
 import { ExemplecertificatComponent } from './exemplecertificat/exemplecertificat.component';
+import { GetformationgoogleheetComponent } from './getformationgoogleheet/getformationgoogleheet.component';
 
 
 const routes: Routes = [
@@ -59,6 +60,7 @@ const routes: Routes = [
   {path:'statadmin', component: StatadminComponent},
   {path: 'getacceptformateur', component: GetacceptformateurComponent},
   {path:'exemplecertificat', component: ExemplecertificatComponent},
+  {path:'getformationgooglesheet', component: GetformationgoogleheetComponent},
 ];
 
 @NgModule({

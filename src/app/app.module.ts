@@ -1,6 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -60,6 +59,16 @@ import { ModifformationComponent } from './modifformation/modifformation.compone
 import { ExemplecertificatComponent } from './exemplecertificat/exemplecertificat.component';
 import {​​​​​​​​ScrollingModule}​​​​​​​​ from '@angular/cdk/scrolling';
 import {MatIconModule} from '@angular/material/icon';
+import {TableModule} from 'primeng/table';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+import { NgSelectModule } from '@ng-select/ng-select';
+import {MultiSelectModule} from 'primeng/multiselect';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { GetformationgoogleheetComponent } from './getformationgoogleheet/getformationgoogleheet.component';
+
+
 
 @NgModule({
   declarations: [
@@ -95,8 +104,12 @@ import {MatIconModule} from '@angular/material/icon';
     ModifformationComponent,
     ConfirmsuppleformateurComponent,
     StatadminComponent,
-    ExemplecertificatComponent
-    
+    ExemplecertificatComponent,
+    GetformationgoogleheetComponent,
+
+
+ 
+
   ],
   imports: [
     BrowserModule,
@@ -127,7 +140,22 @@ import {MatIconModule} from '@angular/material/icon';
     Ng2SearchPipeModule,
     MatRippleModule,
     MatTooltipModule,
-    ​​​​​​​​ScrollingModule
+    ​​​​​​​​ScrollingModule, 
+     AutoCompleteModule,
+    TableModule,
+    MultiSelectModule,    
+    NgMultiSelectDropDownModule.forRoot(),
+    NgSelectModule,
+    MatToolbarModule,
+    MatSelectModule,
+    NgxMatSelectSearchModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    NgxMatSelectSearchModule
+    
+    
   ],
 
   providers: [DatePipe],

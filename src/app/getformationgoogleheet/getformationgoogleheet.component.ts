@@ -13,30 +13,31 @@ import { ReplaySubject, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { MatSelect } from '@angular/material/select';
+import { Router } from '@angular/router';
+import { ConnexionService } from '../service/connexion.service';
+import { MatDialog } from '@angular/material/dialog';
 
 
-export interface Bank {
+export interface Formation {
   id: string;
   name: string;
 }
 
-export interface BankGroup {
+export interface FormationGroup {
   name: string;
-  banks: Bank[];
+  formations: Formation[];
 }
 
 @Component({
-  selector: 'app-homeclient',
-  templateUrl: './homeclient.component.html',
-  styleUrls: ['./homeclient.component.scss'],
-  providers: []
+  selector: 'app-getformationgoogleheet',
+  templateUrl: './getformationgoogleheet.component.html',
+  styleUrls: ['./getformationgoogleheet.component.css']
+})
+export class GetformationgoogleheetComponent implements OnInit {
 
-}) 
-
-
-export class HomeclientComponent implements OnInit, AfterViewInit, OnDestroy {
-
-  BANKS: Bank[] = [
+  getformation:any;
+ data: any;
+  FORMATIONS: Formation[] = [
     {name: 'Bank A (Switzerland)', id: 'A'},
     {name: 'Bank B (Switzerland)', id: 'B'},
     {name: 'Bank C (France)', id: 'C'},
@@ -58,16 +59,16 @@ export class HomeclientComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   /** list of banks */
-  protected banks: Bank[] = this.BANKS;
+  protected formations: Formation[] = this.FORMATIONS;
 
   /** control for the selected bank */
-  public bankCtrl: FormControl = new FormControl();
+  public formationCtrl: FormControl = new FormControl();
 
   /** control for the MatSelect filter keyword */
-  public bankFilterCtrl: FormControl = new FormControl();
+  public formationFilterCtrl: FormControl = new FormControl();
 
   /** list of banks filtered by search keyword */
-  public filteredBanks: ReplaySubject<Bank[]> = new ReplaySubject<Bank[]>(1);
+  public filteredFormations: ReplaySubject<Formation[]> = new ReplaySubject<Formation[]>(1);
 
   @ViewChild('singleSelect') singleSelect: MatSelect;
 
@@ -75,20 +76,31 @@ export class HomeclientComponent implements OnInit, AfterViewInit, OnDestroy {
   protected _onDestroy = new Subject<void>();
 
 
-  constructor() { }
+  constructor(private route:Router,private connexionservice:ConnexionService, private http: HttpClient,private dialog:MatDialog) { }
 
   ngOnInit() {
     // set initial selection
-    this.bankCtrl.setValue(this.banks[10]);
+    this.formationCtrl.setValue(this.formations[10]);
 
     // load the initial bank list
-    this.filteredBanks.next(this.banks.slice());
+    this.filteredFormations.next(this.formations.slice());
 
     // listen for search field value changes
-    this.bankFilterCtrl.valueChanges
+    this.formationFilterCtrl.valueChanges
       .pipe(takeUntil(this._onDestroy))
       .subscribe(() => {
-        this.filterBanks();
+        this.filterFormations();
+      });
+
+
+
+      this.http.get('https://api.sheety.co/dba41a05de6889f4d4f05bc684a26eb8/formationEsic/listeDesFormations').subscribe({
+        next: (data) => { this.getformation= data; 
+          console.log('Ce messagepour les formations de google sheets'); 
+          console.log(data)
+        },
+        error: (err) => 
+        {console.log(err); }
       });
   }
 
@@ -105,33 +117,31 @@ export class HomeclientComponent implements OnInit, AfterViewInit, OnDestroy {
    * Sets the initial value after the filteredBanks are loaded initially
    */
   protected setInitialValue() {
-    this.filteredBanks
+    this.filteredFormations
       .pipe(take(1), takeUntil(this._onDestroy))
       .subscribe(() => {
-        // setting the compareWith property to a comparison function
-        // triggers initializing the selection according to the initial value of
-        // the form control (i.e. _initializeSelection())
-        // this needs to be done after the filteredBanks are loaded initially
-        // and after the mat-option elements are available
-        this.singleSelect.compareWith = (a: Bank, b: Bank) => a && b && a.id === b.id;
+     
+        this.singleSelect.compareWith = (a: Formation, b: Formation) => a && b && a.id === b.id;
       });
   }
 
-  protected filterBanks() {
-    if (!this.banks) {
+  protected filterFormations() {
+    if (!this.formations) {
       return;
     }
     // get the search keyword
-    let search = this.bankFilterCtrl.value;
+    let search = this.formationFilterCtrl.value;
     if (!search) {
-      this.filteredBanks.next(this.banks.slice());
+      this.filteredFormations.next(this.formations.slice());
       return;
     } else {
       search = search.toLowerCase();
     }
     // filter the banks
-    this.filteredBanks.next(
-      this.banks.filter(bank => bank.name.toLowerCase().indexOf(search) > -1)
+    this.filteredFormations.next(
+      this.formations.filter(formation => formation.name.toLowerCase().indexOf(search) > -1)
     );
   }
+
+  
 }
