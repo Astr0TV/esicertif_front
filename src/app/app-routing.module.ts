@@ -29,11 +29,11 @@ import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confir
 import { StatadminComponent } from './statadmin/statadmin.component';
 import { ExemplecertificatComponent } from './exemplecertificat/exemplecertificat.component';
 import { GetformationgoogleheetComponent } from './getformationgoogleheet/getformationgoogleheet.component';
+import { PresencecandidatComponent } from './presencecandidat/presencecandidat.component';
 
 
 const routes: Routes = [
   {path:'', redirectTo: 'acceuil',pathMatch:'full'},
-
   {path:'acceuil', component: AccueilComponent},
   {path:'connexion', component: ConnexionComponent},
   {path:'register', component: RegisterComponent},
@@ -61,8 +61,8 @@ const routes: Routes = [
   {path: 'getacceptformateur', component: GetacceptformateurComponent},
   {path:'exemplecertificat', component: ExemplecertificatComponent},
   {path:'getformationgooglesheet', component: GetformationgoogleheetComponent},
+  {path: 'presencecandidat', component: PresencecandidatComponent}
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

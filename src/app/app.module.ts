@@ -58,6 +58,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ModifformationComponent } from './modifformation/modifformation.component';
 import { ExemplecertificatComponent } from './exemplecertificat/exemplecertificat.component';
 import {​​​​​​​​ScrollingModule}​​​​​​​​ from '@angular/cdk/scrolling';
+import { AlertComponent } from './alert/alert.component';
+import { PresencecandidatComponent } from './presencecandidat/presencecandidat.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import {TableModule} from 'primeng/table';
 import {AutoCompleteModule} from 'primeng/autocomplete';
@@ -106,10 +109,9 @@ import { GetformationgoogleheetComponent } from './getformationgoogleheet/getfor
     StatadminComponent,
     ExemplecertificatComponent,
     GetformationgoogleheetComponent,
-
-
- 
-
+    AlertComponent,
+    PresencecandidatComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -153,11 +155,10 @@ import { GetformationgoogleheetComponent } from './getformationgoogleheet/getfor
     BrowserAnimationsModule,
     MatSelectModule,
     MatFormFieldModule,
-    NgxMatSelectSearchModule
-    
-    
+    NgxMatSelectSearchModule,
+    MatExpansionModule,
+    ​​​​​​​​ScrollingModule
   ],
-
   providers: [DatePipe],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -17,10 +17,7 @@ export class CertficatsadminComponent implements OnInit {
   data:any;
 constructor(private route:Router, private connexionservice:ConnexionService, private http: HttpClient,public dialog: MatDialog) { }
 @ViewChild('card',{static:false}) el!: ElementRef;
-
-  
   ngOnInit(): void {
- 
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
@@ -28,12 +25,9 @@ constructor(private route:Router, private connexionservice:ConnexionService, pri
       }else if (test.role == 'candidat') {
         this.route.navigateByUrl('homecandidat');
       }
-      
   } else {
     this.route.navigateByUrl('connexion');
-  
   }
-
   this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
     next: (data) => { this.connexionnew = data; 
       console.log('this msg concernec les informations de'); 
@@ -41,7 +35,7 @@ constructor(private route:Router, private connexionservice:ConnexionService, pri
     error: (err) =>
      {console.log(err); }
   });
-  
+
   this.http.get('http://localhost:8089/candidatcertifie').subscribe({
     next: (data) => { this.candidatcertifie= data; 
       console.log('Ce message affiche le nombre totale des candidats'); 
@@ -49,7 +43,6 @@ constructor(private route:Router, private connexionservice:ConnexionService, pri
     error: (err) => 
     {console.log(err); }
   });
-
   }
   /*Deconnexion*/ 
 goToPage(pageName:string ): void{

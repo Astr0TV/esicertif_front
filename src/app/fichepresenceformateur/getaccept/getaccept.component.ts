@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ConnexionService } from 'src/app/service/connexion.service';
 import { interval, Subscription } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-getaccept',
@@ -16,6 +17,13 @@ export class GetacceptComponent implements OnInit {
 
   constructor(private http: HttpClient, private connexionservice: ConnexionService) {
     this.loadContent();
+  }
+
+  showMessage() {
+    Swal.fire({
+      text: 'Ajoute avec succès !',
+      icon: 'success'
+    });
   }
 
   loadContent() {
@@ -41,27 +49,26 @@ export class GetacceptComponent implements OnInit {
     this.http.post('https://api.getaccept.com/v1/documents/' + this.connexionservice.idgetaccept.id + '/send', JSON.stringify(getaccept2), { headers: headers2 })
       .subscribe(data => {
         console.log(data);
-        let headers = new HttpHeaders();
-        headers = headers.set('Content-type', 'application/json');
 
-        var getaccept = {
-          "nom": "Exeel",
-          "date_debut": "04/01/2020",
-          "date_fin": null,
-          "nombreheursformation": null,
-          "progress": false,
-          "valider": true,
-          "candidat": {
-            "id": 1,
-          },
-          "formateur": {
-            "id": 2,
-          }
+        var information= 
+        {
+          "nom": this.connexionservice.modifinformation.nom,
+          "date_debut": this.connexionservice.modifinformation.date_debut,
+          "date_fin": this.connexionservice.modifinformation.date_fin,
+          "nombreheursformation": this.connexionservice.modifinformation.nombreheursformation,
+          "progress":this.connexionservice.modifinformation.progress,"valider": true,
+          "candidat":{"id": this.connexionservice.modifinformation.candidat.id},
+          "formateur":{"id": this.connexionservice.modifinformation.formateur.id}
         };
-
-        this.http.post('http://localhost:8089/formation/' + this.connexionservice.nomformation.id, JSON.stringify(getaccept), { headers: headers })
-          .subscribe(data => {
-            console.log(data);
+       let headers = new HttpHeaders();
+       headers = headers.set('content-type','application/json');
+   
+         this.http.put('http://localhost:8089/formation/'+ this.connexionservice.modifinformation.id ,JSON.stringify(information),{headers: headers}).subscribe({
+          next:(data)=>{
+            console.log(data)
+            this.ngOnInit();
+          },
+          error:(err)=>{console.log(err);}
           });
       });
   }

@@ -38,7 +38,7 @@
                             </span>
                         </div>
                         <div class="example-accordion-item-body" role="region" [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-'" [attr.aria-labelledby]="'accordion-header-' ">
-                            {{ p.canditat.nom }} {{ p.canditat.prenom }}
+                            {{p.candidat.nom}}  {{p.candidat.prenom}}
                             <a (click)="fichepresence(p);nomformation(p)">
                                 <mat-icon class="presence" mat-raised-right matTooltip="pour remplir la fiche de presence click sur icone" matTooltipPosition=right matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip">pending_actions</mat-icon>
                             </a>
