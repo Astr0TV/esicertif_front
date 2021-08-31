@@ -18,6 +18,7 @@ export class ConnexionService {
   cartif: any
   pdfformateur: any
   attestationsformateur: any
+  email:any;
 
   constructor(private route: Router) { }
 

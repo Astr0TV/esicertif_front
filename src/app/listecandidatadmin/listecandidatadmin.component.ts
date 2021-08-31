@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CreatecandidatComponentComponent } from '../createcandidat-component/createcandidat-component.component';
+import { RecommandationComponent } from '../recommandation/recommandation.component';
 import { ConnexionService } from '../service/connexion.service';
 
 @Component({
@@ -15,6 +16,8 @@ export class ListecandidatadminComponent implements OnInit {
   candidat:any;
   nbreformationparcandidat:any;
   nbrecertificatparcandidat:any;
+  email:any
+
   constructor(private route:Router,private connexionservice:ConnexionService, private http: HttpClient,private dialog:MatDialog) { }
 
   ngOnInit(): void {
@@ -55,10 +58,15 @@ this.http.get('http://localhost:8089/usersrole/candidat').subscribe({
   this.http.get('http://localhost:8089/nbrecertificatbycandidat').subscribe({
     next: (data) => { this.nbrecertificatparcandidat = data; 
       console.log('this msg concernec les informations de'); 
-      console.log(data) },
+      console.log(this.nbrecertificatparcandidat.id) },
     error: (err) => 
     {console.log(err); }
   });
+
+
+
+
+
 }
 goToPage(pageName:string ): void{
   this.route.navigate([`${pageName}`]);
@@ -75,12 +83,33 @@ deletecandidat(p:any){
   this.http.delete(' http://localhost:8089/userremove/'+p.id).subscribe({
   next:(data)=>{ 
      this.ngOnInit();
-  
   },
   error:(err)=>{console.log(err);}
   });}
 
+  recommander(p:any){
+this.connexionservice.email=p;
+  this.http.get(' http://localhost:8089/send/'+this.connexionservice.email.email).subscribe({
+    next: (data) => {this.email= data; 
+      console.log('this msg concernec les informations de'+data); 
+      },
+    error: (err) => 
+    {console.log(err); }
+  });
+  }
 
+  openDialog(p:any) {
+    this.connexionservice.email=p;
+
+
+    const dialogRef = this.dialog.open(RecommandationComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
+
+
 
 

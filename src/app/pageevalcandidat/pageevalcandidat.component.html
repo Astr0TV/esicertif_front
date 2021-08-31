@@ -5,7 +5,7 @@
             <mat-stepper orientation="vertical" #stepper>
                 <!--rubrique 1 -->
                 <mat-step [stepControl]="firstFormGroup" errorMessage="Vous devez répondre à cette rubrique.">
-                    <form [formGroup]="firstFormGroup">
+                    <form [formGroup]="firstFormGroup" #logForm="ngForm" (ngSubmit)="question1(logForm.value)">
                         <div>
                             <mat-icon>filter_1</mat-icon>
                             <span class="numquestion">Question N°1:</span>
@@ -42,7 +42,7 @@
                             <input matInput class="textelabel" disabled value="Le score de votre reponse est: "><span class="reponsechoisie">{{favoritereponse2}}</span>
                         </mat-form-field>
                         <div>
-                            <button mat-stroked-button color="primary" matStepperNext class="center">Suivant</button>
+                            <button type="submit" mat-stroked-button color="primary" matStepperNext class="center">Suivant</button>
                         </div>
                     </form>
                 </mat-step>
