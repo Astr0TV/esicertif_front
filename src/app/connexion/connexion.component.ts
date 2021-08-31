@@ -16,14 +16,11 @@ export class ConnexionComponent implements OnInit {
   constructor(private http: HttpClient,private route: Router,private  connexionservice: ConnexionService) { }
 
 
-  ngOnInit(): void {
-
-  }
-
+  ngOnInit(): void {}
+//Check if user's credentials allows him to connect
 connexion(val: any): any {
   this.http.post('http://localhost:8089/connexion', val).subscribe({
     next: (data) => {
-      console.log(data);
       this.user = data;
       if (this.user != null ) {
         if(this.user.role=='candidat')
@@ -37,7 +34,8 @@ connexion(val: any): any {
           this.connexionservice.setUserSession(this.user);
           this.route.navigateByUrl('homeadmin'); }
 
-      } else { this.msg = 'Identifiants incorrectes !! '; console.log('identifiants incorrectes ! ')}
+      } else { this.msg = 'Identifiants incorrectes !! '; 
+      console.log('identifiants incorrectes ! ')}
     }, error: (err) => { console.log(err) }
   })
 }

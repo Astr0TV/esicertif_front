@@ -37,17 +37,11 @@ const routes: Routes = [
   {path:'acceuil', component: AccueilComponent},
   {path:'connexion', component: ConnexionComponent},
   {path:'register', component: RegisterComponent},
-  {path:'homeclient', component: HomeclientComponent},
-  {path:'homecandidat', component: HomecandidateComponent},
-  {path:'formationcandidat', component: FormationCandidatComponent},
-  {path:'certificatcandidat', component: CertificationcandidatComponent},
-  {path:'pageevalcandidat', component: PageevalcandidatComponent},
-  {path:'homeformateur', component: HomeformateurComponent},
-  {path:'formationformateur', component: FormationsformatuerComponent},
-  {path:'candidatformateur', component: CandidatformateurComponent},
+   // admin views
+
+   
   {path:'homeadmin', component: HomeadminComponent},
-  {path:'formationadmin', component: FormationadminComponent},
-  {path:'fichedepresence', component: FichepresenceformateurComponent},
+  {path:'formationadmin', component: FormationadminComponent}, 
   {path:'formateurcandidatadmin', component: FormateursCandidatAdminComponent},
   {path:'certificatadmin', component: CertficatsadminComponent},
   {path:'createformation', component: CreateformationComponent},
@@ -57,11 +51,24 @@ const routes: Routes = [
   {path:'detailsformation', component: DetailsformationComponent},
   {path:'modifformation', component: ModifformationComponent},
   {path:'confirmationlasupprissionduformateur', component: ConfirmsuppleformateurComponent},
-  {path:'statadmin', component: StatadminComponent},
-  {path: 'getacceptformateur', component: GetacceptformateurComponent},
+  {path:'statadmin', component: StatadminComponent},  
   {path:'exemplecertificat', component: ExemplecertificatComponent},
   {path:'getformationgooglesheet', component: GetformationgoogleheetComponent},
-  {path: 'presencecandidat', component: PresencecandidatComponent}
+   // test views
+   {path:'homeclient', component: HomeclientComponent},
+   // candidat views
+  {path:'homecandidat', component: HomecandidateComponent},
+  {path:'formationcandidat', component: FormationCandidatComponent},
+  {path:'certificatcandidat', component: CertificationcandidatComponent},
+  {path:'pageevalcandidat', component: PageevalcandidatComponent},
+  // formateur views
+  {path:'homeformateur', component: HomeformateurComponent},
+  {path:'formationformateur', component: FormationsformatuerComponent},
+  {path:'candidatformateur', component: CandidatformateurComponent},
+  {path:'fichedepresence', component: FichepresenceformateurComponent},
+  {path: 'getacceptformateur', component: GetacceptformateurComponent},
+  {path: 'presencecandidat', component: PresencecandidatComponent},
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
