@@ -61,6 +61,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AlertComponent } from './alert/alert.component';
 import { PresencecandidatComponent } from './presencecandidat/presencecandidat.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 import { PresenceformateurComponent } from './presenceformateur/presenceformateur.component';
 import { PdfformateurComponent } from './presenceformateur/pdfformateur/pdfformateur.component';
 import { MatSortModule } from '@angular/material/sort';
@@ -69,16 +70,6 @@ import { environment } from './environments/environment';
 import { SumPipeModule } from './pipe/sum.pipe';
 import { AttestationformateurComponent } from './attestationformateur/attestationformateur.component';
 import { ModelattestationComponent } from './attestationformateur/modelattestation/modelattestation.component';
-import {MatIconModule} from '@angular/material/icon';
-import {TableModule} from 'primeng/table';
-import {AutoCompleteModule} from 'primeng/autocomplete';
-import { NgSelectModule } from '@ng-select/ng-select';
-import {MultiSelectModule} from 'primeng/multiselect';
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
-import { GetformationgoogleheetComponent } from './getformationgoogleheet/getformationgoogleheet.component';
-import { RecommandationComponent } from './recommandation/recommandation.component';
 
 
 
@@ -117,15 +108,13 @@ import { RecommandationComponent } from './recommandation/recommandation.compone
     ConfirmsuppleformateurComponent,
     StatadminComponent,
     ExemplecertificatComponent,
-    GetformationgoogleheetComponent,
     AlertComponent,
     PresencecandidatComponent,
     PresenceformateurComponent,
     PdfformateurComponent,
     AttestationformateurComponent,
-    ModelattestationComponent,
-    RecommandationComponent
-    
+    ModelattestationComponent
+
   ],
   imports: [
     BrowserModule,
@@ -157,20 +146,6 @@ import { RecommandationComponent } from './recommandation/recommandation.compone
     MatRippleModule,
     MatTooltipModule,
     ScrollingModule,
-    ​​​​​​​​ScrollingModule, 
-     AutoCompleteModule,
-    TableModule,
-    MultiSelectModule,    
-    NgMultiSelectDropDownModule.forRoot(),
-    NgSelectModule,
-    MatToolbarModule,
-    MatSelectModule,
-    NgxMatSelectSearchModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    NgxMatSelectSearchModule,
     MatExpansionModule,
     ScrollingModule, MatSortModule,SumPipeModule
   ],

@@ -28,7 +28,6 @@ import { ModifformationComponent } from './modifformation/modifformation.compone
 import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confirmsuppleformateur.component';
 import { StatadminComponent } from './statadmin/statadmin.component';
 import { ExemplecertificatComponent } from './exemplecertificat/exemplecertificat.component';
-import { GetformationgoogleheetComponent } from './getformationgoogleheet/getformationgoogleheet.component';
 import { PresencecandidatComponent } from './presencecandidat/presencecandidat.component';
 import { PresenceformateurComponent } from './presenceformateur/presenceformateur.component';
 import { AttestationformateurComponent } from './attestationformateur/attestationformateur.component';
@@ -62,14 +61,10 @@ const routes: Routes = [
   {path:'statadmin', component: StatadminComponent},
   {path: 'getacceptformateur', component: GetacceptformateurComponent},
   {path:'exemplecertificat', component: ExemplecertificatComponent},
-<<<<<<< HEAD
   {path: 'presencecandidat', component: PresencecandidatComponent},
   {path: 'presenceformateur', component: PresenceformateurComponent},
-  {path: 'attesttationformateur', component: AttestationformateurComponent}
-=======
-  {path:'getformationgooglesheet', component: GetformationgoogleheetComponent},
+  {path: 'attesttationformateur', component: AttestationformateurComponent},
   {path: 'presencecandidat', component: PresencecandidatComponent}
->>>>>>> c1a066527c3b27f08ae7f2ac44a3347409d48d5f
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
