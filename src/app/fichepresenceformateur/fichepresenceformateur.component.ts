@@ -32,6 +32,8 @@ export class FichepresenceformateurComponent implements OnInit {
   loading = true;
   presence: any;
   iddoucment: any
+  allpresence: any;
+  sum: any
 
 
   constructor(private http: HttpClient, private route: Router, private connexionservice: ConnexionService,
@@ -48,8 +50,8 @@ export class FichepresenceformateurComponent implements OnInit {
     });
   }
 
-  openDialog(c:any) {
-this.connexionservice.modifinformation = c;
+  openDialog(c: any) {
+    this.connexionservice.modifinformation = c;
     this.dialog.open(GetacceptComponent);
 
   }
@@ -118,12 +120,14 @@ this.connexionservice.modifinformation = c;
     let latest_date = this.datepipe.transform(j, 'dd/MM/yyyy');
     let latest_houre = h1 + " - " + h2
     let latest_houre2 = h3 + " - " + h4
-    let calcul = parseInt(h2) - parseInt(h1) + parseInt(h3) - parseInt(h4);
+    let calcul = (parseInt(h2) - parseInt(h1));
+    let calcul2 = (parseInt(h4) - parseInt(h3));
+    let sum = calcul + calcul2
     var getaccept = {
       "jour1": latest_date,
       "hours1": latest_houre,
       "hours2": latest_houre2,
-      "nbheure": calcul,
+      "nbheure": sum,
       "formation": { "id": this.connexionservice.nomformation.id },
       "candidat": { "id": this.connexionservice.presence.candidat.id },
       "formateur": { "id": formateur.id }
@@ -163,10 +167,7 @@ this.connexionservice.modifinformation = c;
         this.presence = data;
         console.log('presence');
         console.log(this.presence)
-        const a = [0, 2, 2];
-        const sum = this.presence.reduce((sum: any, p: any) => sum + p);
-        console.log("sum");
-        console.log(sum);
+
       },
       error: (err) => { console.log(err); }
     });
@@ -177,6 +178,18 @@ this.connexionservice.modifinformation = c;
         this.connexionnew = data;
         console.log('this msg concernec les informations de');
         console.log(data)
+      },
+      error: (err) => { console.log(err); }
+    });
+
+    this.http.get('http://localhost:8089/presence/formation/'+ this.connexionservice.nomformation.id).subscribe({
+      next: (data) => {
+        this.allpresence = data;
+        console.log('all presence');
+        console.log(data)
+        console.log("sum")
+        this.sum = this.allpresence.reduce((acc : any, val : any) => acc += val.nbheure, 0)
+        console.log(this.sum);
       },
       error: (err) => { console.log(err); }
     });

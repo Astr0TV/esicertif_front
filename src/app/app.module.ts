@@ -58,11 +58,21 @@ import { DatePipe } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ModifformationComponent } from './modifformation/modifformation.component';
 import { ExemplecertificatComponent } from './exemplecertificat/exemplecertificat.component';
-import {​​​​​​​​ScrollingModule}​​​​​​​​ from '@angular/cdk/scrolling';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AlertComponent } from './alert/alert.component';
 import { PresencecandidatComponent } from './presencecandidat/presencecandidat.component';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatIconModule} from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { PresenceformateurComponent } from './presenceformateur/presenceformateur.component';
+import { PdfformateurComponent } from './presenceformateur/pdfformateur/pdfformateur.component';
+import { MatSortModule } from '@angular/material/sort';
+import { API_KEY, GoogleSheetsDbService } from 'ng-google-sheets-db';
+import { environment } from './environments/environment';
+import { SumPipeModule } from './pipe/sum.pipe';
+import { AttestationformateurComponent } from './attestationformateur/attestationformateur.component';
+import { ModelattestationComponent } from './attestationformateur/modelattestation/modelattestation.component';
+
+
 
 @NgModule({
   declarations: [
@@ -100,8 +110,12 @@ import {MatIconModule} from '@angular/material/icon';
     StatadminComponent,
     ExemplecertificatComponent,
     AlertComponent,
-    PresencecandidatComponent
-    
+    PresencecandidatComponent,
+    PresenceformateurComponent,
+    PdfformateurComponent,
+    AttestationformateurComponent,
+    ModelattestationComponent
+
   ],
   imports: [
     BrowserModule,
@@ -132,12 +146,17 @@ import {MatIconModule} from '@angular/material/icon';
     Ng2SearchPipeModule,
     MatRippleModule,
     MatTooltipModule,
-    ​​​​​​​​ScrollingModule,
+    ScrollingModule,
     MatExpansionModule,
-    ​​​​​​​​ScrollingModule
+    ScrollingModule, MatSortModule,SumPipeModule
   ],
 
-  providers: [DatePipe],
+  providers: [SumPipeModule,DatePipe, {
+    provide: API_KEY,
+    useValue: environment.googleSheetsApiKey,
+  },
+    GoogleSheetsDbService
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -29,6 +29,8 @@ import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confir
 import { StatadminComponent } from './statadmin/statadmin.component';
 import { ExemplecertificatComponent } from './exemplecertificat/exemplecertificat.component';
 import { PresencecandidatComponent } from './presencecandidat/presencecandidat.component';
+import { PresenceformateurComponent } from './presenceformateur/presenceformateur.component';
+import { AttestationformateurComponent } from './attestationformateur/attestationformateur.component';
 
 
 const routes: Routes = [
@@ -60,7 +62,9 @@ const routes: Routes = [
   {path:'statadmin', component: StatadminComponent},
   {path: 'getacceptformateur', component: GetacceptformateurComponent},
   {path:'exemplecertificat', component: ExemplecertificatComponent},
-  {path: 'presencecandidat', component: PresencecandidatComponent}
+  {path: 'presencecandidat', component: PresencecandidatComponent},
+  {path: 'presenceformateur', component: PresenceformateurComponent},
+  {path: 'attesttationformateur', component: AttestationformateurComponent}
 ];
 
 @NgModule({

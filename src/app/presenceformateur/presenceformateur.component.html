@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <img src="/assets/logo1.png" width="150">
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-9">
+            <div *ngFor="let p of connexionnew">
+                <p class="entete">
+                    {{ p.nom }}
+                    <a (click)="goToPage('acceuil')">
+                        <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
+                    </a>
+                </p>
+            </div><br><br>
+        </div>
+    </div>
+    <div class="container  topBotomBordersIn">
+        <div class="container  topBotomBordersIn">
+            <a routerLink="/homeformateur">ACCEUIL</a>
+            <a routerLink="/formationformateur">FORMATIONS</a>
+            <a routerLink="/getacceptformateur">GETACCEPT</a>
+             <a routerLink="/presenceformateur">PRESENCE</a>
+
+    </div>
+
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col">
+            <div class="text-center margin50">
+                <cdk-accordion class="example-accordion" >
+                    <cdk-accordion-item *ngFor="let p of formation" #accordionItem="cdkAccordionItem"
+                        class="example-accordion-item" role="button" tabindex="0" [attr.id]="'accordion-header-'"
+                        [attr.aria-expanded]="accordionItem.expanded" [attr.aria-controls]="'accordion-body-'">
+                        <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+                           Formation : {{ p.nom }}
+                            <span class="example-accordion-item-description">
+                                cliquez pour  {{ accordionItem.expanded ? 'ferme' : 'ouvrir' }}
+                            </span>
+                        </div>
+
+                        <div class="example-accordion-item-body" role="region"
+                            [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-'"
+                            [attr.aria-labelledby]="'accordion-header-' ">
+                            <cdk-accordion-item *ngFor="let c of presnececandiat" #card >
+                            <table *ngIf=" p.id == c.formation.id" class="table table-striped" #card id="card">
+                                <thead>
+                                <tr>
+                                  <th scope="col">Date</th>
+                                  <th scope="col">Sceance Matinale</th>
+                                  <th scope="col">Heure Après-midi</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td>
+                                    {{ c.jour1 }}
+                                  </td>
+                                  <td>{{ c.hours1 }}</td>
+                                  <td>{{ c.hours2 }}</td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </cdk-accordion-item>
+                            <a (click)="opendialog(p)">
+                                <mat-icon  class="presence" mat-raised-right
+                                    matTooltip="Valider votre presence"
+                                    matTooltipPosition=right matTooltipClass="example-tooltip-red"
+                                    aria-label="Button that shows a red tooltip">check_circle</mat-icon>
+                            </a>
+                        </div>
+                    </cdk-accordion-item>
+                </cdk-accordion>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>

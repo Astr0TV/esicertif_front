@@ -1,4 +1,5 @@
 /* navbar*/
+
 @import 'https://fonts.googleapis.com/css?family=Raleway';
 div.container {
     font-family: Raleway;
@@ -49,7 +50,7 @@ div.topBotomBordersIn a:hover:after {
 }
 
 .entete {
-    color: rgb(5, 49, 131);
+    color: rgb(55, 123, 248);
     text-decoration: none;
     text-transform: uppercase;
     font-size: small;
@@ -57,12 +58,108 @@ div.topBotomBordersIn a:hover:after {
     margin-left: 650px;
 }
 
+.mat-icon {
+    font-size: 30px;
+    fill: white;
+    color: gray;
+}
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 18px;
+    margin-left: 43%;
+    margin-right: 38%;
+    text-align: center;
+    box-shadow: 0px 0px black, 0em 0 1em black;
+}
 
-/*margin entre nav bar et tableau*/
+.white-icon {
+    color: rgb(102, 102, 102);
+}
 
-.margin150 {
-    margin-top: 150px;
+.green-icon {
+    color: rgba(95, 209, 19, 0.884);
+}
+
+.border {
+    box-shadow: 0px 0px black, 0em 0 1em black;
+}
+
+li {
+    display: inline-block;
+}
+
+li a {
+    width: 4em;
+    display: block;
+    padding: 20px;
+    padding-left: 14px;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        box-shadow: 0px 0px black, 0em 0 1em black;
+        border-radius: 18px
+    }
+    .li a {
+        width: 4em;
+        display: block;
+        padding: 40px;
+        text-align: center;
+    }
+    .imgcandidat {
+        left: 0px;
+        width: 20%;
+    }
+}
+
+.margin50 {
+    margin-top: 100px;
+}
+
+.imgcandidat {
+    left: 0px;
+    width: 420%;
+}
+
+.mat-progress-bar {
+    color: grey;
+}
+
+.grey-text {
+    color: grey;
+}
+
+p {
+    color: green;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: medium;
+    font-weight: 600;
+}
+
+.name {
+    color: green;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: 600;
+    margin-left: 190px;
+}
+
+.icon {
+    margin-top: 22px;
+    font-size: 17px;
+    color: red;
 }
 
 

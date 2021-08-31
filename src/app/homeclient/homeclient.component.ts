@@ -4,16 +4,36 @@ import { FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular
 import { Router } from '@angular/router';
 import { ConnexionService } from '../service/connexion.service';
 import {jsPDF} from 'jspdf';
+import { Observable } from 'rxjs';
+import { GoogleSheetsDbService } from 'ng-google-sheets-db';
+import { Character , characterAttributesMapping } from './character.model';
+import { environment } from '../environments/environment';
+
+
+export interface Dessert {
+  calories: number;
+  carbs: number;
+  fat: number;
+  name: string;
+  protein: number;
+}
 @Component({
   selector: 'app-homeclient',
   templateUrl: './homeclient.component.html',
   styleUrls: ['./homeclient.component.css']
 })
 export class HomeclientComponent implements OnInit {
+  characters$: Observable<Character[]>;
+
+
+  sortedData: Dessert[];
+
 @ViewChild('content',{static:false}) el!: ElementRef;
 
-  constructor(private http: HttpClient,private route: Router,private contact:ConnexionService,private builder: FormBuilder ) {
-  } 
+  constructor(private http: HttpClient,private route: Router,private contact:ConnexionService,
+              private builder: FormBuilder,private googleSheetsDbService: GoogleSheetsDbService  ) {
+} 
+    
 
   onSubmit(contactForm: NgForm) {
     if (contactForm.valid) {
@@ -31,6 +51,8 @@ export class HomeclientComponent implements OnInit {
 
   
   ngOnInit() {
+    this.characters$ = this.googleSheetsDbService.getActive<Character>(
+      environment.characters.spreadsheetId, environment.characters.worksheetName, characterAttributesMapping, 'Active');
 
     }
    
@@ -44,4 +66,13 @@ export class HomeclientComponent implements OnInit {
    
   }
 
-    }
+
+
+
+
+}
+
+  
+
+
+    

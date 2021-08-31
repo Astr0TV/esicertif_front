@@ -16,6 +16,8 @@ export class ConnexionService {
   nbreformationparformateur:any;
   presencevalider: any;
   cartif: any
+  pdfformateur: any
+  attestationsformateur: any
 
   constructor(private route: Router) { }
 
