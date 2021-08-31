@@ -70,6 +70,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { GetformationgoogleheetComponent } from './getformationgoogleheet/getformationgoogleheet.component';
+import { RecommandationComponent } from './recommandation/recommandation.component';
 
 
 
@@ -110,7 +111,8 @@ import { GetformationgoogleheetComponent } from './getformationgoogleheet/getfor
     ExemplecertificatComponent,
     GetformationgoogleheetComponent,
     AlertComponent,
-    PresencecandidatComponent
+    PresencecandidatComponent,
+    RecommandationComponent
     
   ],
   imports: [

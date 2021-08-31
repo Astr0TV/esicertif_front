@@ -16,6 +16,7 @@ export class ConnexionService {
   nbreformationparformateur:any;
   presencevalider: any;
   cartif: any
+  email:any;
 
   constructor(private route: Router) { }
 

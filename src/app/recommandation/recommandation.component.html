@@ -295,33 +295,38 @@
       </g>
   </svg>
 
-    <form>
-        <h3 class="title text-center mb-4">Recommander une formation</h3>
+    <form *ngFor="let p of user">
+        <h5 class="title text-center mb-4">Recommander une formation</h5>
 
         <!-- Name -->
         <div class="form-group position-relative mb-3">
             <label for="formName" class="d-block">
           <i class="icon" data-feather="user"></i>
         </label>
-            <input type="text" id="formName" class="form-control form-control-lg thick" placeholder="Name">
+            <input style="text-transform: uppercase;color:#833900BA ;" type="text" id="formName" disabled name="nom" class="form-control form-control-lg thick " value="{{p.nom}} {{p.prenom}}">
         </div>
 
         <!-- E-mail -->
         <div class="form-group position-relative mb-3 ">
-            <label for="formEmail" class="d-block">
-          <i class="icon" data-feather="mail"></i>
+            <label for="formEmail " class="d-block ">
+          <i class="icon " data-feather="mail "></i>
         </label>
-            <input type="email" id="formEmail" class="form-control form-control-lg thick" placeholder="E-mail">
+            <input disabled style="text-transform: uppercase;color:#833900BA ;" type="email " id="formEmail" name="email" class="form-control form-control-lg thick " [value]="p.email">
         </div>
-
-        <!-- Message -->
-        <div class="form-group message mb-3">
-            <textarea id="formMessage" class="form-control form-control-lg" rows="7" placeholder="...."></textarea>
+        <div *ngFor="let f of formation">
+            <!-- Message -->
+            <div class="form-group message mb-3 ">
+                <textarea style="color:#2B2928BA ;" id="formMessage" name="message" disabled class="form-control form-control-lg" rows="8"> Bonjour, 
+        Vous avez effectué avec nous une formation en  {{f.nom}}.
+        Nous proposons, aujourd'hui, des formations qui vous intéresse.
+        Nous vous invitons à consulter notre site web pour plus d'information. 
+    </textarea>
+            </div>
         </div>
 
         <!-- Submit btn -->
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary" tabIndex="-1">Envoyez</button>
+        <div class=" text-center ">
+            <button class="btn btn-primary " mat-dialog-close (click)="recommander(p);showMessage()" dex="-1 ">Envoyez</button>
         </div>
     </form>
 

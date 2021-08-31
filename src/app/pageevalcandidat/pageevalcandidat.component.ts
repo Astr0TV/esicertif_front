@@ -185,8 +185,8 @@ openDialog() {
    console.log ('ici affiche les donnes de la 1er question de fiche devaluation ', val);
    this.http.post('http://localhost:8089/pageEval',val).subscribe({
     next: (data) => { this.user = data; 
-      console.log('this msg concerne les informations de'); 
-      console.log(data) },
+      console.log('this msg concerne les informations de'+data); 
+      },
     error: (err) => {console.log(err); }
   });}
      
