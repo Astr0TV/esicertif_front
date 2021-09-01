@@ -1,0 +1,41 @@
+<cdk-accordion *ngFor="let p of formation"  class="example-accordion" >
+        <div >
+           Formation : {{ p.nom }}
+
+        </div>
+
+        <div  role="region"
+             [attr.id]="'accordion-body-'"
+            [attr.aria-labelledby]="'accordion-header-' "  #card >
+            <cdk-accordion-item *ngFor="let c of presnececandiat">
+            <table *ngIf=" p.id == c.formation.id" class="table table-striped" >
+                <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Matinée</th>
+                  <th scope="col">Après-midi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>
+                    {{ c.jour1 }}
+                  </td>
+                  <td>{{ c.hours1 }}</td>
+                  <td>{{ c.hours2 }}</td>
+                </tr>
+                </tbody>
+              </table>
+            </cdk-accordion-item>
+            <a (click)="makePDF()">
+                <mat-icon  class="presence" mat-raised-right
+                    matTooltip="Valider votre presence"
+                    matTooltipPosition=right matTooltipClass="example-tooltip-red"
+                    aria-label="Button that shows a red tooltip">check_circle</mat-icon>
+            </a>
+        </div>
+</cdk-accordion>
+<div mat-dialog-actions align="center">
+    <button mat-button  mat-dialog-close >No Thanks</button>
+    <button mat-button mat-dialog-close (click)="getaccept()" cdkFocusInitial>Envoye</button>
+  </div>

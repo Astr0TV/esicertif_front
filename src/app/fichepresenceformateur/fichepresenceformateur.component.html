@@ -56,10 +56,10 @@
                         <mat-icon>sticky_note_2</mat-icon>
                     </button>
                 </mat-form-field><br><br>
-                <button mat-raised-button color="primary" (click)="getaccept();openDialog(c)">Valider La
-                    formation</button><br><br>
+                <button  *ngIf="c.nombreheursformation ==  sum" mat-raised-button color="primary" (click)="getaccept();openDialog(c)">Valider La
+                    formation </button><br><br>  
                 </cdk-accordion-item>
-                <div class="text-center margin50">
+                <div class="text-center">
                     <div class="table-wrapper">
                         <table class="fl-table">
                             <thead>

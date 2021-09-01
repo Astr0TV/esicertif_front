@@ -1,0 +1,21 @@
+<mat-dialog-content class="mat-typography">
+
+    <dl class="example-dl">
+        <div class="card card-5" id="card" *ngFor="let p of connexionnew" #card>
+            <h5 class="titre">ATTESTATION FIN DE FORMATION</h5>
+            <div class="container">
+                <br><br>
+                <div style="font-size: small; text-indent: 20px;">Je soussignée, <strong class="nom"> Michèle ELBAZ </strong> , Gérante, atteste que M./Mme
+
+                    <strong class="nom">{{p.nom}} {{p.prenom}}</strong>
+                    <div class="indent">a suivi la formation suivante :</div>
+                </div>
+            </div>
+        </div>
+    </dl>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]=" true " cdkFocusInitial (click)="makePDF() ">Télécharger</button>
+</mat-dialog-actions>

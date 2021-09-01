@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <img src="/assets/logo1.png" width="150">
+        </div>
+        <div class="col-sm-1"></div>
+    <div class="col-sm-9">
+        <div *ngFor="let p of connexionnew">
+            <p class="entete">
+                {{ p.nom }}
+                <a (click)="goToPage('acceuil')">
+                    <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
+                </a>
+            </p>
+        </div><br><br>
+    </div>
+</div>
+<div class="container  topBotomBordersIn">
+    <a routerLink="/homeformateur">ACCEUIL</a>
+    <a routerLink="/formationformateur">FORMATIONS</a>
+    <a routerLink="/getacceptformateur">GETACCEPT</a>
+    <a routerLink="/presenceformateur">PRESENCE</a>
+    <a routerLink="/attesttationformateur">ATTESTTATION</a>
+</div>
+
+
+
+<div class="row">
+
+    <div class="col">
+
+    </div>
+    <div class="col">
+
+        <div class=" margin50">
+            <p>Les formations
+            </p>
+            <div class="text-center">
+                <mat-form-field class="px-16" style="width: 30%">
+                    <input matInput #filter placeholder="Search..."  [(ngModel)]="data" id="listSearch" autocomplete="off" style="width: 100%">
+                    <mat-icon matSuffix>search</mat-icon>
+                  </mat-form-field>
+                    <div class="table-wrapper">
+                        <table class="fl-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-transform: uppercase; letter-spacing: 1px;">Intitulée de formation</th>
+                                    <th style="text-transform: uppercase; letter-spacing: 1px;">NOM DE FORMATEUR</th>
+                                    <th style="text-transform: uppercase; letter-spacing: 1px;">DATE DE DEBUT DE FORMATION</th>
+                                    <th style="text-transform: uppercase; letter-spacing: 1px;">STATUS</th>
+                                    <th style="text-transform: uppercase; letter-spacing: 1px;">FICHE D'EVALUATION</th>
+                                    <th style="text-transform: uppercase; letter-spacing: 1px;">ATTESTTATION</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let p of formation  | filter: data">
+                                <tr>
+                                    <td>{{ p.nom }}</td>
+                                    <td>{{p.formateur.nom}}</td>
+                                    <td>{{p.date_debut}}</td>
+                                    <td>
+                                        <div *ngIf="p.progress == true">
+                                            <mat-progress-bar mode="buffer" value="100"></mat-progress-bar>
+                                        </div>
+                                        <div *ngIf="p.progress == false">
+                                            <mat-progress-bar mode="buffer" value="50"></mat-progress-bar>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div *ngIf="p.valider == true"  class="form-check form-switch">
+                                            <label class="form-check-label"  for="flexSwitchCheckCheckedDisabled">Validé</label>
+                                        </div>
+                                        <div *ngIf="p.valider == false"  class="form-check form-switch">
+                                            <label class="form-check-label"  for="flexSwitchCheckCheckedDisabled">En Cours</label>
+                                        </div>
+                                    </td>
+                                    <td><button mat-button color="primary" (click)="openDialog(p)">OUVER</button></td>
+                                </tr>
+                
+                                <tbody>
+                        </table>
+                    </div>
+            </div>
+    </div>
+</div>
+<div class="col"></div>
+</div>
