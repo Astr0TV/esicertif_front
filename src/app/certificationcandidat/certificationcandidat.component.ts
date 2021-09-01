@@ -11,10 +11,12 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./certificationcandidat.component.css']
 })
 export class CertificationcandidatComponent implements OnInit {
+  
   formation: any;
   connexionnew: any;
 
   constructor(private http: HttpClient,private route :Router,private connexionservice:ConnexionService,public dialog: MatDialog) { }
+  
   /*Deconnexion */
   goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);

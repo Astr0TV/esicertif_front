@@ -10,7 +10,12 @@ import Swal from 'sweetalert2'
   templateUrl: './recommandation.component.html',
   styleUrls: ['./recommandation.component.css']
 })
+/**Cette page sert a envoyer un email pour recommander une formation!
+ * en 1 er lieu on a pu recupérer  les formations pou chaquue candidats 
+ * Mais on a un probléme lors de l'envoie  de mail (on peut envoyer un mail standard pour tt le monde pas de specification de formation
+ * faite par BEN SALAH MARIEM* */
 export class RecommandationComponent implements OnInit {
+
   connexionnew:any;
   candidat:any;
   nbreformationparcandidat:any;
@@ -18,15 +23,12 @@ export class RecommandationComponent implements OnInit {
   email:any;
   user:any
   formation:any;
+
   constructor(private route:Router,private connexionservice:ConnexionService, private http: HttpClient,private dialog:MatDialog) { }
 
-  showMessage() {
-    Swal.fire({
-      text: 'Envoyé avec succès   !',
-      icon: 'success'
-    });
-  }
-
+  
+/**En tant qu'utilisateur du système, 
+je veux écrire un message à un contact et l'envoyer .*/
   ngOnInit(): void {
     this.http.get(' http://localhost:8089/user/'+this.connexionservice.email.id).subscribe({
       next: (data) => {this.user= data; 
@@ -36,7 +38,7 @@ export class RecommandationComponent implements OnInit {
       {console.log(err); }
     });
 
-    //http://localhost:8089/formation/candidat/20
+    /** */
     this.http.get('http://localhost:8089/formation/candidat/'+this.connexionservice.email.id).subscribe({
       next: (data) => {this.formation= data; 
         console.log(data); 
@@ -57,5 +59,11 @@ export class RecommandationComponent implements OnInit {
         {console.log(err); }
       });
       }
-//
+      /**Indique sur l'ecran que le message est envoyé */
+showMessage() {
+    Swal.fire({
+      text: 'Envoyé avec succès   !',
+      icon: 'success'
+    });
+  }
 }

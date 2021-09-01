@@ -12,11 +12,10 @@ formation :any;
 formations:any;
   constructor(private http:HttpClient,public dialogRef:MatDialogRef<CreateformateurComponent>) { }
 
-  ngOnInit(): void {
- 
-   
- 
-  }
+  ngOnInit(): void {}
+
+    /*creer un nouveau formateur par l'admin  et l'asssocier a une formation */
+
   createformateur(formateur:any){
     console.log('formateur et formation' ,formateur)
     this.http.post('http://localhost:8089/user',formateur).subscribe({

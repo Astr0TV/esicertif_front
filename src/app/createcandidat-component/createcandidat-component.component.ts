@@ -13,6 +13,8 @@ export class CreatecandidatComponentComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  /*creer un nouveau candiat par l'admin  et l'asssocier a un formateur et une formation */
   createcandidat(candidat:any){
     this.http.post('http://localhost:8089/user',candidat).subscribe({
     next:(data)=>{this.dialogRef.close();},

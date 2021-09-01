@@ -29,32 +29,9 @@ export class HomeformateurComponent implements OnInit {
               public dialog: MatDialog, public datepipe: DatePipe) {}
 
 
-  goToPage(pageName:string ): void{
-    this.route.navigate([`${pageName}`]);
-    localStorage.clear();
-  }
-
-
-  openDialog() {
-
-    this.dialog.open(UpdateformationformateurComponent);
-
-  }
-  updateformation(updateformation: any): any {
-    this.connexionservice.updateformation = updateformation;
-  }
-  fichepresence(presence: any): any {
-    this.connexionservice.presence = presence;
-    this.route.navigateByUrl('fichedepresence');
-  }
-
-  nomformation(nomformation: any): any {
-    this.connexionservice.nomformation = nomformation;
-    console.log(nomformation);
-  }
-
 
   ngOnInit(): void {
+    //Check if user's credentials allows him to connect
 
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}')
 
@@ -74,16 +51,16 @@ export class HomeformateurComponent implements OnInit {
       this.route.navigateByUrl('connexion');
 
     }
+      //recuperation de l'utilisateur connécté
     this.http.get('http://localhost:8089/user/' + test.id).subscribe({
       next: (data) => { 
-        this.connexionnew = data;
-        console.log('this msg concernec les informations de');
-        console.log(data)
+        this.connexionnew = data;  
       },
       error: (err) => { console.log(err); }
     });
-    console.log(test.prenom)
-    console.log(test.id)
+
+
+    //recupertion des formations pour chaque formateurs
     this.http.get('http://localhost:8089/formation/formateur/' + test.id).subscribe({
       next: (data) => {
         this.formation = data;
@@ -92,6 +69,30 @@ export class HomeformateurComponent implements OnInit {
       },
       error: (err) => { console.log(err); }
     });
+  }
+//deconnexion
+  goToPage(pageName:string ): void{
+    this.route.navigate([`${pageName}`]);
+    localStorage.clear();
+  }
+
+//OUVRIR UN MODAL POUR MODIFER LA FORMATION
+  openDialog() {
+
+    this.dialog.open(UpdateformationformateurComponent);
+
+  }
+  updateformation(updateformation: any): any {
+    this.connexionservice.updateformation = updateformation;
+  } 
+  fichepresence(presence: any): any {
+    this.connexionservice.presence = presence;
+    this.route.navigateByUrl('fichedepresence');
+  }
+
+  nomformation(nomformation: any): any {
+    this.connexionservice.nomformation = nomformation;
+    console.log(nomformation);
   }
 
 }
