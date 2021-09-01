@@ -7,6 +7,11 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './createformateur.component.html',
   styleUrls: ['./createformateur.component.css']
 })
+/*
+* Cette page permet
+*creer un formateur 
+ * Faite par BEN SALAH Mariem
+ */
 export class CreateformateurComponent implements OnInit {
 formation :any;
 formations:any;

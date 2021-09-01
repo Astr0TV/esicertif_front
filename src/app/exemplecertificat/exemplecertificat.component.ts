@@ -9,6 +9,13 @@ import {jsPDF} from 'jspdf';
   templateUrl: './exemplecertificat.component.html',
   styleUrls: ['./exemplecertificat.component.css']
 })
+/*
+* Cette page permet
+*Visualiser l'exemplaire de certificat 
+ 
+
+ * Faite par BEN SALAH Mariem
+ */
 export class ExemplecertificatComponent implements OnInit {
   
   connexionnew: any;
@@ -16,12 +23,13 @@ export class ExemplecertificatComponent implements OnInit {
   formation:any;
   
   constructor(private http: HttpClient,private route :Router,private connexionservice:ConnexionService,public dialog: MatDialog) { }
+  
   // recuperer le pdf
   @ViewChild('card',{static:false}) el!: ElementRef;
 
   ngOnInit(): void {
-    //Check if user's credentials allows him to connect
-
+      /*methode qui permet de tester l'éligibilité de connexion pour l'utilisateur 
+    * l'utilisateur une fois connecté ;il sera redériger vers son interface personnel selon son role*/
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
     
@@ -29,8 +37,8 @@ export class ExemplecertificatComponent implements OnInit {
   } else {
     this.route.navigateByUrl('connexion');
   }
-// recuperation de l'utiliateur connecté
-    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
+/* Cette API permet la Recupération des données de l'utilisateurs connecté (son nom, son prenom) */
+var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
       next: (data) => { this.connexionnew = data; 
         console.log('this msg concernec les  de'); 
@@ -38,21 +46,27 @@ export class ExemplecertificatComponent implements OnInit {
         console.log(data) },
       error: (err) => {console.log(err); }
     });
-//recuperation de formation par id
+
+/**Cette API permet de la recuperation de formation par id*/
+
     this.http.get(' http://localhost:8089/formation/'+ this.connexionservice.cartif.id).subscribe({
       next: (data) => { this.formation = data; 
          },
       error: (err) => {console.log(err); }
     });
-  //recuperation de candidat par certificat
-    this.http.get(' http://localhost:8089/certifbyidcandidat/Candidat/'+ test.id).subscribe({
+
+/**Cette API permet de la recuperation de certificat par candidat
+ * */   
+ this.http.get(' http://localhost:8089/certifbyidcandidat/Candidat/'+ test.id).subscribe({
       next: (data) => { this.certificat = data; 
         console.log('this msg concernec les informations de'); 
         console.log(data) },
       error: (err) => {console.log(err); }
     });
   }
-//fonction qui nous permet de generer le pdf (certificat sous format pdf)
+  /**Cette API permet de  generer le pdf (certificat sous format pdf)
+ * */   
+
   makePDF(){
     let pdf =new jsPDF('p','pt','a4');
     pdf.html(this.el.nativeElement,{

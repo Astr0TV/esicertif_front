@@ -19,7 +19,8 @@ import { MatDialog } from '@angular/material/dialog';
 
 /*  tous ce codes est consacré à la foi de recuperer la liste des formation de google sheet partagé par FRED 
 de faire une recherche dans une liste déroulante 
-de selection la formation ainsi afficher directement les informations lié avec eux */
+de selection la formation ainsi afficher directement les informations lié avec eux 
+*  FAITE PAR BEN SALAH MARIEM */
 export interface Formation {
   id: string;
   name: string;

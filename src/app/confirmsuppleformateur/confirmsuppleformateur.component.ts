@@ -9,10 +9,15 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './confirmsuppleformateur.component.html',
   styleUrls: ['./confirmsuppleformateur.component.css']
 })
+/*
+* Ce modal  permet
+*confirmer la supprission de formateur 
+ * Faite par BEN SALAH Mariem
+ */
 export class ConfirmsuppleformateurComponent implements OnInit {
 
   constructor(private route:Router,private connexionservice:ConnexionService, private http: HttpClient,private dialog:MatDialog) { }
-/* supprission de formateur */
+/* Cette API permet de la supprission de formateur */
   deleteformateur() {
     this.http.delete('http://localhost:8089/userremove/'+ this.connexionservice.supprimeformateur.id).subscribe({
       next:(data)=>{

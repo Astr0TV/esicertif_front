@@ -63,7 +63,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { PresenceformateurComponent } from './presenceformateur/presenceformateur.component';
 import { PdfformateurComponent } from './presenceformateur/pdfformateur/pdfformateur.component';
 import { MatSortModule } from '@angular/material/sort';
-import { API_KEY, GoogleSheetsDbService } from 'ng-google-sheets-db';
 import { environment } from './environments/environment';
 import { SumPipeModule } from './pipe/sum.pipe';
 import { AttestationformateurComponent } from './attestationformateur/attestationformateur.component';
@@ -147,12 +146,7 @@ import { GetformationgoogleheetComponent } from './getformationgoogleheet/getfor
     ScrollingModule, MatSortModule,SumPipeModule
   ],
 
-  providers: [SumPipeModule,DatePipe, {
-    provide: API_KEY,
-    useValue: environment.googleSheetsApiKey,
-  },
-    GoogleSheetsDbService
-  ],
+
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

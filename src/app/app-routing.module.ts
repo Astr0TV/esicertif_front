@@ -38,8 +38,6 @@ const routes: Routes = [
   {path:'connexion', component: ConnexionComponent},
   {path:'register', component: RegisterComponent},
    // admin views
-
-   
   {path:'homeadmin', component: HomeadminComponent},
   {path:'formationadmin', component: FormationadminComponent}, 
   {path:'formateurcandidatadmin', component: FormateursCandidatAdminComponent},
@@ -53,6 +51,7 @@ const routes: Routes = [
   {path:'statadmin', component: StatadminComponent},  
   {path:'exemplecertificat', component: ExemplecertificatComponent},
   {path:'getformationgooglesheet', component: GetformationgoogleheetComponent},
+
    // candidat views
   {path:'homecandidat', component: HomecandidateComponent},
   {path:'formationcandidat', component: FormationCandidatComponent},

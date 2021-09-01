@@ -7,6 +7,11 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './createcandidat-component.component.html',
   styleUrls: ['./createcandidat-component.component.css']
 })
+/*
+* Cette page permet
+*creer un candidat
+ * Faite par BEN SALAH Mariem
+ */
 export class CreatecandidatComponentComponent implements OnInit {
 
   constructor(private http:HttpClient,public dialogRef:MatDialogRef<CreatecandidatComponentComponent>) { }
