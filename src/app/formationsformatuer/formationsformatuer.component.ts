@@ -27,7 +27,9 @@ export class FormationsformatuerComponent implements OnInit {
       if (test.role == 'Formateur') {
         this.route.navigateByUrl('formationformateur');
       } else if (test.role == 'candidat') {
-        this.route.navigateByUrl('formationcandidat');
+        this.route.navigateByUrl('homecandidat');
+      } else if (test.role == 'admin') {
+        this.route.navigateByUrl('homeadmin');
       }
 
     } else {

@@ -17,8 +17,21 @@ export class ConnexionComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
+    if (this.connexionservice.isConnected()) {
+      if (test.role == 'Formateur') {
+        this.route.navigateByUrl('homeformateur');
+      }else if (test.role == 'candidat') {
+        this.route.navigateByUrl('homecandidat');
+      }
+      else if (test.role == 'admin') {
+        this.route.navigateByUrl('homeadmin');
+      }
+  } else {
+    this.route.navigateByUrl('connexion');
+  
   }
+}
 
 connexion(val: any): any {
   this.http.post('http://localhost:8089/connexion', val).subscribe({

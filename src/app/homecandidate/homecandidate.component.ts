@@ -58,6 +58,8 @@ data: any;
         this.route.navigateByUrl('homeformateur');
       }else if (test.role == 'candidat') {
         this.route.navigateByUrl('homecandidat');
+      }else if (test.role == 'admin') {
+        this.route.navigateByUrl('homeadmin');
       }
       
   } else {

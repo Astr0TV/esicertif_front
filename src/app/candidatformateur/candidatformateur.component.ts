@@ -25,7 +25,11 @@ export class CandidatformateurComponent implements OnInit {
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
         this.route.navigateByUrl('candidatformateur');
-      }
+      }  else if (test.role == 'candidat') {
+        this.route.navigateByUrl('homecandidat');
+      } }  else if (test.role == 'admin') {
+        this.route.navigateByUrl('homeadmin');
+      
       
   } else {
     this.route.navigateByUrl('connexion');

@@ -33,10 +33,12 @@ export class AttestationformateurComponent implements OnInit {
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}')
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
-        this.route.navigateByUrl('formationformateur');
+        this.route.navigateByUrl('attesttationformateur');
       } else if (test.role == 'candidat') {
-        this.route.navigateByUrl('formationcandidat');
-      }
+        this.route.navigateByUrl('homecandidat');
+      } } else if (test.role == 'admin') {
+        this.route.navigateByUrl('homeadmin');
+      
 
     } else {
       this.route.navigateByUrl('connexion');

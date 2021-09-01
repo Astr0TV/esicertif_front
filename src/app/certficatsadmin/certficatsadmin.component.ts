@@ -20,10 +20,12 @@ constructor(private route:Router, private connexionservice:ConnexionService, pri
   ngOnInit(): void {
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
-      if (test.role == 'Formateur') {
-        this.route.navigateByUrl('homeformateur');
+      if (test.role == 'admin') {
+        this.route.navigateByUrl('certificatadmin');
       }else if (test.role == 'candidat') {
         this.route.navigateByUrl('homecandidat');
+      } else if (test.role == 'Formateur') {
+        this.route.navigateByUrl('homeformateur');
       }
   } else {
     this.route.navigateByUrl('connexion');
