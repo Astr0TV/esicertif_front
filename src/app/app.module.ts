@@ -45,7 +45,6 @@ import { ListecandidatadminComponent } from './listecandidatadmin/listecandidata
 import { ListeformateuradminComponent } from './listeformateuradmin/listeformateuradmin.component';
 import { CreatecandidatComponentComponent } from './createcandidat-component/createcandidat-component.component';
 import { CreateformateurComponent } from './createformateur/createformateur.component';
-import { DetailsformationComponent } from './detailsformation/detailsformation.component';
 import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confirmsuppleformateur.component';
 import { StatadminComponent } from './statadmin/statadmin.component';
 import { GetacceptComponent } from './fichepresenceformateur/getaccept/getaccept.component';
@@ -95,7 +94,6 @@ import { ModelattestationComponent } from './attestationformateur/modelattestati
     UpdateformationformateurComponent,
     GetacceptformateurComponent,
     StatadminComponent,
-    DetailsformationComponent,
     ListecandidatadminComponent,
     ListeformateuradminComponent,
     CreateformationComponent,
@@ -103,7 +101,6 @@ import { ModelattestationComponent } from './attestationformateur/modelattestati
     CreateformateurComponent,
     CreatecandidatComponentComponent,
     ModifformationComponent,
-    DetailsformationComponent,
     ModifformationComponent,
     ConfirmsuppleformateurComponent,
     StatadminComponent,

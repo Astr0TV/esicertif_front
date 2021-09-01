@@ -12,17 +12,24 @@ export class HomeadminComponent implements OnInit {
   connexionnew: any;
   formation: any;
   data: any;
+
   constructor(private route:Router,private connexionservice:ConnexionService,private http: HttpClient) { }
+  //Deconnexion
   goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   } 
+
+  //recuperation du nom de formation
   nomformation(nomformation: any):any {
     this.connexionservice.nomformation = nomformation;
     console.log(nomformation);
   }
   
   ngOnInit(): void {
+
+    //Check if user's credentials allows him to connect
+
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
@@ -37,6 +44,7 @@ export class HomeadminComponent implements OnInit {
     this.route.navigateByUrl('connexion');
   
   }
+  //recuperation de l'utilisateur connécté
   this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
     next: (data) => { this.connexionnew = data; 
       console.log('this msg concernec les informations de'); 
@@ -44,6 +52,8 @@ export class HomeadminComponent implements OnInit {
     error: (err) =>
      {console.log(err); }
   });
+
+  //recuperation de la liste des formations
   this.http.get('http://localhost:8089/allformation').subscribe({
     next: (data) => { this.formation = data; 
       console.log('this msg concernec les informations de'); 

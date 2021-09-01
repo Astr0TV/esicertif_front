@@ -15,9 +15,13 @@ export class CertficatsadminComponent implements OnInit {
   certificat:any
   candidatcertifie:any;
   data:any;
+
 constructor(private route:Router, private connexionservice:ConnexionService, private http: HttpClient,public dialog: MatDialog) { }
+/*Télècharger le pdf de certificat*/ 
 @ViewChild('card',{static:false}) el!: ElementRef;
+
   ngOnInit(): void {
+    /* connecter les utilisateurs selon leurs role et le redériger vers leurs page d'aaceuil */
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
       if (test.role == 'admin') {
@@ -30,18 +34,17 @@ constructor(private route:Router, private connexionservice:ConnexionService, pri
   } else {
     this.route.navigateByUrl('connexion');
   }
+/*recuperation de l'utilisateur connecter  */
   this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
     next: (data) => { this.connexionnew = data; 
-      console.log('this msg concernec les informations de'); 
-      console.log(data) },
+       },
     error: (err) =>
      {console.log(err); }
   });
-
+/*recupere tt les candidat certifié*/ 
   this.http.get('http://localhost:8089/candidatcertifie').subscribe({
     next: (data) => { this.candidatcertifie= data; 
-      console.log('Ce message affiche le nombre totale des candidats'); 
-      console.log(data) },
+      },
     error: (err) => 
     {console.log(err); }
   });
@@ -51,7 +54,7 @@ goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
-
+/*genrer le pdf  */
   makePDF(){
     let pdf =new jsPDF('p','pt','a4');
     pdf.html(this.el.nativeElement,{
@@ -61,6 +64,7 @@ goToPage(pageName:string ): void{
     });
    
   }
+  /*modal pour telecharger le certificat  */
   opendialog(p:any){
     this.connexionservice.cartif =  p;
     this.dialog.open(ExemplecertificatComponent);

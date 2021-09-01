@@ -1,4 +1,24 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate
+} from "@angular/animations";
+
+import { SelectItem, PrimeNGConfig } from "primeng/api";
+import { ReplaySubject, Subject } from 'rxjs';
+import { take, takeUntil } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
+import { MatSelect } from '@angular/material/select';
+
+/* c 'est du testtttttttttttttttttttttttt   
+ne le prenos compte de ca
+ */
+export interface Bank {
+  id: string;
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import { Router } from '@angular/router';

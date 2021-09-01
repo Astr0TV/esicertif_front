@@ -12,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class ConfirmsuppleformateurComponent implements OnInit {
 
   constructor(private route:Router,private connexionservice:ConnexionService, private http: HttpClient,private dialog:MatDialog) { }
-
+/* supprission de formateur */
   deleteformateur() {
     this.http.delete('http://localhost:8089/userremove/'+ this.connexionservice.supprimeformateur.id).subscribe({
       next:(data)=>{
@@ -22,15 +22,6 @@ export class ConfirmsuppleformateurComponent implements OnInit {
       error:(err)=>{console.log(err);}
       });
   }
-/*
-  confirmsupprissionformateur():any{
-    const myDialog=this.dialog.open(ConfirmsuppleformateurComponent);
-    myDialog.afterClosed().subscribe(result=>{
-      this.ngOnInit();
-    });
-    
-      }*/
-
   ngOnInit(): void {
     console.log(this.connexionservice.supprimeformateur.id)
   }

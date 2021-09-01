@@ -17,7 +17,9 @@ import { Router } from '@angular/router';
 import { ConnexionService } from '../service/connexion.service';
 import { MatDialog } from '@angular/material/dialog';
 
-
+/*  tous ce codes est consacré à la foi de recuperer la liste des formation de google sheet partagé par FRED 
+de faire une recherche dans une liste déroulante 
+de selection la formation ainsi afficher directement les informations lié avec eux */
 export interface Formation {
   id: string;
   name: string;

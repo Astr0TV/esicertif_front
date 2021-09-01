@@ -26,32 +26,9 @@ closeResult: string | undefined;
 data: any;
 
   constructor(private modalService: NgbModal,private http: HttpClient,private route: Router,private connexionservice: ConnexionService) { }
-
-  open(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
-  }
-
-
-  goToPage(pageName:string ): void{
-    this.route.navigate([`${pageName}`]);
-    localStorage.clear();
-  }
-
+    
   ngOnInit(): void {
+    //Check if user's credentials allows him to connect
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
@@ -66,14 +43,14 @@ data: any;
     this.route.navigateByUrl('connexion');
   
   }
-
+  //recuperation de l'utilisateur connécté
    this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
       next: (data) => { this.connexionnew = data; 
         console.log('this msg concernec les informations de'); 
         console.log(data) },
       error: (err) => {console.log(err); }
     });
-
+//recuperation de la formation par id de candidat
     this.http.get('http://localhost:8089/formation/candidat/'+ test.id).subscribe({
       next: (data) => { this.formation = data; 
         console.log('this msg concernec les informations de'); 
@@ -82,7 +59,30 @@ data: any;
     });
   
   }
+//ouvrr le modal 
+  open(content: any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+//fermer le modal 
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
 
+//Deconnexion
+  goToPage(pageName:string ): void{
+    this.route.navigate([`${pageName}`]);
+    localStorage.clear();
+  }
 }
 
 

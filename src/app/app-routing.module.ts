@@ -23,7 +23,6 @@ import { ListecandidatadminComponent } from './listecandidatadmin/listecandidata
 import { ListeformateuradminComponent } from './listeformateuradmin/listeformateuradmin.component';
 import { createComponentType } from '@angular/compiler/src/render3/view/compiler';
 import { CreatecandidatComponentComponent } from './createcandidat-component/createcandidat-component.component';
-import { DetailsformationComponent } from './detailsformation/detailsformation.component';
 import { ModifformationComponent } from './modifformation/modifformation.component';
 import { ConfirmsuppleformateurComponent } from './confirmsuppleformateur/confirmsuppleformateur.component';
 import { StatadminComponent } from './statadmin/statadmin.component';
@@ -31,6 +30,7 @@ import { ExemplecertificatComponent } from './exemplecertificat/exemplecertifica
 import { PresencecandidatComponent } from './presencecandidat/presencecandidat.component';
 import { PresenceformateurComponent } from './presenceformateur/presenceformateur.component';
 import { AttestationformateurComponent } from './attestationformateur/attestationformateur.component';
+import { GetformationgoogleheetComponent } from './getformationgoogleheet/getformationgoogleheet.component';
 
 
 const routes: Routes = [
@@ -38,33 +38,39 @@ const routes: Routes = [
   {path:'acceuil', component: AccueilComponent},
   {path:'connexion', component: ConnexionComponent},
   {path:'register', component: RegisterComponent},
-  {path:'homeclient', component: HomeclientComponent},
-  {path:'homecandidat', component: HomecandidateComponent},
-  {path:'formationcandidat', component: FormationCandidatComponent},
-  {path:'certificatcandidat', component: CertificationcandidatComponent},
-  {path:'pageevalcandidat', component: PageevalcandidatComponent},
-  {path:'homeformateur', component: HomeformateurComponent},
-  {path:'formationformateur', component: FormationsformatuerComponent},
-  {path:'candidatformateur', component: CandidatformateurComponent},
+   // admin views
+
+   
   {path:'homeadmin', component: HomeadminComponent},
-  {path:'formationadmin', component: FormationadminComponent},
-  {path:'fichedepresence', component: FichepresenceformateurComponent},
+  {path:'formationadmin', component: FormationadminComponent}, 
   {path:'formateurcandidatadmin', component: FormateursCandidatAdminComponent},
   {path:'certificatadmin', component: CertficatsadminComponent},
   {path:'createformation', component: CreateformationComponent},
   {path:'listecandidatadmin', component: ListecandidatadminComponent},
   {path:'listeformateuradmin', component: ListeformateuradminComponent},
   {path:'CreatecandidatComponent', component: CreatecandidatComponentComponent},
-  {path:'detailsformation', component: DetailsformationComponent},
   {path:'modifformation', component: ModifformationComponent},
   {path:'confirmationlasupprissionduformateur', component: ConfirmsuppleformateurComponent},
-  {path:'statadmin', component: StatadminComponent},
-  {path: 'getacceptformateur', component: GetacceptformateurComponent},
+  {path:'statadmin', component: StatadminComponent},  
   {path:'exemplecertificat', component: ExemplecertificatComponent},
+  {path:'getformationgooglesheet', component: GetformationgoogleheetComponent},
+   // test views
+   {path:'homeclient', component: HomeclientComponent},
+   // candidat views
+  {path:'homecandidat', component: HomecandidateComponent},
+  {path:'formationcandidat', component: FormationCandidatComponent},
+  {path:'certificatcandidat', component: CertificationcandidatComponent},
+  {path:'pageevalcandidat', component: PageevalcandidatComponent},
+  // formateur views
+  {path:'homeformateur', component: HomeformateurComponent},
+  {path:'formationformateur', component: FormationsformatuerComponent},
+  {path:'candidatformateur', component: CandidatformateurComponent},
+  {path:'fichedepresence', component: FichepresenceformateurComponent},
+  {path: 'getacceptformateur', component: GetacceptformateurComponent},
   {path: 'presencecandidat', component: PresencecandidatComponent},
-  {path: 'presenceformateur', component: PresenceformateurComponent},
-  {path: 'attesttationformateur', component: AttestationformateurComponent},
-  {path: 'presencecandidat', component: PresencecandidatComponent}
+  {path: 'Presenceformateur', component: PresenceformateurComponent},
+  {path: 'Attestationformateur', component: AttestationformateurComponent},
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

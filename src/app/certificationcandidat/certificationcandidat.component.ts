@@ -11,17 +11,20 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./certificationcandidat.component.css']
 })
 export class CertificationcandidatComponent implements OnInit {
+  
   formation: any;
   connexionnew: any;
 
   constructor(private http: HttpClient,private route :Router,private connexionservice:ConnexionService,public dialog: MatDialog) { }
   
+  /*Deconnexion */
   goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
  
   ngOnInit(): void {
+    //Check if user's credentials allows him to connect
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
@@ -36,14 +39,14 @@ export class CertificationcandidatComponent implements OnInit {
     this.route.navigateByUrl('connexion');
   
   }
-
+//recupere l'utilsateur connecté 
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
       next: (data) => { this.connexionnew = data; 
-        console.log('this msg concernec les informations de'); 
-        console.log(data) },
+        },
       error: (err) => {console.log(err); }
     });
+//recupere la liste des personnes certifiés
     this.http.get('http://localhost:8089/formation/candidat/'+ test.id).subscribe({
       next: (data) => { this.formation = data; 
         console.log('this msg concernec les informations de'); 
@@ -52,7 +55,7 @@ export class CertificationcandidatComponent implements OnInit {
     });
   }
 
-
+//lancer le modal du certif 
   opendialog(p:any){
     this.connexionservice.cartif =  p;
     this.dialog.open(ExemplecertificatComponent);

@@ -46,6 +46,8 @@
                             <div class="field padding-bottom--24">
                                 <label for="email">Email</label>
                                 <input type="email" id="user " name="email" ngModel="" placeholder="Enterez votre Email">
+
+                                <mat-hint style="color: red;text-transform: uppercase;"> {{msg}}</mat-hint>
                             </div>
                             <div class="field padding-bottom--24">
                                 <div class="grid--50-50">
@@ -76,7 +78,7 @@
                 </div>
                 <div class="footer-link padding-top--24">
                     <!--<span>Don't have an account? <a href="">Inscrivez-vous</a></span> -->
-
+                    {{msg}}
                     <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
                         <span><a href="#">© ESIC</a></span>
                         <span><a href="#">Contact</a></span>

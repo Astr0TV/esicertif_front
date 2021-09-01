@@ -14,6 +14,7 @@ export class FormateursCandidatAdminComponent implements OnInit {
   
 
   ngOnInit(): void {
+    //Check if user's credentials allows him to connect
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
@@ -26,6 +27,7 @@ export class FormateursCandidatAdminComponent implements OnInit {
     this.route.navigateByUrl('connexion');
   
   }
+  //recuperation de l'utilisateur connecté
   this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
     next: (data) => { this.connexionnew = data; 
       console.log('this msg concernec les informations de'); 
@@ -40,6 +42,7 @@ goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
+  //navigation entre les page
   goToPage2(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
    
