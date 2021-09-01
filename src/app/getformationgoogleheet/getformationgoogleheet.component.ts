@@ -8,7 +8,7 @@ import {
   animate
 } from "@angular/animations";
 
-import { SelectItem, PrimeNGConfig } from "primeng/api";
+
 import { ReplaySubject, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';

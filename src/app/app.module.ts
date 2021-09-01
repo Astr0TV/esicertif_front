@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { HomeclientComponent } from './homeclient/homeclient.component';
 import { RegisterComponent } from './register/register.component';
 import { HomecandidateComponent } from './homecandidate/homecandidate.component';
 import { FormationCandidatComponent } from './formation-candidat/formation-candidat.component';
@@ -69,6 +68,7 @@ import { environment } from './environments/environment';
 import { SumPipeModule } from './pipe/sum.pipe';
 import { AttestationformateurComponent } from './attestationformateur/attestationformateur.component';
 import { ModelattestationComponent } from './attestationformateur/modelattestation/modelattestation.component';
+import { GetformationgoogleheetComponent } from './getformationgoogleheet/getformationgoogleheet.component';
 
 
 
@@ -77,7 +77,6 @@ import { ModelattestationComponent } from './attestationformateur/modelattestati
     AppComponent,
     ConnexionComponent,
     AccueilComponent,
-    HomeclientComponent,
     RegisterComponent,
     HomecandidateComponent,
     FormationCandidatComponent,
@@ -110,7 +109,8 @@ import { ModelattestationComponent } from './attestationformateur/modelattestati
     PresenceformateurComponent,
     PdfformateurComponent,
     AttestationformateurComponent,
-    ModelattestationComponent
+    ModelattestationComponent,
+    GetformationgoogleheetComponent
 
   ],
   imports: [

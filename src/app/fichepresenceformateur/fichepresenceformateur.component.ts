@@ -50,12 +50,14 @@ export class FichepresenceformateurComponent implements OnInit {
     });
   }
 
+// recuepre id de formation pour envoye a model GetacceptComponent
   openDialog(c: any) {
     this.connexionservice.modifinformation = c;
     this.dialog.open(GetacceptComponent);
 
   }
 
+//deconnexion
   goToPage(pageName: string): void {
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
@@ -67,11 +69,12 @@ export class FichepresenceformateurComponent implements OnInit {
   }
 
 
-
+// stock id lors de creation de documment getaccept
   getacceptid(idgetaccept: any) {
     this.connexionservice.idgetaccept = idgetaccept;
   }
 
+  // la creation de document sur getaccept et stock id de documment sur notre api
   getaccept() {
     var getaccept = {
       "name": "Test Document name",
@@ -114,7 +117,7 @@ export class FichepresenceformateurComponent implements OnInit {
       });
   }
 
-
+// ajoute fiche de presence d'un candidat a api
   ajoute(j: any, h1: any, h2: any, h3: any, h4: any): any {
     var formateur = JSON.parse(localStorage.getItem('userConnect') || '{}')
     let latest_date = this.datepipe.transform(j, 'dd/MM/yyyy');
@@ -149,6 +152,7 @@ export class FichepresenceformateurComponent implements OnInit {
 
 
   ngOnInit(): void {
+        //Check if user's credentials allows him to connect
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}')
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
@@ -163,7 +167,7 @@ export class FichepresenceformateurComponent implements OnInit {
       this.route.navigateByUrl('connexion');
 
     }
-
+// recupration les information de presence de candidat par id stock de candidat
     this.http.get('http://localhost:8089/presence/candidat/' + this.connexionservice.presence.candidat.id).subscribe({
       next: (data) => {
         this.presence = data;
@@ -174,7 +178,7 @@ export class FichepresenceformateurComponent implements OnInit {
       error: (err) => { console.log(err); }
     });
 
-
+//recupration de l'utilisateur connecté
     this.http.get('http://localhost:8089/user/' + test.id).subscribe({
       next: (data) => {
         this.connexionnew = data;
@@ -184,6 +188,7 @@ export class FichepresenceformateurComponent implements OnInit {
       error: (err) => { console.log(err); }
     });
 
+//recuperation des presences par id de formateurs
     this.http.get('http://localhost:8089/presence/formation/'+ this.connexionservice.nomformation.id).subscribe({
       next: (data) => {
         this.allpresence = data;
@@ -195,6 +200,8 @@ export class FichepresenceformateurComponent implements OnInit {
       },
       error: (err) => { console.log(err); }
     });
+
+    //recuperation des formations par id de formateurs
     this.http.get('http://localhost:8089/formation/' + this.connexionservice.nomformation.id).subscribe({
       next: (data) => {
         this.nomformation = data;
@@ -203,6 +210,8 @@ export class FichepresenceformateurComponent implements OnInit {
       },
       error: (err) => { console.log(err); }
     });
+
+    //recuperation les information de candidat par id stock sur service
     this.http.get('http://localhost:8089/user/' + this.connexionservice.presence.candidat.id).subscribe({
       next: (data) => {
         this.condiatenew = data;
@@ -212,6 +221,8 @@ export class FichepresenceformateurComponent implements OnInit {
       },
       error: (err) => { console.log(err); }
     });
+
+    //recuperation des formations par id de formateurs
     this.http.get('http://localhost:8089/formation/formateur/' + test.id).subscribe({
       next: (data) => {
         this.formation = data;

@@ -16,8 +16,8 @@ export class ConnexionComponent implements OnInit {
   constructor(private http: HttpClient,private route: Router,private  connexionservice: ConnexionService) { }
 
 
-<<<<<<< HEAD
   ngOnInit(): void {
+    //Check if user's credentials allows him to connect
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
@@ -34,10 +34,6 @@ export class ConnexionComponent implements OnInit {
   }
 }
 
-=======
-  ngOnInit(): void {}
-//Check if user's credentials allows him to connect
->>>>>>> 9ea0bc75759b4eab108a05dd9172549a2a0a2f72
 connexion(val: any): any {
   this.http.post('http://localhost:8089/connexion', val).subscribe({
     next: (data) => {

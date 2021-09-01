@@ -82,6 +82,7 @@ export class HomeformateurComponent implements OnInit {
   updateformation(updateformation: any): any {
     this.connexionservice.updateformation = updateformation;
   } 
+  //stock id de presence et se redirige vers la page fichedepresence
   fichepresence(presence: any): any {
     this.connexionservice.presence = presence;
     this.route.navigateByUrl('fichedepresence');

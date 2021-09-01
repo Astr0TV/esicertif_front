@@ -17,12 +17,14 @@ export class AttestationformateurComponent implements OnInit {
   data: string;
 
   constructor(private http: HttpClient, private route: Router, private connexionservice: ConnexionService,public dialog: MatDialog) { }
-
+  
+  //deconnexion
   goToPage(pageName: string): void {
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   } 
 
+ //stock id de formation et ouvrire le model  Modelattestation
   openDialog(c: any) {
     this.connexionservice.attestationsformateur = c;
     this.dialog.open(ModelattestationComponent);
@@ -30,6 +32,7 @@ export class AttestationformateurComponent implements OnInit {
   }
 
   ngOnInit(): void {
+       //Check if user's credentials allows him to connect
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}')
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
@@ -45,6 +48,7 @@ export class AttestationformateurComponent implements OnInit {
 
     }
 
+    //recupration de l'utilisateur connecté
     this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
       next: (data) => { this.connexionnew = data; 
         console.log('user connecte'); 
@@ -52,6 +56,7 @@ export class AttestationformateurComponent implements OnInit {
       error: (err) => {console.log(err); }
     });
 
+      //recuperation des formations par id de formateurs
     this.http.get('http://localhost:8089/formation/formateur/' + test.id).subscribe({
       next: (data) => {
         this.formation = data;

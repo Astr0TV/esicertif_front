@@ -18,12 +18,14 @@ export class GetacceptformateurComponent implements OnInit {
 
   constructor(private http: HttpClient,private route: Router,private connexionservice: ConnexionService) { }
 
-
+//deconnexion
   goToPage(pageName:string ): void{
     this.route.navigate([`${pageName}`]);
     localStorage.clear();
   }
 
+
+  // pour telecharger le document (marche pas)
   download(id:any){
     let headers = new HttpHeaders();
     headers = headers.set('Content-type', 'application/json').set('Authorization', 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLmdldGFjY2VwdC5jb20iLCJhdWQiOiJodHRwczpcL1wvYXBpLmdldGFjY2VwdC5jb20iLCJqdGkiOiJNV013TVRnelpUSXRPVEV3WVMwME5EWXdMV0kzTkRZdFpqazFNV1ZsTjJJME1ERmwiLCJpYXQiOjE2MjgwNzcwNzQsIm5iZiI6MTYyODA3NzExNCwiZXhwIjoxNjMzMjYxMTM0LCJjbGllbnRfaWQiOiJhcGkiLCJzY29wZSI6ImJhc2ljIiwidXNlcl9pZCI6Im5rZzZ4NmduIiwiZW50aXR5X2lkIjoicnAzajg5NG4ifQ.UI--W2HHZZFBmQkj0M21fTs9A_djNl1AAUbhX_60GhI');
@@ -39,6 +41,7 @@ export class GetacceptformateurComponent implements OnInit {
   }
 
   ngOnInit(): void {
+     //Check if user's credentials allows him to connect
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
@@ -54,6 +57,7 @@ export class GetacceptformateurComponent implements OnInit {
   
   }
 
+  //recupration de document que formateur a envoye sur getaccept
   let headers = new HttpHeaders();
   headers = headers.set('Content-type', 'application/json').set('Authorization', 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLmdldGFjY2VwdC5jb20iLCJhdWQiOiJodHRwczpcL1wvYXBpLmdldGFjY2VwdC5jb20iLCJqdGkiOiJNV013TVRnelpUSXRPVEV3WVMwME5EWXdMV0kzTkRZdFpqazFNV1ZsTjJJME1ERmwiLCJpYXQiOjE2MjgwNzcwNzQsIm5iZiI6MTYyODA3NzExNCwiZXhwIjoxNjMzMjYxMTM0LCJjbGllbnRfaWQiOiJhcGkiLCJzY29wZSI6ImJhc2ljIiwidXNlcl9pZCI6Im5rZzZ4NmduIiwiZW50aXR5X2lkIjoicnAzajg5NG4ifQ.UI--W2HHZZFBmQkj0M21fTs9A_djNl1AAUbhX_60GhI');
 
@@ -64,7 +68,7 @@ export class GetacceptformateurComponent implements OnInit {
       console.log(data);
     });
 
-
+//recupration de l'utilisateur connecté
     this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
       next: (data) => { this.connexionnew = data; 
         console.log('user connecte'); 
@@ -72,6 +76,7 @@ export class GetacceptformateurComponent implements OnInit {
       error: (err) => {console.log(err); }
     });
 
+    //recupration id de document quand stock lors de creation de document 
     this.http.get('http://localhost:8089/getaccept/formateur/'+ test.id).subscribe({
       next: (data) => { this.idoucument = data; 
         console.log('id doucument stock'); 
@@ -79,6 +84,7 @@ export class GetacceptformateurComponent implements OnInit {
       error: (err) => {console.log(err); }
     });
 
+      //recuperation des formations par id de formateurs
     this.http.get('http://localhost:8089/formation/formateur/'+ test.id).subscribe({
       next: (data) => { this.formation = data; 
         console.log('this msg concernec les informations de'); 

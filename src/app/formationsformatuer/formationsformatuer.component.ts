@@ -11,10 +11,10 @@ import { ConnexionService } from '../service/connexion.service';
 export class FormationsformatuerComponent implements OnInit {
   formation: any;
   connexionnew: any;
-
   data: string;
 
   constructor(private http: HttpClient, private route: Router, private connexionservice: ConnexionService) { }
+  
 //deconnexion
   goToPage(pageName: string): void {
     this.route.navigate([`${pageName}`]);
