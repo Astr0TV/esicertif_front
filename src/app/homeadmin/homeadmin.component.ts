@@ -8,28 +8,28 @@ import { ConnexionService } from '../service/connexion.service';
   templateUrl: './homeadmin.component.html',
   styleUrls: ['./homeadmin.component.css']
 })
+/*
+* Cette page permet
+*Visualiser la liste des formations terminé et en cours
+*le formateur responsable 
+*le nombre d'h
+*le'etat de formation
+
+
+ * Faite par BEN SALAH Mariem
+ */
 export class HomeadminComponent implements OnInit {
+
   connexionnew: any;
   formation: any;
   data: any;
 
   constructor(private route:Router,private connexionservice:ConnexionService,private http: HttpClient) { }
-  //Deconnexion
-  goToPage(pageName:string ): void{
-    this.route.navigate([`${pageName}`]);
-    localStorage.clear();
-  } 
-
-  //recuperation du nom de formation
-  nomformation(nomformation: any):any {
-    this.connexionservice.nomformation = nomformation;
-    console.log(nomformation);
-  }
   
   ngOnInit(): void {
 
-    //Check if user's credentials allows him to connect
-
+      /*methode qui permet de tester l'éligibilité de connexion pour l'utilisateur 
+    * l'utilisateur une fois connecté ;il sera redériger vers son interface personnel selon son role*/
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
@@ -44,8 +44,8 @@ export class HomeadminComponent implements OnInit {
     this.route.navigateByUrl('connexion');
   
   }
-  //recuperation de l'utilisateur connécté
-  this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
+/* Cette API permet la Recupération des données de l'utilisateurs connecté (son nom, son prenom) */
+this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
     next: (data) => { this.connexionnew = data; 
       console.log('this msg concernec les informations de'); 
       console.log(data) },
@@ -53,7 +53,7 @@ export class HomeadminComponent implements OnInit {
      {console.log(err); }
   });
 
-  //recuperation de la liste des formations
+  //Cette API permet la recuperation de toute la liste des formations
   this.http.get('http://localhost:8089/allformation').subscribe({
     next: (data) => { this.formation = data; 
       console.log('this msg concernec les informations de'); 
@@ -61,6 +61,18 @@ export class HomeadminComponent implements OnInit {
     error: (err) => 
     {console.log(err); }
   });
+  } 
+   /**Cette API permet la recuperation du nom de formation*/
+  nomformation(nomformation: any):any {
+    this.connexionservice.nomformation = nomformation;
+    console.log(nomformation);
   }
+   /**Cette API permet la deconnexion  de l'utilisateur en cours*/
+   goToPage(pageName:string ): void{
+    this.route.navigate([`${pageName}`]);
+    localStorage.clear();
+  } 
 
+
+  
 }

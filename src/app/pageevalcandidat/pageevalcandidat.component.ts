@@ -14,8 +14,10 @@ interface Rep {
   name: string;
  valeur: number;
 }
-/* */
 
+/** Cette page presente la page d'evaluation qui doit etre remplie par le fomateur et le candidat 
+ * Fiate par BEN SALAH MARIEM
+ */
 @Component({
   selector: 'app-pageevalcandidat',
   templateUrl: './pageevalcandidat.component.html',
@@ -24,10 +26,12 @@ interface Rep {
   provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
   }]
 })
+
 export class PageevalcandidatComponent implements OnInit {
+  
   val:any;
   user:any;
-  
+  /**ces données sont utiisé pour stocker les reponses du candidat */
   /* rubrique 1 */ 
 favoritereponse: string;
 favoritereponse2: string;
@@ -65,7 +69,7 @@ favoritereponse24: string;
 
 /*************************************************************************************************/
 /*************************************************************************************************/
-                                     /*Les champs de reponses    : rubrique 1 ; rubrique 2;rubrique 3;rubrique 5 */
+/*Les champs de reponses    : rubrique 1 ; rubrique 2;rubrique 3;rubrique 5 */
 reponses: Rep[] = 
 [
   {name:'Pas de tout',valeur:1} ,
@@ -180,7 +184,7 @@ openDialog() {
 /*************************************************************************************************/
   constructor(private _formBuilder: FormBuilder, private route :Router,private connexionservice:ConnexionService,config: NgbCarouselConfig,public dialog: MatDialog,private http:HttpClient) {}
  
- 
+ /** Methode de recuperation de chaque question avec ses reponses */
   question1(val:any){
    console.log ('ici affiche les donnes de la 1er question de fiche devaluation ', val);
    this.http.post('http://localhost:8089/pageEval',val).subscribe({
@@ -218,10 +222,7 @@ openDialog() {
     
 /*************************************************************************************************/
 /*************************************************************************************************/
-/*
-this.firstFormGroup = new FormGroup({
-      favoritereponse: new FormControl({ firstCtrl: '' }, Validators.compose([Validators.required]))
-});*/
+
      
 /*les forms  rubrique 1*/
 this.firstFormGroup = this._formBuilder.group({

@@ -10,6 +10,11 @@ import {MatDialog} from '@angular/material/dialog';
   templateUrl: './certificationcandidat.component.html',
   styleUrls: ['./certificationcandidat.component.css']
 })
+/*
+* Cette page permet
+*creer certificat pour le canidat 
+ * Faite par BEN SALAH Mariem
+ */
 export class CertificationcandidatComponent implements OnInit {
   
   formation: any;
@@ -24,8 +29,8 @@ export class CertificationcandidatComponent implements OnInit {
   }
  
   ngOnInit(): void {
-    //Check if user's credentials allows him to connect
-    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
+      /*methode qui permet de tester l'éligibilité de connexion pour l'utilisateur 
+    * l'utilisateur une fois connecté ;il sera redériger vers son interface personnel selon son role*/    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
         this.route.navigateByUrl('certificatformateur');
@@ -39,14 +44,14 @@ export class CertificationcandidatComponent implements OnInit {
     this.route.navigateByUrl('connexion');
   
   }
-//recupere l'utilsateur connecté 
-    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
+/* Cette API permet la Recupération des données de l'utilisateurs connecté (son nom, son prenom) */
+var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
       next: (data) => { this.connexionnew = data; 
         },
       error: (err) => {console.log(err); }
     });
-//recupere la liste des personnes certifiés
+/**Cette API permet de recuperer la liste des personnes certifiés*/
     this.http.get('http://localhost:8089/formation/candidat/'+ test.id).subscribe({
       next: (data) => { this.formation = data; 
         console.log('this msg concernec les informations de'); 
@@ -55,7 +60,8 @@ export class CertificationcandidatComponent implements OnInit {
     });
   }
 
-//lancer le modal du certif 
+/**Cette fonction permet de lancer un modal d'afficher l'exemplaire de certificat */
+
   opendialog(p:any){
     this.connexionservice.cartif =  p;
     this.dialog.open(ExemplecertificatComponent);

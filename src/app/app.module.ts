@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { HomeclientComponent } from './homeclient/homeclient.component';
 import { RegisterComponent } from './register/register.component';
 import { HomecandidateComponent } from './homecandidate/homecandidate.component';
 import { FormationCandidatComponent } from './formation-candidat/formation-candidat.component';
@@ -64,7 +63,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { PresenceformateurComponent } from './presenceformateur/presenceformateur.component';
 import { PdfformateurComponent } from './presenceformateur/pdfformateur/pdfformateur.component';
 import { MatSortModule } from '@angular/material/sort';
-import { API_KEY, GoogleSheetsDbService } from 'ng-google-sheets-db';
 import { environment } from './environments/environment';
 import { SumPipeModule } from './pipe/sum.pipe';
 import { AttestationformateurComponent } from './attestationformateur/attestationformateur.component';
@@ -77,7 +75,6 @@ import { ModelattestationComponent } from './attestationformateur/modelattestati
     AppComponent,
     ConnexionComponent,
     AccueilComponent,
-    HomeclientComponent,
     RegisterComponent,
     HomecandidateComponent,
     FormationCandidatComponent,
@@ -147,12 +144,7 @@ import { ModelattestationComponent } from './attestationformateur/modelattestati
     ScrollingModule, MatSortModule,SumPipeModule
   ],
 
-  providers: [SumPipeModule,DatePipe, {
-    provide: API_KEY,
-    useValue: environment.googleSheetsApiKey,
-  },
-    GoogleSheetsDbService
-  ],
+
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

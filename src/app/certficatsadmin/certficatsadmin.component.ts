@@ -10,6 +10,11 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './certficatsadmin.component.html',
   styleUrls: ['./certficatsadmin.component.css']
 })
+/*
+* Cette page permet
+*de visualier certificat pour l'admin'
+ * Faite par BEN SALAH Mariem
+ */
 export class CertficatsadminComponent implements OnInit {
   connexionnew:any
   certificat:any
@@ -21,8 +26,8 @@ constructor(private route:Router, private connexionservice:ConnexionService, pri
 @ViewChild('card',{static:false}) el!: ElementRef;
 
   ngOnInit(): void {
-    /* connecter les utilisateurs selon leurs role et le redériger vers leurs page d'aaceuil */
-    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
+      /*methode qui permet de tester l'éligibilité de connexion pour l'utilisateur 
+    * l'utilisateur une fois connecté ;il sera redériger vers son interface personnel selon son role*/    var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
         this.route.navigateByUrl('homeformateur');
@@ -32,14 +37,14 @@ constructor(private route:Router, private connexionservice:ConnexionService, pri
   } else {
     this.route.navigateByUrl('connexion');
   }
-/*recuperation de l'utilisateur connecter  */
-  this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
+/* Cette API permet la Recupération des données de l'utilisateurs connecté (son nom, son prenom) */
+this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
     next: (data) => { this.connexionnew = data; 
        },
     error: (err) =>
      {console.log(err); }
   });
-/*recupere tt les candidat certifié*/ 
+/* Cette API permet la Recupération de tt les candidat certifié*/ 
   this.http.get('http://localhost:8089/candidatcertifie').subscribe({
     next: (data) => { this.candidatcertifie= data; 
       },

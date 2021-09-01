@@ -15,7 +15,6 @@ import { FormationsformatuerComponent } from './formationsformatuer/formationsfo
 import { GetacceptformateurComponent } from './getacceptformateur/getacceptformateur.component';
 import { HomeadminComponent } from './homeadmin/homeadmin.component';
 import { HomecandidateComponent } from './homecandidate/homecandidate.component';
-import { HomeclientComponent } from './homeclient/homeclient.component';
 import { HomeformateurComponent } from './homeformateur/homeformateur.component';
 import { PageevalcandidatComponent } from './pageevalcandidat/pageevalcandidat.component';
 import { RegisterComponent } from './register/register.component';
@@ -39,8 +38,6 @@ const routes: Routes = [
   {path:'connexion', component: ConnexionComponent},
   {path:'register', component: RegisterComponent},
    // admin views
-
-   
   {path:'homeadmin', component: HomeadminComponent},
   {path:'formationadmin', component: FormationadminComponent}, 
   {path:'formateurcandidatadmin', component: FormateursCandidatAdminComponent},
@@ -54,8 +51,7 @@ const routes: Routes = [
   {path:'statadmin', component: StatadminComponent},  
   {path:'exemplecertificat', component: ExemplecertificatComponent},
   {path:'getformationgooglesheet', component: GetformationgoogleheetComponent},
-   // test views
-   {path:'homeclient', component: HomeclientComponent},
+
    // candidat views
   {path:'homecandidat', component: HomecandidateComponent},
   {path:'formationcandidat', component: FormationCandidatComponent},

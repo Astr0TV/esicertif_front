@@ -10,20 +10,28 @@ import { ConnexionService } from '../service/connexion.service';
 })
 export class ModifformationComponent implements OnInit {
 
+  
+/*
+* Cette page permet à la fois de 
+*créer une formations et  
+*la  modifier  par  l'admin
+
+ * Faite par BEN SALAH Mariem
+ */
   formateurs:any;
   candidats:any;
+
     constructor(private http:HttpClient,public dialogRef:MatDialogRef<ModifformationComponent>,private connexionservice:ConnexionService) { }
   
-
   ngOnInit(): void {
-  
+  /** Récuperation de utilisateur par role  */
     this.http.get('http://localhost:8089/usersrole/formateur ').subscribe({
     next: (data) => { this.formateurs = data; 
       },
     error: (err) => 
     {console.log(err); }
   });
-  
+   /** Récuperation de utilisateur par role  */
 this.http.get('http://localhost:8089/usersrole/candidat').subscribe({
     next: (data) => { this.candidats = data;},
     error: (err) => 
@@ -31,6 +39,11 @@ this.http.get('http://localhost:8089/usersrole/candidat').subscribe({
   });
 
   }
+
+  /** Cette API permet de créer une formation 
+   * l'admin remplie tous les champs (nombre des heures, l'objectif et...)
+   * la formation doit etre affécté a un candidat et un utilisateur 
+   */
   createformation(formation:any){
 this.http.post(' http://localhost:8089/ajoutformation',formation).subscribe({
 next:(data)=>{this.dialogRef.close();},
@@ -39,7 +52,10 @@ error:(err)=>{console.log(err);}
 });
 
   }
-  
+   /** Cette API permet de modifier une formation deja créee
+   * l'admin modifie  les champs (nombre des heures, l'objectif et le bloc de compétence...)
+   * 
+   */
   modifierformation(nb:any,obj:any,bloc:any){
    var information= 
     {

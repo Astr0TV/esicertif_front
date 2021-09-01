@@ -15,12 +15,18 @@ export class FormationadminComponent implements OnInit {
   connexionnew:any;
   formation: any;
   data: any;
+/*
+* Cette page permet
+*Visualiser la liste des FORMATIONS  des le centre
+* 
 
+ * Faite par BEN SALAH Mariem
+ */
   constructor(private route:Router,private connexionservice:ConnexionService, private http: HttpClient,private dialog:MatDialog) { }
  
   ngOnInit(): void {
-//Check if user's credentials allows him to connect
-
+      /*methode qui permet de tester l'éligibilité de connexion pour l'utilisateur 
+    * l'utilisateur une fois connecté ;il sera redériger vers son interface personnel selon son role*/
 var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
@@ -33,7 +39,8 @@ var test = JSON.parse(localStorage.getItem('userConnect') || '{}' )
     this.route.navigateByUrl('connexion');
   
   }
-  //recuperation de l'utilisateur connecté
+/* Cette API permet la Recupération des données de l'utilisateurs connecté (son nom, son prenom) */
+
   this.http.get('http://localhost:8089/user/'+ test.id).subscribe({
     next: (data) => { this.connexionnew = data; 
       console.log('this msg concernec les informations de'); 
@@ -42,7 +49,8 @@ var test = JSON.parse(localStorage.getItem('userConnect') || '{}' )
      {console.log(err); }
   });
 
-  //recuperation de la liste de la formation 
+     /**Cette API permet la recuperation du  toute la liste des formations */
+ 
   this.http.get('http://localhost:8089/allformation').subscribe({
     next: (data) => { this.formation = data; 
       console.log('this msg concernec les informations de'); 
@@ -51,17 +59,17 @@ var test = JSON.parse(localStorage.getItem('userConnect') || '{}' )
     {console.log(err); }
   });
   }
-
-  // deconnexion
-  goToPage(pageName:string ): void{
-    this.route.navigate([`${pageName}`]);
-    localStorage.clear();
-  }
-  //affichage de nom de la formation
+/**Cette API permet de recuperer le nom de la formation */
   nomformation(nomformation: any):any {
     this.connexionservice.nomformation = nomformation;
     console.log(nomformation);
   }
+/**Cette API permet de decnnecter l'utilisateur cnnécté */
+goToPage(pageName:string ): void{
+    this.route.navigate([`${pageName}`]);
+    localStorage.clear();
+  }
+ 
 
 
 //recuperation de la formation de google sheet

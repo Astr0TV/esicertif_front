@@ -13,6 +13,7 @@ import Swal from 'sweetalert2'
 /**Cette page sert a envoyer un email pour recommander une formation!
  * en 1 er lieu on a pu recupérer  les formations pou chaquue candidats 
  * Mais on a un probléme lors de l'envoie  de mail (on peut envoyer un mail standard pour tt le monde pas de specification de formation
+ * 
  * faite par BEN SALAH MARIEM* */
 export class RecommandationComponent implements OnInit {
 
@@ -38,7 +39,9 @@ je veux écrire un message à un contact et l'envoyer .*/
       {console.log(err); }
     });
 
-    /** */
+    /**Cette API ppermet de recuperer les formations par candidats
+     * un candidat X est insrit a une  telle et telle formation
+      */
     this.http.get('http://localhost:8089/formation/candidat/'+this.connexionservice.email.id).subscribe({
       next: (data) => {this.formation= data; 
         console.log(data); 
@@ -48,7 +51,7 @@ je veux écrire un message à un contact et l'envoyer .*/
     });
 
 
-  }
+  }/** Cette Fonction utilise l'API d'envoie le msg en recuperant l'id de destinataire (en utilisant le service )  */
   recommander(p:any){
     this.connexionservice.email=p;
       this.http.get(' http://localhost:8089/send/'+this.connexionservice.email.email).subscribe({
@@ -59,6 +62,7 @@ je veux écrire un message à un contact et l'envoyer .*/
         {console.log(err); }
       });
       }
+      
       /**Indique sur l'ecran que le message est envoyé */
 showMessage() {
     Swal.fire({

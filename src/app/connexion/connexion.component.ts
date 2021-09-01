@@ -8,7 +8,11 @@ import { ConnexionService } from '../service/connexion.service';
   templateUrl: './connexion.component.html',
   styleUrls: ['./connexion.component.css']
 })
-
+/*
+* Cette page permet
+*connecter selon le role de l'utilisateur 
+ * Faite par BEN SALAH Mariem 
+ */
 export class ConnexionComponent implements OnInit {
   user: any
   msg: any

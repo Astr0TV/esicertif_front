@@ -27,6 +27,7 @@ export class StatadminComponent implements OnInit {
   constructor(private route:Router,private connexionservice:ConnexionService,private http: HttpClient) { }
  
   ngOnInit(): void {
+
     /*methode qui permet de tester l'éligibilité de connexion pour l'utilisateur 
     * l'utilisateur une fois connecté ;il sera redériger vers son interface personnel selon son role*/
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}' ) 
@@ -53,7 +54,6 @@ export class StatadminComponent implements OnInit {
   }); 
 
 /**Cette API permet de retourner le nombre total des candidats inscrits dans l'etablissement  */
-
   this.http.get(' http://localhost:8089/nbrecandidat').subscribe({
     next: (data) => { this.candidat = data; 
       console.log('C e message affiche le nombre totale des etudiants'); 
