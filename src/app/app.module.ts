@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { ConnexionComponent } from './connexion/connexion.component';
-import { AccueilComponent } from './accueil/accueil.component';
 import { RegisterComponent } from './register/register.component';
 import { HomecandidateComponent } from './homecandidate/homecandidate.component';
 import { FormationCandidatComponent } from './formation-candidat/formation-candidat.component';
@@ -75,7 +74,6 @@ import { GetformationgoogleheetComponent } from './getformationgoogleheet/getfor
   declarations: [
     AppComponent,
     ConnexionComponent,
-    AccueilComponent,
     RegisterComponent,
     HomecandidateComponent,
     FormationCandidatComponent,

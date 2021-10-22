@@ -5,7 +5,7 @@
             <div class="form-group">
                 <mat-form-field appearance="outline">
                     <mat-label>Nombre des heures</mat-label>
-                    <input type="number" matInput placeholder="Nombre des heures" #nbheure name="nombreHeure" ngModel="" required>
+                    <input type="number" matInput placeholder="Nombre des heures" #nbheure name="nombreheursformation" ngModel="" required>
                     <mat-icon matSuffix>edit</mat-icon>
                 </mat-form-field>
             </div>
@@ -29,7 +29,7 @@
 
 
 
-            <button type="submit" mat-stroked-button color="accent" (click)="modifierformation(nbheure.value,objective.value,bloc.value)" lass="center ">Valider</button>
+            <button type="submit" mat-stroked-button color="accent" mat-dialog-close (click)="modifierformation(nbheure.value,objective.value,bloc.value)" lass="center ">Valider</button>
         </form>
     </div>
 </div>

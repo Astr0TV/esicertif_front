@@ -1,13 +1,13 @@
 <mat-dialog-content class="mat-typography">
 
     <dl class="example-dl">
-        <div class="card card-5" id="card" *ngFor="let p of formation" #card>
+        <div class="card mb-4 border-0" id="card" *ngFor="let p of formation" #card>
             <h5 class="titre">ATTESTATION FIN DE FORMATION</h5>
             <div class="container">
                 <br><br>
                 <div style="font-size: small; text-indent: 20px;">Je soussignée, <strong class="nom"> Michèle ELBAZ </strong> , Gérante, atteste que M./Mme
 
-                    <strong class="nom">{{p.candidat.nom}} {{p.candidat.prenom}}</strong>
+                    <strong class="nom">{{p.candidat.nom}}  {{p.candidat.prenom}}</strong>
                     <div class="indent">a suivi la formation suivante :</div>
                 </div>
                 <br>
@@ -28,18 +28,24 @@
                 </div>
                 <br>
                 <div class="paragraphe">
-                    Durée : {{p.nombreHeure}} heures
+                    Durée : {{p.nombreheursformation}} heures
                 </div>
                 <br>
                 <div class="paragraphe">
                     Intervenant(s) :
                     <strong class="nom">{{p.formateur.nom}} {{p.formateur.prenom}}</strong> </div>
-                <div class="paragraphe"><br>Résultats de l’évaluation des acquis :<br>
+                <div class="paragraphe" style="line-height:15px;"><br>Résultats de l’évaluation des acquis :<br>
                     <div class="indent"> B = Compétences acquises et validation du module {{p.bloc}} intégré dans le bloc de compétences
                         <div class="indent">
                             {{p.bloc}} de la formation {{p.nom}} (code RNCP du bloc de compétence) </div>
                     </div><br><br> Fait à Malakoff, le {{p.date_fin}} <br><br> Michèle ELBAZ, Gérante <br><br><br><br><br> </div>
-            </div>
+            
+                    <p style="line-height:10px;font-size: x-small;text-align: center;  height: 50px;
+                    width: 100%;
+                    border: 1px solid black;">ESIC – 36/38 avenue Pierre BROSSOLETTE 92240 MALAKOFF<br>
+                        tél. : 01 53 90 15 20– www.esic-online.com – esic@esic-online.com <br>
+                        Numéro de Déclaration d’Activité : 11.92.155.00.92 – RCS Nanterre B 453 035 230 000 94– Code APE : 8559 A</p>
+                </div>
         </div>
     </dl>
 

@@ -19,6 +19,7 @@ export class ConnexionService {
   pdfformateur: any
   attestationsformateur: any
   email:any;
+  recommander: any
 
   constructor(private route: Router) { }
 

@@ -74,7 +74,7 @@ this.http.get('http://localhost:8089/usersrole/candidat').subscribe({
 /** Cette API sert a afficher le nombre de formation par candidat 
  * un X candidat il suit une telle et telle formations
  */
-  this.http.get('http://localhost:8089/nbreformationbycandidat').subscribe({
+ /** this.http.get('http://localhost:8089/nbreformationbycandidat').subscribe({
     next: (data) => { this.nbreformationparcandidat = data; 
       console.log('this msg concernec les informations de'); 
       console.log(data) },
@@ -85,13 +85,15 @@ this.http.get('http://localhost:8089/usersrole/candidat').subscribe({
 /** Cette API sert a afficher le nombre de certification par candidat 
  * un X candidat il suit une telle et telle certificat
  */
-  this.http.get('http://localhost:8089/nbrecertificatbycandidat').subscribe({
-    next: (data) => { this.nbrecertificatparcandidat = data; 
-      console.log('this msg concernec les informations de'); 
-      console.log(this.nbrecertificatparcandidat.id) },
-    error: (err) => 
-    {console.log(err); }
-  });}
+  //this.http.get('http://localhost:8089/nbrecertificatbycandidat').subscribe({
+   // next: (data) => { this.nbrecertificatparcandidat = data; 
+   //   console.log('this msg concernec les informations de'); 
+   //   console.log(this.nbrecertificatparcandidat.id) },
+  //  error: (err) => 
+   // {console.log(err); }
+ // });
+
+}
 
   /** Cette API permet de deconnecter l'utilisateur actuel  et le supprimer de local storage  */
 goToPage(pageName:string ): void{
@@ -118,26 +120,18 @@ deletecandidat(p:any){
   /** Cette Fonction utilise l'API d'envoie le msg en recuperant l'id de destinataire (en utilisant le service )  */
 
   recommander(p:any){
-this.connexionservice.email=p;
-  this.http.get(' http://localhost:8089/send/'+this.connexionservice.email.email).subscribe({
-    next: (data) => {this.email= data; 
-      console.log('this msg concernec les informations de'+data); 
+    this.connexionservice.recommander = p;
+  this.http.get('http://localhost:8089/send/' +this.connexionservice.recommander.email).subscribe({
+    next: (data) => {this.email = data; 
+      console.log(data); 
       },
     error: (err) => 
     {console.log(err); }
   });
   }
-/**Ouvrir le modal pour envoyer un mail 
- * le mail sera envoyé direct pour l'email de candidat inscrit 
- * en affichant son nom et la la formation dont il inscrit 
- */
-  openDialog(p:any) {
-    this.connexionservice.email=p;
-    const dialogRef = this.dialog.open(RecommandationComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+
+
+  
 }
 
 

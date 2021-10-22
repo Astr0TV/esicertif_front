@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConnexionService } from '../service/connexion.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-presencecandidat',
@@ -31,7 +32,7 @@ export class PresencecandidatComponent implements OnInit {
     let headers = new HttpHeaders();
   headers = headers.set('Content-type', 'application/json')
     this.connexionservice.presencevalider = p;
-    this.http.put('http://localhost:8089/presence/'+this.connexionservice.presencevalider.id+'/'+this.connexionservice.presencevalider.formateur.id, { headers: headers })
+    this.http.put('http://localhost:8089/presence/'+this.connexionservice.presencevalider.formateur.id, { headers: headers })
     .subscribe(data => {
       console.log("data getaccpet");
       console.log(data);
@@ -39,8 +40,15 @@ export class PresencecandidatComponent implements OnInit {
 
   }
 
+//affiche messsage apres click sur la button
+showMessage() {
+  Swal.fire({
+    text: 'Valider avec succès !',
+    icon: 'success'
+  });
+}
 
-
+//deconnexion
   goToPage(pageName: string): void {
     this.route.navigate([`${pageName}`]);
     localStorage.clear();

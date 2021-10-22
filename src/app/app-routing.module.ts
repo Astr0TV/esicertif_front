@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccueilComponent } from './accueil/accueil.component';
 import { CandidatformateurComponent } from './candidatformateur/candidatformateur.component';
 import { CertficatsadminComponent } from './certficatsadmin/certficatsadmin.component';
 import { CertificationcandidatComponent } from './certificationcandidat/certificationcandidat.component';
@@ -33,8 +32,7 @@ import { GetformationgoogleheetComponent } from './getformationgoogleheet/getfor
 
 
 const routes: Routes = [
-  {path:'', redirectTo: 'acceuil',pathMatch:'full'},
-  {path:'acceuil', component: AccueilComponent},
+  {path:'', redirectTo: 'connexion',pathMatch:'full'},
   {path:'connexion', component: ConnexionComponent},
   {path:'register', component: RegisterComponent},
    // admin views
@@ -64,8 +62,8 @@ const routes: Routes = [
   {path:'fichedepresence', component: FichepresenceformateurComponent},
   {path: 'getacceptformateur', component: GetacceptformateurComponent},
   {path: 'presencecandidat', component: PresencecandidatComponent},
-  {path: 'Presenceformateur', component: PresenceformateurComponent},
-  {path: 'Attestationformateur', component: AttestationformateurComponent},
+  {path: 'presenceformateur', component: PresenceformateurComponent},
+  {path: 'attestationformateur', component: AttestationformateurComponent},
 
 ];
 @NgModule({

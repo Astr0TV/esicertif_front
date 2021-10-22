@@ -8,7 +8,7 @@
             <div *ngFor="let p of connexionnew">
                 <p class="entete">
                     {{ p.nom }}
-                    <a (click)="goToPage('acceuil')">
+                    <a (click)="goToPage('connexion')">
                         <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
                     </a>
                 </p>
@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="container  topBotomBordersIn">
-        <a routerLink="/homeadmin">ACCEUIL</a>
+        <a routerLink="/homeadmin">ACCUEIL</a>
         <a routerLink="/formationadmin">FORMATIONS</a>
         <a routerLink="/formateurcandidatadmin">FORMATEURS/CANDIDATS</a>
         <a routerLink="/certificatadmin">CERTIFICATIONS</a>
@@ -32,7 +32,7 @@
         <table class="fl-table">
             <thead>
                 <tr>
-                    <th style="text-transform: uppercase; letter-spacing: 1px;">Intitulée de formation</th>
+                    <th style="text-transform: uppercase; letter-spacing: 1px;">Intitulé de formation</th>
                     <th style="text-transform: uppercase; letter-spacing: 1px;">NOM DE FORMATEUR</th>
                     <th style="text-transform: uppercase; letter-spacing: 1px;">DATE DE DEBUT DE FORMATION</th>
                     <th style="text-transform: uppercase; letter-spacing: 1px;">PROGRESSION</th>

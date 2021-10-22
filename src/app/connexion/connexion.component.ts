@@ -31,7 +31,7 @@ export class ConnexionComponent implements OnInit {
       }
       else if (test.role == 'admin') {
         this.route.navigateByUrl('homeadmin');
-      }
+      } 
   } else {
     this.route.navigateByUrl('connexion');
   

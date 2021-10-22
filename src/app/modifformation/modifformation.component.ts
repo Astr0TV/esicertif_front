@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ConnexionService } from '../service/connexion.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-modifformation',
@@ -23,6 +24,14 @@ export class ModifformationComponent implements OnInit {
 
     constructor(private http:HttpClient,public dialogRef:MatDialogRef<ModifformationComponent>,private connexionservice:ConnexionService) { }
   
+    //affiche messsage apres click sur la button
+  showMessage() {
+    Swal.fire({
+      text: 'La Formation a ete modifié !',
+      icon: 'success'
+    });
+  }
+
   ngOnInit(): void {
   /** Récuperation de utilisateur par role  */
     this.http.get('http://localhost:8089/usersrole/formateur ').subscribe({
@@ -62,7 +71,7 @@ error:(err)=>{console.log(err);}
       "nom": this.connexionservice.modifinformation.nom,
       "date_debut": this.connexionservice.modifinformation.date_debut,
       "date_fin": this.connexionservice.modifinformation.date_fin,
-      "nombreHeure": nb,
+      "nombreheursformation": nb,
       "objectif": obj,
       "bloc": bloc,
       "progress":this.connexionservice.modifinformation.progress,"valider": this.connexionservice.modifinformation.valider,

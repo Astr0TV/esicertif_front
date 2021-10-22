@@ -8,7 +8,7 @@
             <div *ngFor="let p of connexionnew">
                 <p class="entete">
                     {{ p.nom }}
-                    <a (click)="goToPage('acceuil')">
+                    <a (click)="goToPage('connexion')">
                         <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
                     </a>
                 </p>
@@ -63,7 +63,7 @@
                                 </tbody>
                               </table>
                             </cdk-accordion-item>
-                            <a (click)="validerpresence(p)">
+                            <a (click)="validerpresence(p);showMessage()">
                                 <mat-icon  class="presence" mat-raised-right
                                     matTooltip="Valider votre presence"
                                     matTooltipPosition=right matTooltipClass="example-tooltip-red"

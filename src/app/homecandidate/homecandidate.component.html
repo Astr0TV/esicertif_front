@@ -8,7 +8,7 @@
             <div *ngFor="let p of connexionnew">
                 <p class="entete">
                     {{ p.nom }}
-                    <a (click)="goToPage('acceuil')">
+                    <a (click)="goToPage('connexion')">
                         <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
                     </a>
                 </p>
@@ -27,7 +27,8 @@
 
 
     <mat-form-field class="px-16" style="width: 30%">
-        <input matInput #filter placeholder="Search..." [(ngModel)]="data" id="listSearch" autocomplete="off" style="width: 100%">
+        <input matInput #filter placeholder="Search..." [(ngModel)]="data" id="listSearch" autocomplete="off"
+            style="width: 100%">
         <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
 
@@ -49,10 +50,9 @@
                     <td>{{p.date_debut}}</td>
                     <td>
                         <div *ngIf="p.progress == true">
-                            <mat-progress-bar mode="buffer" value="100"></mat-progress-bar>
-                        </div>
+                            Terminé </div>
                         <div *ngIf="p.progress == false">
-                            <mat-progress-bar mode="buffer" value="50"></mat-progress-bar>
+                            En cours
                         </div>
                     </td>
                     <td>
@@ -65,7 +65,7 @@
                     </td>
                 </tr>
 
-                <tbody>
+            <tbody>
         </table>
     </div>
 </div>

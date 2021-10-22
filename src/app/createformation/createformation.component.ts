@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -18,10 +18,21 @@ export class CreateformationComponent implements OnInit {
 formateurs:any;
 candidats:any;
 formation:any;
+formationgoogle: any;
+selectedValue: string;
 
   constructor(private http:HttpClient,public dialogRef:MatDialogRef<CreateformationComponent>) { }
 
   ngOnInit(): void {
+    let headers = new HttpHeaders();
+    headers = headers.set('Authorization', 'Bearer 7DfIlwn7eTd7PYK3p7arciqZRJDemYFqLzONK8Ad2HB9kuhhcoP6VamSiHs').set('X-Spreadsheet-Id','1llzEoFjr-hQL9G6dXBVV-U11togkAhZxucron2GV5nM')
+    this.http.get('https://api.sheetson.com/v2/sheets/Liste des formations FC/', { headers: headers }).subscribe({
+      next: (data) => {
+        this.formationgoogle = data
+        console.log(data);
+        console.log("list formation")
+      }, error: (err) => { console.log(err) }
+    })
 //recuperer la liste de tous les formateurs
     this.http.get('http://localhost:8089/usersrole/formateur').subscribe({
     next: (data) => { this.formateurs = data; 
@@ -41,7 +52,7 @@ this.http.get('http://localhost:8089/usersrole/candidat').subscribe({
    /*creer ue nouvelle formation par l'admin  */
 
   createformation(formation:any){
-this.http.post(' http://localhost:8089/ajoutformation',formation).subscribe({
+this.http.post(' http://localhost:8089/formation',formation).subscribe({
 next:(data)=>{this.dialogRef.close();},
 error:(err)=>{console.log(err);}
 

@@ -1,52 +1,45 @@
 <div class="container mt-3">
     <div class="modalcreateformation">
-        <form #candidat="ngForm" (ngSubmit)="createcandidat(candidat.value)">
+        <form>
 
 
             <div class="form-group">
                 <mat-form-field appearance="outline">
                     <mat-label>Nom du candidat</mat-label>
-                    <input matInput placeholder="Nom du candidat" name="nom" ngModel="">
+                    <input matInput placeholder="Nom du candidat" #nom name="nom" ngModel="">
                     <mat-icon matSuffix>person</mat-icon>
                 </mat-form-field>
             </div>
             <div class="form-group">
                 <mat-form-field appearance="outline">
                     <mat-label>Prenom du candidat</mat-label>
-                    <input matInput placeholder="Prenom du candidat" name="prenom" ngModel="">
+                    <input matInput placeholder="Prenom du candidat" #prenom name="prenom" ngModel="">
                     <mat-icon matSuffix>person</mat-icon>
                 </mat-form-field>
             </div>
             <div class="form-group">
                 <mat-form-field appearance="outline">
                     <mat-label>Numéro du télèphone candidat</mat-label>
-                    <input matInput type="number" placeholder="Numéro du télèphone candidat" name="tele" ngModel="">
+                    <input matInput type="number" placeholder="Numéro du télèphone candidat" #tele name="tele" ngModel="">
                     <mat-icon matSuffix>phone_enabled</mat-icon>
                 </mat-form-field>
             </div>
             <div class="form-group">
                 <mat-form-field appearance="outline">
                     <mat-label>Email du candidat</mat-label>
-                    <input matInput type="email" placeholder="Email du candidat" name="email" ngModel="">
+                    <input matInput type="email" placeholder="Email du candidat" #email name="email" ngModel="">
                     <mat-icon matSuffix>email</mat-icon>
                 </mat-form-field>
             </div>
             <div class="form-group">
                 <mat-form-field appearance="outline">
                     <mat-label>Mot de passe du candidat</mat-label>
-                    <input matInput type="password" placeholder="Mot de passe du candidat" name="mdp" ngModel="">
+                    <input matInput type="password" placeholder="Mot de passe du candidat" #mdp name="mdp" ngModel="">
                     <mat-icon matSuffix>lock</mat-icon>
                 </mat-form-field>
             </div>
-            <div class="form-group">
-                <mat-form-field appearance="outline">
-                    <mat-label>Role</mat-label>
-                    <input matInput="candidat" name="role" ngModel="">
-                    <mat-icon matSuffix>edit</mat-icon>
-                </mat-form-field>
-            </div>
 
-            <button class="center" type="submit" mat-stroked-button color="accent">Valider</button>
+            <button class="center" type="submit" (click)="createcandidat(nom.value,prenom.value,tele.value,email.value,mdp.value)" mat-stroked-button color="accent">Valider</button>
         </form>
     </div>
 </div>

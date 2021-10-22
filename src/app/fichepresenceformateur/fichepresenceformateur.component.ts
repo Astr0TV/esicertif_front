@@ -10,7 +10,6 @@ import {
 } from '@angular/forms';
 import { GetacceptComponent } from './getaccept/getaccept.component';
 import { MatDialog } from '@angular/material/dialog';
-import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2'
 
 
@@ -37,12 +36,12 @@ export class FichepresenceformateurComponent implements OnInit {
 
 
   constructor(private http: HttpClient, private route: Router, private connexionservice: ConnexionService,
-    private fb: FormBuilder, public dialog: MatDialog, public datepipe: DatePipe) {
+    private fb: FormBuilder, public dialog: MatDialog) {
     this.seanceForm = this.fb.group({
       seance: this.fb.array([]),
     });
   }
-
+//affiche messsage apres click sur la button
   showMessage() {
     Swal.fire({
       text: 'Ajoute avec succès !',
@@ -120,14 +119,14 @@ export class FichepresenceformateurComponent implements OnInit {
 // ajoute fiche de presence d'un candidat a api
   ajoute(j: any, h1: any, h2: any, h3: any, h4: any): any {
     var formateur = JSON.parse(localStorage.getItem('userConnect') || '{}')
-    let latest_date = this.datepipe.transform(j, 'dd/MM/yyyy');
+    // let latest_date = this.datepipe.transform(j, 'dd/MM/yyyy');
     let latest_houre = h1 + " - " + h2
     let latest_houre2 = h3 + " - " + h4
     let calcul = (parseInt(h2) - parseInt(h1));
     let calcul2 = (parseInt(h4) - parseInt(h3));
     let sum = calcul + calcul2
     var getaccept = {
-      "jour1": latest_date,
+      "jour1": j,
       "hours1": latest_houre,
       "hours2": latest_houre2,
       "nbheure": sum,

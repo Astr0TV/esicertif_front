@@ -1,4 +1,3 @@
-import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -26,15 +25,13 @@ export class HomeformateurComponent implements OnInit {
 
 
   constructor(private http: HttpClient, private route: Router, private connexionservice: ConnexionService,
-              public dialog: MatDialog, public datepipe: DatePipe) {}
+              public dialog: MatDialog) {}
 
 
 
   ngOnInit(): void {
     //Check if user's credentials allows him to connect
-
     var test = JSON.parse(localStorage.getItem('userConnect') || '{}')
-
     if (this.connexionservice.isConnected()) {
       if (test.role == 'Formateur') {
         this.route.navigateByUrl('homeformateur');

@@ -8,7 +8,7 @@
         <div *ngFor="let p of connexionnew">
             <p class="entete">
                 {{ p.nom }}
-                <a (click)="goToPage('acceuil')">
+                <a (click)="goToPage('connexion')">
                     <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
                 </a>
             </p>
@@ -44,18 +44,18 @@
                         <table class="fl-table">
                             <thead>
                                 <tr>
-                                    <th style="text-transform: uppercase; letter-spacing: 1px;">Intitulée de formation</th>
-                                    <th style="text-transform: uppercase; letter-spacing: 1px;">NOM DE FORMATEUR</th>
+                                    <th style="text-transform: uppercase; letter-spacing: 1px;">Intitulé de formation</th>
+                                    <th style="text-transform: uppercase; letter-spacing: 1px;">NOM ET PRENOM DE CANDIDATS</th>
                                     <th style="text-transform: uppercase; letter-spacing: 1px;">DATE DE DEBUT DE FORMATION</th>
                                     <th style="text-transform: uppercase; letter-spacing: 1px;">STATUS</th>
                                     <th style="text-transform: uppercase; letter-spacing: 1px;">FICHE D'EVALUATION</th>
-                                    <th style="text-transform: uppercase; letter-spacing: 1px;">ATTESTTATION</th>
+                                    <th style="text-transform: uppercase; letter-spacing: 1px;">ATTESTATION</th>
                                 </tr>
                             </thead>
                             <tbody *ngFor="let p of formation  | filter: data">
                                 <tr>
                                     <td>{{ p.nom }}</td>
-                                    <td>{{p.formateur.nom}}</td>
+                                    <td>{{p.candidat.nom}} {{p.candidat.prenom}}</td>
                                     <td>{{p.date_debut}}</td>
                                     <td>
                                         <div *ngIf="p.progress == true">

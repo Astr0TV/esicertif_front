@@ -8,7 +8,7 @@
             <div *ngFor="let p of connexionnew">
                 <p class="entete">
                     {{ p.nom }}
-                    <a (click)="goToPage('acceuil')">
+                    <a (click)="goToPage('connexion')">
                         <mat-icon class="iconentete red-icon">power_settings_new</mat-icon>
                     </a>
                 </p>
@@ -19,6 +19,7 @@
         <a routerLink="/homecandidat">ACCEUIL</a>
         <a routerLink="/pageevalcandidat">PAGE D'EVALUATION </a>
         <a routerLink="/certificatcandidat">CERTIFICATIONS</a>
+        <a routerLink="/presencecandidat">PRESENCE</a>
 
     </div>
 

@@ -4,31 +4,48 @@
             <div class="form-group">
                 <mat-form-field appearance="outline">
                     <mat-label>Intitulé de la formation</mat-label>
-                    <input matInput type="text" placeholder="Intitulé de la formation" name="nom" ngModel="">
-                    <mat-icon matSuffix>edit</mat-icon>
+                    <mat-select [(ngModel)]="selectedValue" name="nom">
+                        <mat-option *ngFor="let g of formationgoogle.results" [value]="g.Formation">
+                            {{g.Formation}}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
+
             </div>
             <div class="form-group">
                 <mat-form-field appearance="outline">
                     <mat-label>Nombre des heures</mat-label>
-                    <input matInput type="number" placeholder="Nombre des heures" name="nombreHeure" ngModel="">
-                    <mat-icon matSuffix>edit</mat-icon>
+                    <mat-select name="nombreheursformation" ngModel="">
+                        <dl *ngFor="let g of formationgoogle.results">
+                            <mat-option *ngIf="selectedValue == g.Formation" [value]="g.Duree">
+                                {{g.Duree}}
+                            </mat-option>
+                        </dl>
+                    </mat-select>
                 </mat-form-field>
             </div>
             <div class="form-group">
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>Objectif </mat-label>
-                    <input matInput type="text" #messageobjectif maxlength="256" placeholder="Ex. L'objectif de la formation est..." name="objectif" ngModel="">
-                    <mat-hint align="end">{{messageobjectif.value.length}} / 256</mat-hint>
-                    <mat-icon matSuffix>edit</mat-icon>
+                    <mat-select name="objectif" ngModel="">
+                        <dl *ngFor="let g of formationgoogle.results">
+                            <mat-option *ngIf="selectedValue == g.Formation" [value]="g.Objectifs">
+                                {{g.Objectifs}}
+                            </mat-option>
+                        </dl>
+                    </mat-select>
                 </mat-form-field>
             </div>
             <div class="form-group">
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>Bloc de Compétence </mat-label>
-                    <input matInput type="text" #messagebloc maxlength="256" placeholder="Ex. Bloc de Compétence..." name="bloc" ngModel="">
-                    <mat-hint align="end">{{messagebloc.value.length}} / 256</mat-hint>
-                    <mat-icon matSuffix>edit</mat-icon>
+                    <mat-select name="bloc" ngModel="">
+                        <dl *ngFor="let g of formationgoogle.results">
+                            <mat-option *ngIf="selectedValue == g.Formation" [value]="g.Bloc">
+                                {{g.Bloc}}
+                            </mat-option>
+                        </dl>
+                    </mat-select>
                 </mat-form-field>
             </div>
             <div class="form-group">
